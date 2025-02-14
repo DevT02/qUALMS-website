@@ -2,20 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  @font-face {
+    font-family: 'Futura';
+    src: url('/fonts/Futura-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Futura';
+    src: url('/fonts/Futura-Semibold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Futura';
+    src: url('/fonts/Futura-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .pattern-dots {
+    background-image: radial-gradient(currentColor 1px, transparent 1px);
+    background-size: 1rem 1rem;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-lavender to-midnight-500 bg-clip-text text-transparent;
+  }
+
+  .card {
+    @apply bg-ice-100 bg-opacity-50 backdrop-blur-lg rounded-xl p-6 shadow-sm border border-ice-300/20 transform transition duration-300 ease-in-out;
+  }
+  .card:hover {
+    @apply scale-105 shadow-lg;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+/* globals.css */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium;
+  }
 }
