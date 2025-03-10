@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:wght@400;700&family=Righteous&family=Pacifico&family=Montserrat+Alternates:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC&family=Noto+Sans+Devanagari&family=Playfair+Display&family=Libre+Baskerville&family=Noto+Sans+Arabic&family=Noto+Sans+Bengali&family=Lora&family=PT+Sans&family=Noto+Nastaliq+Urdu&display=swap'); 
+/* second import is for other langs :)*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
