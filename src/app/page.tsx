@@ -1,3 +1,8 @@
+'use client';
+import CalendarSection from "../components/CalendarSection";
+import JoinUsSection from "../components/JoinUsSection";
+import ContactSection from "../components/ContactSection";
+
 export default function Home() {
   return (
     <div className="relative overflow-hidden">
@@ -8,25 +13,16 @@ export default function Home() {
           <span className="gradient-text drop-shadow-md">Welcome to qUALMS</span>
         </h1>
         
-        <div className="grid md:grid-cols-2 gap-8 mt-16">
-          <div className="card">
-            <h3 className="text-xl font-semibold mb-4 text-midnight-700">
-              Latest Research
-            </h3>
-            <p className="text-midnight-500">
-              Explore our cutting-edge linguistic studies...
-            </p>
-          </div>
-          
-          <div className="card">
-            <h3 className="text-xl font-semibold mb-4 text-midnight-700">
-              Upcoming Events
-            </h3>
-            <p className="text-midnight-500">
-              Join our next symposium on language evolution...
-            </p>
-          </div>
-        </div>
+        {/* Other sections like research or events can remain or be re-arranged */}
+
+        {/* Dynamic Calendar Section */}
+        <CalendarSection />
+
+        {/* Join Us Section */}
+        <JoinUsSection />
+
+        {/* Contact Section */}
+        <ContactSection />
       </div>
     </div>
   );
