@@ -49,13 +49,13 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center">
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-4">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 overflow-x-auto">
             {navItems.map((item) =>
               item.dropdown ? (
-                <div key={item.name} className="relative group">
-                  <button className="px-3 py-2 text-base lg:text-lg text-ice-300 hover:text-ice-100 hover:bg-lavender/10 rounded capitalize">
+                <div key={item.name} className="relative group whitespace-nowrap">
+                  <button className="px-2 xl:px-3 py-2 text-sm xl:text-base text-ice-300 hover:text-ice-100 hover:bg-lavender/10 rounded capitalize flex items-center">
                     {item.name} 
                   </button>
                   <div className="absolute left-0 top-full mt-1 hidden group-hover:block bg-midnight-900/95 backdrop-blur-md rounded shadow-md z-10">
@@ -63,7 +63,7 @@ export default function Header() {
                       <Link
                         key={subItem.name}
                         href={subItem.link}
-                        className="block px-4 py-2 text-sm text-ice-300 hover:bg-lavender/10 hover:text-ice-100 capitalize"
+                        className="block px-4 py-2 text-sm text-ice-300 hover:bg-lavender/10 hover:text-ice-100 capitalize whitespace-nowrap"
                       >
                         {subItem.name}
                       </Link>
@@ -74,20 +74,21 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.link!}
-                  className={`px-3 py-2 text-base lg:text-lg transition-colors duration-200 capitalize rounded ${
+                  className={`px-2 xl:px-3 py-2 text-sm xl:text-base transition-colors duration-200 capitalize rounded flex items-center justify-center whitespace-nowrap ${
                     pathname === item.link
                       ? "bg-lavender/20 text-ice-100"
                       : "text-ice-300 hover:text-ice-100 hover:bg-lavender/10"
-                  } ${item.name === "MSULC 2025" ? "font-bold" : ""}`}
+                  } ${item.name === "MSULC 2025" ? "font-bold border-b-2 border-transparent hover:border-accent" : ""}`}
                 >
                   {item.name}
                 </Link>
+
               )
             )}
           </nav>
 
           {/* Animated Linguistic Text - aligned with nav */}
-          <div className="hidden lg:flex items-center border-l border-ice-300/20 pl-4">
+          <div className="hidden lg:flex items-center border-l border-ice-300/20 pl-4 ml-4">
             <AnimatedLinguisticText />
           </div>
 
