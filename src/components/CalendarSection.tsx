@@ -69,7 +69,7 @@ export default function CalendarSection() {
   return (
     <section className="mt-16 p-8 bg-white/50 backdrop-blur-lg rounded-lg shadow-md animate-fade-in">
       <div className="text-center mb-6">
-        <h2 className="text-3xl calendar-heading animate-pulse-subtle">
+        <h2 className="text-3xl calendar-heading vibrant-heading">
           {today.toLocaleString("default", { month: "long" })} {currentYear}
         </h2>
       </div>

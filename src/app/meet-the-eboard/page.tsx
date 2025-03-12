@@ -1,14 +1,14 @@
 'use client';
 export default function MeetTheEboard() {
     const eboardMembers = [
-      { name: "idk", role: "President", image: "/members/alice.jpg" },
-      { name: "idk", role: "Vice President", image: "/members/bob.jpg" },
+      { name: "Ankith Ram Mohan", role: "President", image: "/members/alice.jpg" },
+      { name: "Someone", role: "Vice President", image: "/members/bob.jpg" },
       // Add additional members...
     ];
   
     const committeeMembers = [
       { name: "idk", role: "Committee Lead", image: "/committee/carol.jpg" },
-      { name: "idk", role: "Member", image: "/committee/dave.jpg" },
+      { name: "Another person", role: "Member", image: "/committee/dave.jpg" },
       // Add additional members...
     ];
   

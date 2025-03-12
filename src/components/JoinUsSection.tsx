@@ -13,15 +13,6 @@ export default function JoinUsSection() {
             Subscribe
           </button>
         </form>
-        <div className="mt-6">
-          <a
-            href="https://discord.gg/your-invite"
-            target="_blank"
-            className="inline-block px-6 py-3 bg-midnight-700 text-ice-100 rounded"
-          >
-            Join our Discord
-          </a>
-        </div>
       </section>
     );
 }
