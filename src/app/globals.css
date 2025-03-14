@@ -115,3 +115,7 @@
   font-family: 'Montserrat Alternates', sans-serif;
   letter-spacing: 0.03em;
 }
+
+html {
+  scroll-behavior: smooth;
+}

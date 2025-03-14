@@ -1,3 +1,5 @@
+// note: this file is unused anymore, but we keep it for future reference.
+// replaced by the footer component in the layout.tsx file.
 'use client';
 import React from "react";
 
