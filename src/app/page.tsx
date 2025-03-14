@@ -104,7 +104,7 @@ export default function Home() {
               <span className="font-medium">X/Twitter</span>
             </a>
           </div>
-          <p className="text-sm text-lavender/80">
+          <p className="text-sm text-ice-500/70">
             © {new Date().getFullYear()} qUALMS • Michigan State University
           </p>
         </footer>
