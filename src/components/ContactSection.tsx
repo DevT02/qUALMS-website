@@ -1,5 +1,6 @@
 // note: this file is unused anymore, but we keep it for future reference.
 // replaced by the footer component in the layout.tsx file.
+// if we decide to use this, note the only thing displayed here are logos without a description.
 'use client';
 import React from "react";
 
