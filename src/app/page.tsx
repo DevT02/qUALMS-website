@@ -1,8 +1,8 @@
 'use client';
 import Image from "next/image";
-import CalendarSection from "../components/CalendarSection";
-import JoinUsSection from "../components/JoinUsSection";
-import FooterSection from "../components/Footer";
+import CalendarSection from "@/components/CalendarSection";
+import JoinUsSection from "@/components/JoinUsSection";
+import FooterSection from "@/components/Footer";
 
 export default function Home() {
   return (
