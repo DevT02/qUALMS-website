@@ -1,41 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# qUALMS Website 🗣️
 
-## Getting Started
+A modern, responsive website for Michigan State University's Undergraduate Linguistics Club (qUALMS)
 
-First, run the development server:
+## 🛠️ Tech Stack
+- Next.js 15 with TailwindCSS and TypeScript.
+- Also incorporated some custom CSS animations + Framer Motion
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📄 Pages
+**🏠 Home** – Landing page with mission statement and upcoming events  
+**ℹ️ About** – Club history and information  
+**📖 MSULC 2025** – Information about the upcoming linguistics conference  
+**👥 Meet the Eboard** – Profiles of the executive board members  
+**🗓️ Calendar** – Interactive calendar showing upcoming events  
+**📸 Gallery** – Photo gallery of past events  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository.  
+2. Install dependencies:  
+   `npm install`  
+3. Start the development server:  
+   `npm run dev`  
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎨 Project Structure
 
-## Learn More
+### 🎨 Design Elements
 
-To learn more about Next.js, take a look at the following resources:
+**Color Palette:**  
+- **Ice** – "Baby blue" for backgrounds and highlights  
+- **Lavender** (#A382EE) – Primary accent color  
+- **Midnight** – Dark blues for depth and contrast  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Typography:**  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Lots of fonts, from Futura to Pacifico and various international fonts for the language animation  
 
-## Deploy on Vercel
+📱 **Responsive Design**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The website (should soon) be fully responsive and optimized for all devices!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧩 Components
 
+- **Header** – Navigation with animated linguistics text  
+- **Footer** – Social media links and copyright information  
+- **CalendarSection** – Interactive calendar with event listings  
+- **JoinUsSection** – Email signup for club membership  
+- **AnimatedLinguisticText** – Text that cycles through "linguistics" in various languages  
 
+## 🔜 Future Enhancements
 
-## npm installations
-npm install @heroicons/react
+- Resources section for linguistics materials  
+- Blog/news section for club updates
+- More soon!
+
+© 2025 qUALMS • Michigan State University
