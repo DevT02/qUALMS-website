@@ -20,11 +20,6 @@ export default function CustomFooter() {
           <Image src="/logos/instagram_logo.svg" alt="Instagram" width={20} height={20} className="mr-2" />
           <span className="font-medium">Instagram</span>
         </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" 
-          className="flex items-center px-4 py-2 bg-slate-500 hover:bg-lavender text-ice-100 hover:text-white rounded-lg transition-all shadow-md border border-lavender/30">
-          <Image src="/logos/x_logo.svg" alt="X/Twitter" width={20} height={20} className="mr-2" />
-          <span className="font-medium">X/Twitter</span>
-        </a>
       </div>
       <p className="text-sm text-ice-500/70">
         © {new Date().getFullYear()} qUALMS • Michigan State University
