@@ -135,7 +135,7 @@ export default function CalendarSection() {
   ];
 
   return (
-    <section className="mt-16 p-8 bg-white/50 backdrop-blur-lg rounded-lg shadow-md animate-fade-in">
+    <section className="mt-16 p-8 bg-white/50 backdrop-blur-lg rounded-lg shadow-md animate-fade-in w-4/5 max-w-2l mx-auto">
       {/* Month Navigation */}
       <div className="flex items-center justify-between mb-6 px-2">
         <button

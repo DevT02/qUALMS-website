@@ -14,9 +14,10 @@ interface NavItem {
 const navItems: NavItem[] = [
   { name: "about", link: "/about" },
   { name: "MSULC 2025", link: "/msulc-2025" },
-  { name: "meet the eboard", link: "/meet-the-eboard" },
+  { name: "meet the board", link: "/meet-the-board" },
   { name: "calendar", link: "/calendar" },
   { name: "gallery", link: "/gallery" },
+  { name: "join us", link: "/join-us" },
   { name: "old website", link: "https://sites.google.com/site/msuqualms/members" },
 ];
 
