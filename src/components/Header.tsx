@@ -13,11 +13,11 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { name: "about", link: "/about" },
-  { name: "MSULC 2025", link: "/msulc-2025" },
+  { name: "MSULC 2025", link: "/msulc" },
   { name: "meet the board", link: "/meet-the-board" },
   { name: "calendar", link: "/calendar" },
   { name: "gallery", link: "/gallery" },
-  { name: "join us", link: "/join-us" },
+  { name: "join us", link: "https://google.com" },
   { name: "old website", link: "https://sites.google.com/site/msuqualms/members" },
 ];
 
@@ -29,26 +29,26 @@ export default function Header() {
     <header className="bg-midnight-900/95 backdrop-blur-md border-b border-ice-300/10 shadow-md">
       <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between h-24">
         {/* Logo & Branding */}
-        <div className="flex items-center gap-2">
-          <img
-            src="/logos/qualmsLogo.png"
-            alt="qualms logo"
-            className="h-12 w-12 lg:h-16 lg:w-16 object-contain"
-          />
-          <div className="flex flex-col">
-            <div className="flex items-baseline">
-              <span className="text-xl lg:text-3xl font-sans font-extrabold tracking-tight text-ice-100 playful-text animate-glow mr-2">
-                qUALMS
-              </span>
-              <span className="text-sm lg:text-base text-lavender font-mono font-semibold">
-                [kʰwɑːmz]
-              </span>
+        <a href="/" className="flex items-center gap-2">
+            <img
+                src="/logos/qualmsLogo.png"
+                alt="qualms logo"
+                className="h-16 w-16 lg:h-18 lg:w-18 object-contain"
+            />
+            <div className="flex flex-col">
+                <div className="flex items-baseline">
+                <span className="text-xl lg:text-2xl font-sans font-extrabold tracking-tight text-ice-100 playful-text animate-glow mr-2">
+                    qUALMS
+                </span>
+                <span className="text-sm lg:text-base text-lavender font-mono font-semibold">
+                    [kʰwɑːmz]
+                </span>
+                </div>
+                <span className="text-sm sm:text-base text-ice-100 font-medium tracking-normal">
+                MSU's Linguistics Club
+                </span>
             </div>
-            <span className="text-sm lg:text-base text-ice-100 font-medium tracking-normal">
-              MSU's Linguistics Club
-            </span>
-          </div>
-        </div>
+        </a>
 
         <div className="flex items-center">
           {/* Desktop Navigation */}

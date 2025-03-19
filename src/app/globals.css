@@ -4,6 +4,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@plugin "daisyui";
+
 @layer base {
   @font-face {
     font-family: 'Futura';

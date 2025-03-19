@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image'
 import FooterSection from '@/components/Footer';
+import WhatWeDo from '@/components/WhatWeDo';
 
 
 export default function About() {
@@ -25,7 +26,9 @@ export default function About() {
         {/* Introduction Section */}
         <div className="max-w-3xl mx-auto text-center mb-16 p-8 bg-slate-300/40 rounded-lg shadow-lg border border-ice-100/10">
           <p className="text-lg">
-            qUALMS was founded to unite undergraduate students who share a passion for linguistics. Our club thrives on engaging discussions, collaborative learning, and celebrating the endless diversity of language.
+          qUALMS is MSU's official student organization for undergraduate linguistics majors, minors, and friends. The club went dormant during COVID but after 5 years we are proud to announce that we are bringing it back! If you're a student at MSU who is interested in linguistics, conlanging etc, we would love to have you!
+
+          qUALMS hosts weekly meetings for undergraduates to discuss linguistics, promote linguistics on campus, and of course, hang out and have fun! We have also hosted helprooms, workshops, guest speakers and even conferences in the past!
           </p>
         </div>
         
@@ -54,30 +57,9 @@ export default function About() {
           </div>
         </div>
         
-        {/* Section Divider */}
-        <div className="relative flex py-5 items-center mb-16">
-          <div className="flex-grow border-t border-lavender/40"></div>
-          <span className="flex-shrink mx-4 text-ice-500/70 font-medium">What We Do</span>
-          <div className="flex-grow border-t border-lavender/40"></div>
-        </div>
         
-        {/* Our Activities Section */}
-        <div className="max-w-3xl mx-auto mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 mb-12">
-            <div className="p-6 bg-slate-300/30 rounded-lg border border-ice-100/10 hover:border-lavender/30 transition-all">
-              <h3 className="text-xl font-medium text-lavender mb-3">Monthly Meetings</h3>
-              <p>Engage in thought-provoking discussions and guest talks that dive deep into language theory and practice.</p>
-            </div>
-            <div className="p-6 bg-slate-300/30 rounded-lg border border-ice-100/10 hover:border-lavender/30 transition-all">
-              <h3 className="text-xl font-medium text-lavender mb-3">Workshops & Seminars</h3>
-              <p>Participate in interactive sessions that explore linguistics topics, research methods, and emerging trends.</p>
-            </div>
-            <div className="p-6 bg-slate-300/30 rounded-lg border border-ice-100/10 hover:border-lavender/30 transition-all">
-              <h3 className="text-xl font-medium text-lavender mb-3">Annual Conferences</h3>
-              <p>Join our flagship events that bring together leading experts, scholars, and students to celebrate the art of language.</p>
-            </div>
-          </div>
-        </div>
+        
+        <WhatWeDo />
         
         {/* Section Divider */}
         <div className="relative flex py-5 items-center mb-16">

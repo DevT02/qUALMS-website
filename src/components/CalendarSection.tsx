@@ -15,25 +15,52 @@ export default function CalendarSection() {
   // Example events (feel free to expand/replace with your actual events)
   const events = [
     {
-      date: new Date(currentYear, currentMonth, 15),
-      title: "Guest Speaker: Dr. Eleanor Davis",
-      description: "Sociolinguistics in Digital Spaces",
-      location: "Wells Hall B243",
-      time: "3:00 PM - 4:30 PM",
+      date: new Date(2025, 0, 29),  // Feb 5, 2025 (months are 0-indexed in JavaScript)
+      title: "Springticipation",
+      description: "qUALMS Spring Kickoff at Springticipation!",
+      location: "STEM Building, 2200",
+      time: "6:00 PM - 8:30 PM",
     },
     {
-      date: new Date(currentYear, currentMonth, 22),
-      title: "Workshop: Phonetic Analysis",
-      description: "Learn to use Praat software",
-      location: "Digital Scholarship Lab",
-      time: "2:00 PM - 4:00 PM",
+      date: new Date(2025, 1, 5),  // Feb 5, 2025 (months are 0-indexed in JavaScript)
+      title: "Meeting #1",
+      description: "Meeting #1",
+      location: "Wells Hall, B104",
+      time: "5:00 PM - 6:30 PM",
     },
-    // Example event next month:
     {
-      date: new Date(currentYear, currentMonth + 1, 10),
-      title: "Syntax & Semantics Roundtable",
-      description: "Discussion on recent syntax research",
-      location: "Wells Hall A105",
+      date: new Date(2025, 1, 12),  // Feb 12, 2025
+      title: "Meeting #2",
+      description: "Meeting #2",
+      location: "Wells Hall, B104",
+      time: "5:00 PM - 6:30 PM",
+    },
+    {
+      date: new Date(2025, 1, 19),  // Feb 19, 2025
+      title: "Meeting #3",
+      description: "Meeting #3",
+      location: "Wells Hall, B104",
+      time: "5:00 PM - 6:30 PM",
+    },
+    {
+      date: new Date(2025, 1, 26),  // Feb 26, 2025
+      title: "Meeting #4",
+      description: "Meeting #4",
+      location: "Wells Hall, B104",
+      time: "5:00 PM - 6:30 PM",
+    },
+    {
+      date: new Date(2025, 2, 12),  // March 12, 2025
+      title: "Meeting #5",
+      description: "Meeting #5",
+      location: "Wells Hall, B104",
+      time: "5:00 PM - 6:30 PM",
+    },
+    {
+      date: new Date(2025, 2, 19),  // March 19, 2025
+      title: "Meeting #6",
+      description: "Meeting #6",
+      location: "Wells Hall, B104",
       time: "5:00 PM - 6:30 PM",
     },
   ];
@@ -202,7 +229,7 @@ export default function CalendarSection() {
 
       {/* Events List (only for displayed month) */}
       <div className="mt-8 space-y-4">
-        <h3 className="text-xl vibrant-heading">Upcoming Events</h3>
+        <h3 className="text-xl vibrant-heading">Events this month</h3>
         {displayedEvents.length > 0 ? (
           displayedEvents.map((event, index) => (
             <div

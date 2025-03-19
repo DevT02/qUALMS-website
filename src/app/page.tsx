@@ -3,6 +3,7 @@ import Image from "next/image";
 import CalendarSection from "@/components/CalendarSection";
 import JoinUsSection from "@/components/JoinUsSection";
 import FooterSection from "@/components/Footer";
+import WhatWeDo from "@/components/WhatWeDo";
 
 export default function Home() {
   return (
@@ -17,9 +18,13 @@ export default function Home() {
             </h1>
           </div>
           
-          <p className="text-2xl md:text-2xl text-white-500 mb-8 max-w-3xl mx-auto">
-            Michigan State University's official undergraduate linguistics club
-          </p>
+          <div className = "mb-6">
+            <p className="text-2xl md:text-2xl text-white-500 max-w-3xl mx-auto">
+              q Undergraduate Association of Linguistics at Michigan State
+            </p>
+            <span className = "text-sm md:text-sm text-white-500 italic">(q = quality)</span>
+          </div>
+         
           
           <div className="font-semibold flex flex-wrap gap-4 justify-center">
             <a href="#calendar" className="px-8 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md">
@@ -46,22 +51,9 @@ export default function Home() {
             qUALMS is MSU's official student organization for undergraduate linguistics enthusiasts.
             We host monthly meetings, offer help hours, and organize annual conferences that celebrate the world of language.
           </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 mb-12">
-            <div className="p-6 bg-slate-300/30 rounded-lg border border-ice-100/10 hover:border-lavender/30 transition-all">
-              <h3 className="text-xl font-medium text-lavender mb-3">Monthly Meetings</h3>
-              <p>Join us for discussions, guest speakers, and linguistic fun</p>
-            </div>
-            <div className="p-6 bg-slate-300/30 rounded-lg border border-ice-100/10 hover:border-lavender/30 transition-all">
-              <h3 className="text-xl font-medium text-lavender mb-3">Study Groups</h3>
-              <p>Get help with coursework and collaborate with fellow students</p>
-            </div>
-            <div className="p-6 bg-slate-300/30 rounded-lg border border-ice-100/10 hover:border-lavender/30 transition-all">
-              <h3 className="text-xl font-medium text-lavender mb-3">Events</h3>
-              <p>Participate in our annual conference and social gatherings</p>
-            </div>
-          </div>
         </div>
+          
+        <WhatWeDo />
         
         <div className="relative flex py-5 items-center mb-16" id="calendar">
           <div className="flex-grow border-t border-lavender/40"></div>

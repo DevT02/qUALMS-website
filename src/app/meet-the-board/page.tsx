@@ -2,7 +2,9 @@
 export default function MeetTheEboard() {
     const eboardMembers = [
       { name: "Ankith Ram Mohan", role: "President", image: "/members/alice.jpg" },
-      { name: "Someone", role: "Vice President", image: "/members/bob.jpg" },
+      { name: "Sophia Normandin", role: "Vice President", image: "/members/bob.jpg" },
+      { name: "Ezekiel Brown", role: "Secretary", image: "/members/bob.jpg" },
+      { name: "Shashwat Krishna", role: "Treasurer", image: "/members/bob.jpg" },
       // Add additional members...
     ];
   
@@ -14,7 +16,7 @@ export default function MeetTheEboard() {
   
     return (
       <div className="max-w-7xl mx-auto px-4 py-20">
-        <h1 className="text-4xl font-bold mb-8">Meet the Eboard</h1>
+        <h1 className="text-4xl font-bold mb-8">Meet the Board</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {eboardMembers.map((member) => (
             <div key={member.name} className="card p-4">
