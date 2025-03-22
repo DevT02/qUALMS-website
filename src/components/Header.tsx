@@ -1,9 +1,10 @@
 'use client';
 import React, { useState } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import AnimatedLinguisticText from "./AnimatedLinguisticText";
+const AnimatedLinguisticText = dynamic(() => import("./AnimatedLinguisticText"), { ssr: false });
 
 interface NavItem {
   name: string;
@@ -81,7 +82,7 @@ export default function Header() {
                     pathname === item.link
                       ? "bg-lavender/20 text-ice-100"
                       : "text-ice-300 hover:text-ice-100 hover:bg-lavender/10"
-                  } ${item.name === "MSULC 2025" ? "font-bold border-b-2 border-transparent hover:border-accent" : ""}`}
+                  } ${item.name === "MSULC 2025" ? "font-semibold font-sans border-b-2 border-transparent hover:border-accent" : ""}`}
                 >
                   {item.name}
                 </Link>
@@ -111,10 +112,10 @@ export default function Header() {
 
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-midnight-900/95 backdrop-blur-md">
-          {/* Animated Text on Mobile */}
+          {/* Animated Text on Mobile
           <div className="py-3 flex justify-center">
             <AnimatedLinguisticText />
-          </div>
+          </div> */}
           
           <nav className="flex flex-col items-center py-4 space-y-4">
             {navItems.map((item) =>
@@ -138,7 +139,7 @@ export default function Header() {
                   key={item.name}
                   href={item.link!}
                   className={`px-3 py-2 text-lg text-ice-300 capitalize hover:bg-lavender/10 rounded ${
-                    item.name === "MSULC 2025" ? "font-bold" : ""
+                    item.name === "MSULC 2025" ? "font-semibold" : ""
                   }`}
                 >
                   {item.name}

@@ -21,20 +21,23 @@ const phrases: Phrase[] = [
 ];
 
 const AnimatedLinguisticText: React.FC = () => {
+  const [mounted, setMounted] = useState(false);
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(150);
   
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
     const currentPhrase = phrases[phraseIndex].text;
-    
     const timer = setTimeout(() => {
       if (isDeleting) {
         setDisplayText(currentPhrase.substring(0, displayText.length - 1));
         setTypingSpeed(80);
-        
-        // When empty, start typing the next word
         if (displayText === "") {
           setIsDeleting(false);
           setPhraseIndex((phraseIndex + 1) % phrases.length);
@@ -51,21 +54,23 @@ const AnimatedLinguisticText: React.FC = () => {
         }
       }
     }, typingSpeed);
-    
     return () => clearTimeout(timer);
-  }, [displayText, isDeleting, phraseIndex, typingSpeed]);
+  }, [displayText, isDeleting, phraseIndex, typingSpeed, mounted]);
+
+  if (!mounted) return null;
+
   const currentPhrase = phrases[phraseIndex];
-  const isRTL = ["ar", "ur"].includes(currentPhrase.language); // not sure why some languages need this yet
+  const isRTL = ["ar", "ur"].includes(currentPhrase.language);
+
   return (
-    <div className="inline-block w-32 text-center h-6">
+    <div className="animated-linguistic-text inline-block w-32 text-center h-6">
       <span
         lang={currentPhrase.language}
         dir={isRTL ? "rtl" : "ltr"}
         className={`${currentPhrase.fontClass} font-medium text-ice-100`}
       >
         {displayText}
-        <span className="inline-block w-0.5 h-5 bg-lavender ml-0.5 animate-blink align-middle">
-        </span>
+        <span className="inline-block w-0.5 h-5 bg-lavender ml-0.5 animate-blink align-middle"></span>
       </span>
     </div>
   );

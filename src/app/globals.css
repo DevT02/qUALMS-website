@@ -92,6 +92,13 @@
   50% { text-shadow: 0 0 20px rgba(163, 130, 238, 0.8); }
 }
 
+/* hide animated text on mobile */
+@media (max-width: 1160px) {
+  .animated-linguistic-text {
+    display: none;
+  }
+}
+
 /* animations css*/
 .animate-fade-in {
   animation: fade-in 0.8s ease-out forwards;
