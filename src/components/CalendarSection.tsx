@@ -24,45 +24,59 @@ export default function CalendarSection() {
     {
       date: new Date(2025, 1, 5),  // Feb 5, 2025 (months are 0-indexed in JavaScript)
       title: "Meeting #1",
-      description: "Meeting #1",
+      description: "Spring welcome back and team building",
       location: "Wells Hall, B104",
       time: "5:00 PM - 6:30 PM",
     },
     {
       date: new Date(2025, 1, 12),  // Feb 12, 2025
       title: "Meeting #2",
-      description: "Meeting #2",
+      description: "Dr. Schmitt's presentation and Conlanging",
       location: "Wells Hall, B104",
       time: "5:00 PM - 6:30 PM",
     },
     {
       date: new Date(2025, 1, 19),  // Feb 19, 2025
       title: "Meeting #3",
-      description: "Meeting #3",
+      description: "Member presentations",
       location: "Wells Hall, B104",
       time: "5:00 PM - 6:30 PM",
     },
     {
       date: new Date(2025, 1, 26),  // Feb 26, 2025
       title: "Meeting #4",
-      description: "Meeting #4",
+      description: "Dr. Wagner's presentation and Conlanging",
       location: "Wells Hall, B104",
       time: "5:00 PM - 6:30 PM",
     },
     {
       date: new Date(2025, 2, 12),  // March 12, 2025
       title: "Meeting #5",
-      description: "Meeting #5",
+      description: "St. Patrick's Day special",
       location: "Wells Hall, B104",
       time: "5:00 PM - 6:30 PM",
     },
     {
       date: new Date(2025, 2, 19),  // March 19, 2025
       title: "Meeting #6",
-      description: "Meeting #6",
+      description: "Dr. Borgeson's presentation and Conlanging",
       location: "Wells Hall, B104",
       time: "5:00 PM - 6:30 PM",
     },
+    {
+      date: new Date(2025, 3, 6),  // April 6, 2025
+      title: "Paint the Rock with qUALMS",
+      description: "Join us as we camp and paint the rock with qUALMS colors",
+      location: "The Rock",
+      time: "6:00 PM - 10:00 PM",
+    },
+    {
+      date: new Date(2025, 3, 19),  // April 19, 2025
+      title: "MSULC 2025",
+      description: "Michigan State Undergraduate Linguistics Conference",
+      location: "Multicultural Center",
+      time: "11:00 AM - 5:00 PM",
+    }
   ];
 
   // Functions to navigate months
