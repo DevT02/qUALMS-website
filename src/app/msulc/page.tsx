@@ -41,8 +41,8 @@ export default function MSULC() {
                 <li>Date: Friday, April 19, 2025</li>
               </ul>
               <div className = "flex gap-4 justify-center">
-                <a href = "#" className = "px-8 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md">Guest RSVP</a>
-                <a href = "#" className = "px-8 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md">Poster RSVP</a>
+                <a target = "_blank" href = "https://docs.google.com/forms/d/e/1FAIpQLSffpVK87MTJGi5Ye4-x6nrdgEh1TQGhlTroookEOVf4J4whzQ/viewform?usp=dialog" className = "px-8 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md">Guest RSVP</a>
+                <a target = "_blank" href = "https://docs.google.com/forms/d/e/1FAIpQLSenyNRlXK8STmwzy2SDVTcBY1iOSHJd2WENp6WYT3GONd385Q/viewform?usp=dialog" className = "px-8 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md">Poster RSVP</a>
               </div>
             </div>
           </div>

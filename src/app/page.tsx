@@ -27,10 +27,10 @@ export default function Home() {
          
           
           <div className="font-semibold flex flex-wrap gap-4 justify-center">
-            <a href="#calendar" className="px-8 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md">
+            <a href="/calendar" className="px-8 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md">
               View Events
             </a>
-            <a href="#join" className="px-8 py-3 border-2 border-ice-300/50 hover:border-lavender hover:bg-lavender/10 rounded-lg transition-all">
+            <a href="/join" className="px-8 py-3 border-2 border-ice-300/50 hover:border-lavender hover:bg-lavender/10 rounded-lg transition-all">
               Join Us
             </a>
           </div>
@@ -54,22 +54,14 @@ export default function Home() {
         </div>
           
         <WhatWeDo />
-        
-        <div className="relative flex py-5 items-center mb-16" id="calendar">
-          <div className="flex-grow border-t border-lavender/40"></div>
-          <span className="flex-shrink mx-4 text-ice-500/70 font-medium">Get Involved</span>
-          <div className="flex-grow border-t border-lavender/40"></div>
-        </div>
-        
-        <CalendarSection />
 
-        <div className="relative flex py-5 items-center my-16" id="join">
-          <div className="flex-grow border-t border-lavender/40"></div>
-          <span className="flex-shrink mx-4 text-ice-500/70 font-medium">Contact Us</span>
-          <div className="flex-grow border-t border-lavender/40"></div>
-        </div>
+        <h2 className = "text-center text-3xl font-semibold mb-10 text-ice-800/70">Interested in what we do?</h2>
 
-        <JoinUsSection />
+        <div className = "mx-auto max-w-3xl text-center">
+          <a href="/join" className="px-8 py-3 mx-auto bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md text-xl animate-bounce-subtle">
+                Join us!
+          </a>
+        </div>
 
         <FooterSection />
       </div>

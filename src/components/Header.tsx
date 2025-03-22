@@ -8,6 +8,7 @@ import AnimatedLinguisticText from "./AnimatedLinguisticText";
 interface NavItem {
   name: string;
   link?: string;
+  new_tab?: boolean;
   dropdown?: { name: string; link: string }[];
 }
 
@@ -16,9 +17,9 @@ const navItems: NavItem[] = [
   { name: "MSULC 2025", link: "/msulc" },
   { name: "meet the board", link: "/meet-the-board" },
   { name: "calendar", link: "/calendar" },
-  { name: "gallery", link: "/gallery" },
-  { name: "join us", link: "https://google.com" },
-  { name: "old website", link: "https://sites.google.com/site/msuqualms/members" },
+  { name: "gallery", link: "https://www.instagram.com/qualms_msu/" },
+  { name: "join us", link: "/join" },
+  { name: "old website", link: "https://sites.google.com/site/msuqualms/members", new_tab: true },
 ];
 
 export default function Header() {
@@ -73,6 +74,7 @@ export default function Header() {
                 </div>
               ) : (
                 <Link
+                  target = {`${item.new_tab ? "blank_" : ""}`}
                   key={item.name}
                   href={item.link!}
                   className={`px-2 xl:px-3 py-2 text-sm xl:text-base transition-colors duration-200 capitalize rounded flex items-center justify-center whitespace-nowrap ${

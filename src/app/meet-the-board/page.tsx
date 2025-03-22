@@ -1,16 +1,17 @@
 'use client';
 export default function MeetTheEboard() {
     const eboardMembers = [
-      { name: "Ankith Ram Mohan", role: "President", image: "/members/alice.jpg" },
-      { name: "Sophia Normandin", role: "Vice President", image: "/members/bob.jpg" },
-      { name: "Ezekiel Brown", role: "Secretary", image: "/members/bob.jpg" },
-      { name: "Shashwat Krishna", role: "Treasurer", image: "/members/bob.jpg" },
+      { name: "Ankith Ram Mohan", role: "President", image: "/members/ankith.png", fav_word: "ಅಯ್ಯೋ" },
+      { name: "E. Sophia Normandin", role: "Vice President", image: "/members/sophia.png", fav_word: "tisquismiquis" },
+      { name: "Ezekiel Brown", role: "Secretary", image: "/members/eze.png", fav_word: "противоположний" },
+      { name: "Shashwat Krishna", role: "Treasurer", image: "/members/shashwat.png", fav_word: "je ne sais quoi" },
+      { name: "Lyle", role: "Designer", image: "/members/lyle.png" },
       // Add additional members...
     ];
   
     const committeeMembers = [
-      { name: "idk", role: "Committee Lead", image: "/committee/carol.jpg" },
-      { name: "Another person", role: "Member", image: "/committee/dave.jpg" },
+      { name: "Malosza Syrocki", role: "Member", image: "/members/malosza.png", fav_word: "bajo-bajo" },
+      { name: "Guilherme Eckert Roda", role: "Member", image: "/members/gui.jpeg" },
       // Add additional members...
     ];
   
@@ -23,6 +24,7 @@ export default function MeetTheEboard() {
               <img src={member.image} alt={member.name} className="w-full h-auto rounded" />
               <h3 className="mt-4 text-xl font-semibold">{member.name}</h3>
               <p className="text-midnight-500">{member.role}</p>
+              {member.fav_word && <span className="text-base">Favorite Word: {member.fav_word}</span>}
             </div>
           ))}
         </div>
@@ -34,6 +36,7 @@ export default function MeetTheEboard() {
               <img src={member.image} alt={member.name} className="w-full h-auto rounded" />
               <h3 className="mt-4 text-xl font-semibold">{member.name}</h3>
               <p className="text-midnight-500">{member.role}</p>
+              {member.fav_word && <span className="text-base">Favorite Word: {member.fav_word}</span>}
             </div>
           ))}
         </div>
