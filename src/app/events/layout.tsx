@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "qualms (MSU Linguistics Club)",
+  title: "qUALMS (MSU Linguistics Club)",
   description: "A vibrant community for linguistics enthusiasts.",
 };
 
