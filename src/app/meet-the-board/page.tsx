@@ -6,6 +6,8 @@ export default function MeetTheEboard() {
       { name: "Ezekiel Brown", role: "Secretary", image: "/members/eze.png", fav_word: "противоположний" },
       { name: "Shashwat Krishna", role: "Treasurer", image: "/members/shashwat.png", fav_word: "je ne sais quoi" },
       { name: "Lyle", role: "Designer", image: "/members/lyle.png" },
+      { name: "Devansh Tayal", role: "Tech/IT", image: "/members/devansh.jpg" },
+
       // Add additional members...
     ];
   
