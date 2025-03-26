@@ -47,7 +47,7 @@ export default function About() {
             </div>
             <div className="md:w-1/2 rounded-lg overflow-hidden shadow-lg border border-ice-100/10">
               <Image 
-                src="/club_meeting.jpg" 
+                src="/qualms_club_image.jpg" 
                 alt="qUALMS Club Meeting" 
                 width={500} 
                 height={300} 
