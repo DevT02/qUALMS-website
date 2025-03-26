@@ -40,7 +40,7 @@ export default function CustomFooter() {
           </motion.a>
 
           <motion.a 
-            href="https://linkedin.com" 
+            href="https://www.linkedin.com/company/qualms/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center px-4 py-2 bg-midnight-900/95 text-white rounded-lg shadow-md border border-lavender/20 transition-all duration-150"
