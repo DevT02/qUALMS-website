@@ -22,6 +22,20 @@ export default function EventPage() {
         <h2 className= "text-3xl font-semibold mb-6 text-ice-800/70">WHY MSULC?</h2>
         <p className = "text-xl text-white-500">qUALMS’s main mission is to foster a community of people fascinated by language and the scientific study of it. However, language is a part of many different fields apart from linguistics, like Psychology, Computer Science, Cognitive Science, and many more. So, that is why we are hosting this conference - to bring all of these people together! There will be a poster competition, refreshments, merchandise, and a guest speaker! We hope to see you there!</p>
       </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 pt-12 pb-20">
+        <h3 className="text-3xl font-semibold mb-6 text-ice-800/70">CATEGORIES</h3>
+        <p className = "text-xl text-white-500">Here is the MSULC tentative schedule:
+        -11-11:15 Opening ceremony
+        -11:30-12:30 Speaker #1: Maziar Toosarvandani
+        -Food opens immediately after speaker #1
+        -12:40-2 Open time (for poster presentations, language club presentations, etc subject to change, judging period towards the end)
+        -2:10-3:10 Speaker #2
+        -Snack opens shortly after
+        -3:30-4 Closing ceremony/awards (to be announced soon!)</p>
+      </div>
+
+
     //info about the poster competition
       <div className="relative max-w-7xl mx-auto px-4 pt-12 pb-20">
         <h2 className="text-3xl font-semibold mb-6 text-ice-800/70">WHAT IS THE POSTER COMPETITION?</h2>
