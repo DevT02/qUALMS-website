@@ -28,7 +28,7 @@ export default function MSULC() {
         {/* MSULC 2025 */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl font-semibold mb-6 text-ice-800/70">MSULC 2025</h2>
-          
+
           <div className="flex flex-col md:flex-col gap-8 mb-8">
             <p className = "text-lg text-justify">The 12th iteration of MSULC, MSULC 2025, will be held on April 19, 2025. The event is open to all undergraduate students interested in linguistics and linguistic research. The event will be held in the Multicultural Center. The exact venue and further details will be announced soon. For further details, visit the <a className = "text-lavender" href = "/events/msulc-2025">MSULC 2025 page</a> (TBD).</p>
 
