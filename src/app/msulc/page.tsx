@@ -35,10 +35,10 @@ export default function MSULC() {
             <div className = "flex flex-col gap-4 mx-auto max-w-3xl text-center mb-16 p-8 bg-slate-300/40 rounded-lg shadow-lg border border-ice-100/10">
               <h2 className = "text-2xl font-bold">Conference at a glance</h2>
               <ul className = "text-lg text-justify">
-                <li>Keynote speaker(s): TBD</li>
-                <li>Venue: Multicultural Center</li>
+                <li>Keynote speaker(s): Maziar Toosarvandani</li>
+                <li>Venue: Wells Hall B-wing</li>
                 <li>Time: 11:00 AM - 5:00 PM</li>
-                <li>Date: Friday, April 19, 2025</li>
+                <li>Date: Saturday, April 19, 2025</li>
               </ul>
               <div className = "flex gap-4 justify-center">
                 <a target = "_blank" href = "https://docs.google.com/forms/d/e/1FAIpQLSffpVK87MTJGi5Ye4-x6nrdgEh1TQGhlTroookEOVf4J4whzQ/viewform?usp=dialog" className = "px-8 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md">Guest RSVP</a>
