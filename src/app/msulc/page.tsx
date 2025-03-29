@@ -26,23 +26,40 @@ export default function MSULC() {
         </div>
         
         {/* MSULC 2025 */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto px-4 text-center mb-16">
           <h2 className="text-3xl font-semibold mb-6 text-ice-800/70">MSULC 2025</h2>
           
-          <div className="flex flex-col md:flex-col gap-8 mb-8">
-            <p className = "text-lg text-justify">The 12th iteration of MSULC, MSULC 2025, will be held on April 18, 2025. The event is open to all undergraduate students interested in linguistics and linguistic research. The event will be held in the Multicultural Center. The exact venue and further details will be announced soon. For further details, visit the <a className = "text-lavender" href = "/events/msulc-2025">MSULC 2025 page</a> (TBD).</p>
+          <div className="flex flex-col gap-8 mb-8">
+            <p className="text-lg text-left sm:text-justify">
+              The 12th iteration of MSULC, MSULC 2025, will be held on April 18, 2025. The event is open to all undergraduate students interested in linguistics and linguistic research. The event will be held in the Multicultural Center. The exact venue and further details will be announced soon. For further details, visit the <a className="text-lavender" href="/events/msulc-2025">MSULC 2025 page</a> (TBD).
+            </p>
 
-            <div className = "flex flex-col gap-4 mx-auto max-w-3xl text-center mb-16 p-8 bg-slate-300/40 rounded-lg shadow-lg border border-ice-100/10">
-              <h2 className = "text-2xl font-bold">Conference at a glance</h2>
-              <ul className = "text-lg text-justify">
-                <li>Keynote speaker(s): Maziar Toosarvandani</li>
-                <li>Venue: Wells Hall B-wing</li>
-                <li>Time: 11:00 AM - 5:00 PM</li>
-                <li>Date: Saturday, April 19, 2025</li>
+            <div className="flex flex-col gap-4 mx-auto text-center mb-16 p-8 bg-slate-300/40 rounded-lg shadow-lg border border-ice-100/10">
+              <h2 className="text-2xl font-bold sm:whitespace-nowrap">
+                Conference at a glance
+              </h2>
+              <ul className="text-lg text-left sm:text-justify">
+                <li><span className="font-bold">Keynote speaker(s):</span> Maziar Toosarvandani</li>
+                <li><span className="font-bold">Venue:</span> Multicultural Center</li>
+                <li><span className="font-bold">Time:</span> 11:00 AM - 5:00 PM</li>
+                <li><span className="font-bold">Date:</span> Friday, April 19, 2025</li>
               </ul>
-              <div className = "flex gap-4 justify-center">
-                <a target = "_blank" href = "https://docs.google.com/forms/d/e/1FAIpQLSffpVK87MTJGi5Ye4-x6nrdgEh1TQGhlTroookEOVf4J4whzQ/viewform?usp=dialog" className = "px-8 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md">Guest RSVP</a>
-                <a target = "_blank" href = "https://docs.google.com/forms/d/e/1FAIpQLSenyNRlXK8STmwzy2SDVTcBY1iOSHJd2WENp6WYT3GONd385Q/viewform?usp=dialog" className = "px-8 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md">Poster RSVP</a>
+
+              <div className="flex gap-4 justify-center flex-wrap">
+                <a
+                  target="_blank"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSffpVK87MTJGi5Ye4-x6nrdgEh1TQGhlTroookEOVf4J4whzQ/viewform?usp=dialog"
+                  className="px-8 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md"
+                >
+                  Guest RSVP
+                </a>
+                <a
+                  target="_blank"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSenyNRlXK8STmwzy2SDVTcBY1iOSHJd2WENp6WYT3GONd385Q/viewform?usp=dialog"
+                  className="px-8 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md"
+                >
+                  Poster RSVP
+                </a>
               </div>
             </div>
           </div>
