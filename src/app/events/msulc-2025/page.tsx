@@ -30,7 +30,7 @@ export default function EventPage() {
         -11:30-12:30 Speaker #1: Maziar Toosarvandani
         -Food opens immediately after speaker #1
         -12:40-2 Open time (for poster presentations, language club presentations, etc subject to change, judging period towards the end)
-        -2:10-3:10 Speaker #2
+        -2:10-3:10 Speaker #2: Surpise Zoom Speaker!
         -Snack opens shortly after
         -3:30-4 Closing ceremony/awards (to be announced soon!)</p>
       </div>
