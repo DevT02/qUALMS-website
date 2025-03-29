@@ -12,6 +12,18 @@ export default function CalendarSection() {
   const [displayedYear, setDisplayedYear] = useState(currentYear);
   const [displayedMonth, setDisplayedMonth] = useState(currentMonth);
 
+  const [isMobile, setIsMobile] = useState(false);
+  
+  React.useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+
+
   // Example events (feel free to expand/replace with your actual events)
   const events = [
     {
@@ -215,7 +227,7 @@ export default function CalendarSection() {
       <div className="grid grid-cols-7 gap-1 sm:gap-2 text-center font-medium mb-1 sm:mb-2">
         {["S", "M", "T", "W", "T", "F", "S"].map((day, i) => (
           <div key={day+i} className="text-xs sm:text-sm artistic-text text-midnight-600 font-bold">
-            {window.innerWidth > 640 ? ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][i] : day}
+            {!isMobile ? ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][i] : day}
           </div>
         ))}
       </div>
