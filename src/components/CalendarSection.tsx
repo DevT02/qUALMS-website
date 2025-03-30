@@ -83,7 +83,7 @@ export default function CalendarSection() {
       time: "5:00 PM - 6:30 PM",
     },
     {
-      date: new Date(2025, 3, 5),  // April 5, 2025
+      date: new Date(2025, 3, 12),  // April 12, 2025
       title: "Paint the Rock with qUALMS",
       description: "Join us as we camp and paint the rock with qUALMS colors",
       location: "The Rock",
