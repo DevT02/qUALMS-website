@@ -23,17 +23,69 @@ export default function EventPage() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 pt-12 pb-20">
-        <h3 className="text-3xl font-semibold mb-6 text-ice-800/70">CATEGORIES</h3>
-        <p className = "text-xl text-white-500">Here is the MSULC tentative schedule:
-        {\n}11-11:15 Opening ceremony
-        {\n}11:30-12:30 Speaker #1: Maziar Toosarvandani
-        {\n}Food opens immediately after speaker #1
-        {\n}12:40-2 Open time (for poster presentations, language club presentations, etc subject to change, judging period towards the end)
-        {\n}2:10-3:10 Speaker #2: Surpise Zoom Speaker!
-        {\n}Snack opens shortly after
-        {\n}3:30-4 Closing ceremony/awards (to be announced soon!)</p>
+        <h3 className="text-3xl font-semibold mb-6 text-ice-800/70">SCHEDULE</h3>
+        
+        <div className="bg-slate-300/40 rounded-lg p-6 shadow-lg border border-ice-100/10">
+          <h4 className="text-2xl font-bold mb-4 text-lavender">MSULC 2025 Tentative Schedule</h4>
+          
+          <div className="space-y-4">
+            <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+              <div className="font-bold text-midnight-800 sm:w-32 mb-1 sm:mb-0">11:00 - 11:15</div>
+              <div className="flex-1">
+                <div className="font-medium">Opening Ceremony</div>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+              <div className="font-bold text-midnight-800 sm:w-32 mb-1 sm:mb-0">11:30 - 12:30</div>
+              <div className="flex-1">
+                <div className="font-medium">Keynote Speaker #1</div>
+                <div className="text-lg">Maziar Toosarvandani</div>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+              <div className="font-bold text-midnight-800 sm:w-32 mb-1 sm:mb-0">12:30</div>
+              <div className="flex-1">
+                <div className="font-medium">Lunch</div>
+                <div className="text-sm">Food available immediately after Speaker #1</div>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+              <div className="font-bold text-midnight-800 sm:w-32 mb-1 sm:mb-0">12:40 - 2:00</div>
+              <div className="flex-1">
+                <div className="font-medium">Poster Session & Presentations</div>
+                <div className="text-sm">Poster presentations, language club presentations, judging period towards the end</div>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+              <div className="font-bold text-midnight-800 sm:w-32 mb-1 sm:mb-0">2:10 - 3:10</div>
+              <div className="flex-1">
+                <div className="font-medium">Keynote Speaker #2</div>
+                <div className="text-lg">Surprise Zoom Speaker!</div>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+              <div className="font-bold text-midnight-800 sm:w-32 mb-1 sm:mb-0">3:10</div>
+              <div className="flex-1">
+                <div className="font-medium">Refreshments</div>
+                <div className="text-sm">Snacks available shortly after Speaker #2</div>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row">
+              <div className="font-bold text-midnight-800 sm:w-32 mb-1 sm:mb-0">3:30 - 4:00</div>
+              <div className="flex-1">
+                <div className="font-medium">Closing Ceremony & Awards</div>
+                <div className="text-sm italic">Award details to be announced soon!</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
 
       <div className="relative max-w-7xl mx-auto px-4 pt-12 pb-20">
         <h2 className="text-3xl font-semibold mb-6 text-ice-800/70">WHAT IS THE POSTER COMPETITION?</h2>
@@ -52,23 +104,68 @@ export default function EventPage() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 pt-12 pb-20">
-        <h3 className="text-3xl font-semibold mb-6 text-ice-800/70">CATEGORIES</h3>
-        <p className = "text-xl text-white-500">Here are the categories that a poster can be in:
-        {\n}Phonology
-        {\n}Morphology
-        {\n}Semantics and Pragmatics
-        {\n}Syntax
-        {\n}Sociolinguistcs
-        {\n}Historical Linguistics
-        {\n}Orthography
-        {\n}Cognitive Scence & Language 
-        {\n}Computational Linguistics 
-        {\n}Psychology of Language 
-        {\n}Language Acquisition 
-        {\n}Language Learning Models 
-        {\n}Conlanging
-        {\n}etc.
-        {\n}Your poster may fit into more than one of these categories. No worries! All you need to worry about is that the poster is language related and that you are passionate about what you are making.</p>
+        <h3 className="text-3xl font-semibold mb-6 text-ice-800/70">SCHEDULE</h3>
+        
+        <div className="bg-slate-300/40 rounded-lg p-6 shadow-lg border border-ice-100/10">
+          <h4 className="text-2xl font-bold mb-4 text-lavender">MSULC 2025 Tentative Schedule</h4>
+          
+          <div className="space-y-4">
+            <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+              <div className="font-bold text-midnight-800 sm:w-32 mb-1 sm:mb-0">11:00 - 11:15</div>
+              <div className="flex-1">
+                <div className="font-medium">Opening Ceremony</div>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+              <div className="font-bold text-midnight-800 sm:w-32 mb-1 sm:mb-0">11:30 - 12:30</div>
+              <div className="flex-1">
+                <div className="font-medium">Keynote Speaker #1</div>
+                <div className="text-lg">Maziar Toosarvandani</div>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+              <div className="font-bold text-midnight-800 sm:w-32 mb-1 sm:mb-0">12:30</div>
+              <div className="flex-1">
+                <div className="font-medium">Lunch</div>
+                <div className="text-sm">Food available immediately after Speaker #1</div>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+              <div className="font-bold text-midnight-800 sm:w-32 mb-1 sm:mb-0">12:40 - 2:00</div>
+              <div className="flex-1">
+                <div className="font-medium">Poster Session & Presentations</div>
+                <div className="text-sm">Poster presentations, language club presentations, judging period towards the end</div>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+              <div className="font-bold text-midnight-800 sm:w-32 mb-1 sm:mb-0">2:10 - 3:10</div>
+              <div className="flex-1">
+                <div className="font-medium">Keynote Speaker #2</div>
+                <div className="text-lg">Surprise Zoom Speaker!</div>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+              <div className="font-bold text-midnight-800 sm:w-32 mb-1 sm:mb-0">3:10</div>
+              <div className="flex-1">
+                <div className="font-medium">Refreshments</div>
+                <div className="text-sm">Snacks available shortly after Speaker #2</div>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row">
+              <div className="font-bold text-midnight-800 sm:w-32 mb-1 sm:mb-0">3:30 - 4:00</div>
+              <div className="flex-1">
+                <div className="font-medium">Closing Ceremony & Awards</div>
+                <div className="text-sm italic">Award details to be announced soon!</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 pt-12 pb-20">
