@@ -83,7 +83,7 @@ export default function MSULC() {
                 <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">11:30 - 12:30</div>
                 <div className="flex-1">
                   <span className="font-medium">Keynote Speaker #1</span>
-                  <div className="text-lg mt-1">Maziar Toosarvandani</div>
+                  <div className="text-lg mt-1">TBD</div>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
