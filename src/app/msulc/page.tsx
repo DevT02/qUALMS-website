@@ -35,7 +35,7 @@ export default function MSULC() {
           <div className="p-5 sm:p-6 bg-slate-300/40 rounded-lg shadow border border-ice-100/10">
             <h3 className="text-2xl font-bold mb-4 text-lavender">Conference at a Glance</h3>
             <ul className="text-lg list-disc list-inside space-y-2 mb-6">
-              <li><span className="font-bold">Keynote speaker:</span> Maziar Toosarvandani</li>
+              <li><span className="font-bold">Keynote speaker:</span> TBD</li>
               <li><span className="font-bold">Venue:</span> Wells Hall 3rd Floor</li>
               <li><span className="font-bold">Time:</span> 11:00 AM - 5:00 PM</li>
               <li><span className="font-bold">Date:</span> Saturday, April 19, 2025</li>
