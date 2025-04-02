@@ -136,7 +136,8 @@ export default function MSULC() {
         <section className="mb-10 sm:mb-12">
           <h3 className="text-3xl font-semibold text-ice-800/70 mb-5">WHAT SHOULD THE POSTER BE?</h3>
           <p className="text-xl text-white-500">
-            The poster can take any format—from a traditional trifold to any other creative layout that best conveys your information.
+            The poster can take any format—from a traditional trifold to any other creative layout that best conveys your information. Possible Categories include: Phonology, Morphology, Semantics and Pragmatics, Syntax, Sociolinguistics, Historical Linguistics, Orthography, Cognitive Science & Language, Computational Linguistics, Psychology of Language, Language Acquisition, Language Learning Models, and Conlanging. Your poster may fit into more than one of these categories. No worries! All you need to worry about is that the poster is language related and that you are passionate about what you are making. 
+
           </p>
         </section>
         
