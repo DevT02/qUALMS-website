@@ -144,8 +144,13 @@ export default function MSULC() {
         <section className="mb-10 sm:mb-12">
           <h3 className="text-3xl font-semibold text-ice-800/70 mb-5">HOW DOES THE COMPETITION WORK?</h3>
           <p className="text-xl text-white-500">
-            Each participant is assigned an area to set up their poster. Presenters should arrive between 10:45 and 11:00 to set up. During the judging period, each presenter will have 3 minutes to share their poster with the judges. (Judging criteria will be provided soon.) Just have fun with it!
+            Each participant is assigned an area to set up their poster. Presenters should arrive at 10:30 AM on April 19th to set up. During the judging period, each presenter will have 3 minutes to share their poster with the judges. (Judging criteria will be provided soon.) Just have fun with it!
           </p>
+          <div className="mt-4 p-4 bg-lavender/10 rounded-lg border border-lavender/30">
+            <p className="text-xl text-white-500">
+              <span className="font-semibold">Important Deadlines:</span> Please submit your poster application by April 17th. Your actual poster must be completed before 10:30 AM on April 19th for the setup period.
+            </p>
+          </div>
         </section>
 
         {/* Fun & Questions Sections */}
