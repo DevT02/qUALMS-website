@@ -94,7 +94,7 @@ export default function MSULC() {
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
-                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">1 - 2:30</div>
+                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">1:00 - 2:30</div>
                 <div className="flex-1">
                 <span className="font-medium">Keynote Speaker Talk with Maziar Toosarvandani</span>
                   {/* Add abstract in a styled box */}
@@ -121,14 +121,14 @@ export default function MSULC() {
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
-                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">4:30-6</div>
+                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">4:30 - 6</div>
                 <div className="flex-1">
                   <span className="font-medium">Poster Session #3</span>
                   <div className="text-sm mt-1">Poster presentations, language club showcases, and judging.</div>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
-                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">6:15-6:30</div>
+                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">6:15 - 6:30</div>
                 <div className="flex-1">
                   <span className="font-medium">Closing Ceremony & Awards</span>
                   <div className="text-sm mt-1">Award details to be announced soon!</div>
