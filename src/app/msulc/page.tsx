@@ -37,7 +37,7 @@ export default function MSULC() {
             <ul className="text-lg list-disc list-inside space-y-2 mb-6">
               <li><span className="font-bold">Keynote speaker:</span> Maziar Toosarvandani</li>
               <li><span className="font-bold">Venue:</span> Wells Hall 3rd Floor</li>
-              <li><span className="font-bold">Time:</span> 11:00 AM - 5:00 PM</li>
+              <li><span className="font-bold">Time:</span> 11:00 AM - 6:30 PM</li>
               <li><span className="font-bold">Date:</span> Saturday, April 19, 2025</li>
             </ul>
             <div className="mt-6 flex flex-wrap gap-4">
