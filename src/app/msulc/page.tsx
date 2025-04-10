@@ -80,17 +80,10 @@ export default function MSULC() {
                 <div className="flex-1 font-medium">Opening Ceremony</div>
               </div>
               <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
-                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">11:15 - 12:15</div>
+                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">11:15 - 12:45</div>
                 <div className="flex-1">
                   <span className="font-medium">Poster Session #1</span>
-                  <div className="text-sm mt-1">Poster presentations, language club showcases, and judging.</div>
-                </div>
-              </div>
-              <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
-                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">12:15 - 1:00</div>
-                <div className="flex-1">
-                  <span className="font-medium">Lunch Break</span>
-                  <div className="text-sm mt-1">Food available during Poster Session #1</div>
+                  <div className="text-sm mt-1">Poster presentations and judging. Lunch will be provided during this time.</div>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
@@ -117,14 +110,14 @@ export default function MSULC() {
                 <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">2:45 - 4:15</div>
                 <div className="flex-1">
                   <span className="font-medium">Poster Session #2</span>
-                  <div className="text-sm mt-1">Poster presentations, language club showcases, and judging.</div>
+                  <div className="text-sm mt-1">Poster presentations and judging.</div>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
                 <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">4:30 - 6</div>
                 <div className="flex-1">
                   <span className="font-medium">Poster Session #3</span>
-                  <div className="text-sm mt-1">Poster presentations, language club showcases, and judging.</div>
+                  <div className="text-sm mt-1">Poster presentations and judging.</div>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
