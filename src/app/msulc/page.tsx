@@ -89,7 +89,7 @@ export default function MSULC() {
               <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
                 <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">1:00 - 2:30</div>
                 <div className="flex-1">
-                <span className="font-medium">Keynote Speaker Talk with Maziar Toosarvandani</span>
+                <span className="font-medium">Keynote Speaker Talk with Maziar Toosarvandani at Wells Hall B342</span>
                   {/* Add abstract in a styled box */}
                   <div className="mt-2 p-4 bg-lavender/5 border-l-4 border-lavender rounded-r-lg">
                     <h5 className="font-semibold text-lavender mb-2">Abstract: Animacy in the grammar: The view from Zapotec</h5>
