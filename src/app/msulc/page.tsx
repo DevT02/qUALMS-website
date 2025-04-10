@@ -35,7 +35,7 @@ export default function MSULC() {
           <div className="p-5 sm:p-6 bg-slate-300/40 rounded-lg shadow border border-ice-100/10">
             <h3 className="text-2xl font-bold mb-4 text-lavender">Conference at a Glance</h3>
             <ul className="text-lg list-disc list-inside space-y-2 mb-6">
-              <li><span className="font-bold">Keynote speaker:</span> TBD</li>
+              <li><span className="font-bold">Keynote speaker:</span> Maziar Toosarvandani</li>
               <li><span className="font-bold">Venue:</span> Wells Hall 3rd Floor</li>
               <li><span className="font-bold">Time:</span> 11:00 AM - 5:00 PM</li>
               <li><span className="font-bold">Date:</span> Saturday, April 19, 2025</li>
@@ -80,45 +80,58 @@ export default function MSULC() {
                 <div className="flex-1 font-medium">Opening Ceremony</div>
               </div>
               <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
-                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">11:30 - 12:30</div>
+                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">11:15 - 12:15</div>
                 <div className="flex-1">
-                  <span className="font-medium">Keynote Speaker #1</span>
-                  <div className="text-lg mt-1">TBD</div>
+                  <span className="font-medium">Poster Session #1</span>
+                  <div className="text-sm mt-1">Poster presentations, language club showcases, and judging.</div>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
-                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">12:30</div>
+                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">12:15 - 1:00</div>
                 <div className="flex-1">
-                  <span className="font-medium">Lunch</span>
-                  <div className="text-sm mt-1">Food available immediately after Speaker #1</div>
+                  <span className="font-medium">Lunch Break</span>
+                  <div className="text-sm mt-1">Food available during Poster Session #1</div>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
-                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">12:40 - 2:00</div>
+                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">1 - 2:30</div>
                 <div className="flex-1">
-                  <span className="font-medium">Poster Session & Presentations</span>
-                  <div className="text-sm mt-1">Poster presentations, language club showcases, and judging towards the end</div>
+                <span className="font-medium">Keynote Speaker Talk with Maziar Toosarvandani</span>
+                  {/* Add abstract in a styled box */}
+                  <div className="mt-2 p-4 bg-lavender/5 border-l-4 border-lavender rounded-r-lg">
+                    <h5 className="font-semibold text-lavender mb-2">Abstract: Animacy in the grammar: The view from Zapotec</h5>
+                    <p className="text-sm md:text-base text-midnight-700 leading-relaxed">
+                      Many Zapotec languages make fine-grained distinction in animacy — how human or alive 
+                      something is — in their grammar. In this talk, I investigate how animacy is represented 
+                      in the grammar of one Zapotec variety, spoken in the town of Santiago Laxopa in northern 
+                      Oaxaca, Mexico. Instead of gender (e.g., masculine vs. feminine), the language's pronouns 
+                      distinguish four animacy categories, which differentiate among humans, animals, and other 
+                      things. After describing these pronouns' meaning, I advance a hierarchical feature 
+                      representation for animacy that can capture their natural class behavior, parallel to 
+                      what has been proposed for person.
+                    </p>
+                  </div>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
-                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">2:10 - 3:10</div>
+                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">2:45 - 4:15</div>
                 <div className="flex-1">
-                  <span className="font-medium">Keynote Speaker #2</span>
-                  <div className="text-lg mt-1">Surprise Zoom Speaker!</div>
+                  <span className="font-medium">Poster Session #2</span>
+                  <div className="text-sm mt-1">Poster presentations, language club showcases, and judging.</div>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
-                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">3:10</div>
+                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">4:30-6</div>
                 <div className="flex-1">
-                  <span className="font-medium">Refreshments</span>
-                  <div className="text-sm mt-1">Snacks available shortly after Speaker #2</div>
+                  <span className="font-medium">Poster Session #3</span>
+                  <div className="text-sm mt-1">Poster presentations, language club showcases, and judging.</div>
                 </div>
               </div>
-              <div className="flex flex-col sm:flex-row">
-                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">3:30 - 4:00</div>
+              <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">6:15-6:30</div>
                 <div className="flex-1">
                   <span className="font-medium">Closing Ceremony & Awards</span>
-                  <div className="text-sm italic mt-1">Award details to be announced soon!</div>
+                  <div className="text-sm mt-1">Award details to be announced soon!</div>
                 </div>
               </div>
             </div>
