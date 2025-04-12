@@ -3,8 +3,8 @@ import Header from "../components/Header";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "qUALMS (MSU Linguistics Club)",
-  description: "A vibrant community for linguistics enthusiasts.",
+  title: "qUALMS – Michigan State Linguistics Club | Join, Learn & Explore Language",
+  description: "Discover qUALMS, MSU’s premier undergraduate linguistics club. Join us for meetings, events, and a vibrant community of language enthusiasts.",
 };
 
 export default function RootLayout({
