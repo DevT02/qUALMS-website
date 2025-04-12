@@ -12,6 +12,7 @@ const phrases: Phrase[] = [
   { text: "语言学", language: "zh", fontClass: "font-chinese" },
   { text: "भाषाविज्ञान", language: "hi", fontClass: "font-hindi" },
   { text: "Lingüística", language: "es", fontClass: "font-spanish" },
+  { text: "ಭಾಷಾವಿಜ್ಞಾನ", language: "kn", fontClass: "font-kannada" },
   { text: "Linguistique", language: "fr", fontClass: "font-french" },
   { text: "اللُغَوِيَات", language: "ar", fontClass: "font-arabic" },
   { text: "ভাষাবিজ্ঞান", language: "bn", fontClass: "font-bengali" },
