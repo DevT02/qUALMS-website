@@ -80,7 +80,7 @@ export default function MSULC() {
                 <div className="flex-1 font-medium">Opening Ceremony</div>
               </div>
               <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
-                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">11:15 - 12:45</div>
+                <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">11:20 - 12:50</div>
                 <div className="flex-1">
                   <span className="font-medium">Poster Session #1</span>
                   <div className="text-sm mt-1">Poster presentations and judging. Lunch will be provided during this time.</div>
@@ -110,7 +110,7 @@ export default function MSULC() {
                 <div className="font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">2:45 - 4:15</div>
                 <div className="flex-1">
                   <span className="font-medium">Poster Session #2</span>
-                  <div className="text-sm mt-1">Poster presentations and judging.</div>
+                  <div className="text-sm mt-1">Poster presentations and judging. Snacks and refreshments will be provided.</div>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
