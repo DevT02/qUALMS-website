@@ -95,6 +95,13 @@ export default function CalendarSection() {
       description: "Michigan State Undergraduate Linguistics Conference",
       location: "Multicultural Center",
       time: "11:00 AM - 5:00 PM",
+    },
+    {
+      date: new Date(2025, 3, 23),  // April 19, 2025
+      title: "Meeting #8",
+      description: "Final meeting of the semester",
+      location: "Wells Hall, B104",
+      time: "5 PM - 6:30 PM",
     }
   ];
 
