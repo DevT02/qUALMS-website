@@ -93,7 +93,7 @@ export default function CalendarSection() {
       date: new Date(2025, 3, 19),  // April 19, 2025
       title: "MSULC 2025",
       description: "Michigan State Undergraduate Linguistics Conference",
-      location: "Multicultural Center",
+      location: "Wells Hall",
       time: "11:00 AM - 5:00 PM",
     },
     {
