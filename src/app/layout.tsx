@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "../components/Header";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "qUALMS – Michigan State Linguistics Club | Join, Learn & Explore Language",
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body className="bg-ice-100 text-midnight-900">
         <Header />
         <main className="min-h-[calc(100vh-5rem)]">{children}</main>
+        <Analytics />
       </body>
     </html>
   );
