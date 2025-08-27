@@ -23,8 +23,6 @@ export default function CalendarSection() {
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
-
-  // Example events (feel free to expand/replace with your actual events)
   const events = [
     {
       date: new Date(2025, 0, 29),  // Feb 5, 2025 (months are 0-indexed in JavaScript)
@@ -102,7 +100,16 @@ export default function CalendarSection() {
       description: "Final meeting of the semester",
       location: "Wells Hall, B104",
       time: "5 PM - 6:30 PM",
-    }
+    },    
+
+    // {
+    //   // September 10, 2025
+    //   date: new Date(2025, 8, 10),
+    //   title: "First meeting",
+    //   description: "Come meet us at the first meeting of the semester!",
+    //   location: "Wells Hall, B104", //undecided
+    //   time: "5 PM - 6:30 PM", //undecided
+    // }
   ];
 
   // Functions to navigate months

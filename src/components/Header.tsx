@@ -15,7 +15,13 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { name: "about", link: "/about" },
-  { name: "MSULC 2025", link: "/msulc" },
+  {
+    name: "conferences",
+    dropdown: [
+      { name: "Current Conferences", link: "/conferences" },
+      { name: "Past Conferences", link: "/conferences/past" },
+    ],
+  },
   { name: "meet the board", link: "/meet-the-board" },
   { name: "calendar", link: "/calendar" },
   { name: "gallery", link: "https://www.instagram.com/qualms_msu/" },
@@ -82,11 +88,10 @@ export default function Header() {
                     pathname === item.link
                       ? "bg-lavender/20 text-ice-100"
                       : "text-ice-300 hover:text-ice-100 hover:bg-lavender/10"
-                  } ${item.name === "MSULC 2025" ? "font-semibold font-sans border-b-2 border-transparent hover:border-accent" : ""}`}
+                  }`}
                 >
                   {item.name}
                 </Link>
-
               )
             )}
           </nav>
@@ -138,9 +143,7 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.link!}
-                  className={`px-3 py-2 text-lg text-ice-300 capitalize hover:bg-lavender/10 rounded ${
-                    item.name === "MSULC 2025" ? "font-semibold" : ""
-                  }`}
+                  className="px-3 py-2 text-lg text-ice-300 capitalize hover:bg-lavender/10 rounded"
                 >
                   {item.name}
                 </Link>
