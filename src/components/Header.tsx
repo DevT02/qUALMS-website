@@ -18,8 +18,7 @@ const navItems: NavItem[] = [
   {
     name: "conferences",
     dropdown: [
-      { name: "Current Conferences", link: "/conferences" },
-      { name: "Past Conferences", link: "/conferences/past" },
+      { name: "Past Conferences", link: "/msulc" },
     ],
   },
   { name: "meet the board", link: "/meet-the-board" },
@@ -32,6 +31,8 @@ const navItems: NavItem[] = [
 export default function Header() {
   const pathname = usePathname() || "";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null);
 
   return (
     <header className="bg-midnight-900/95 backdrop-blur-md border-b border-ice-300/10 shadow-md">
@@ -60,19 +61,44 @@ export default function Header() {
 
         <div className="flex items-center">
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 overflow-x-auto">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
             {navItems.map((item) =>
               item.dropdown ? (
-                <div key={item.name} className="relative group whitespace-nowrap">
+                <div 
+                  key={item.name} 
+                  className="relative whitespace-nowrap"
+                  onMouseEnter={() => {
+                    if (closeTimeout) {
+                      clearTimeout(closeTimeout);
+                      setCloseTimeout(null);
+                    }
+                    setOpenDropdown(item.name);
+                  }}
+                  onMouseLeave={() => {
+                    const timeout = setTimeout(() => {
+                      setOpenDropdown(null);
+                    }, 300); // 300ms delay before closing
+                    setCloseTimeout(timeout);
+                  }}
+                >
                   <button className="px-2 xl:px-3 py-2 text-sm xl:text-base text-ice-300 hover:text-ice-100 hover:bg-lavender/10 rounded capitalize flex items-center">
                     {item.name} 
                   </button>
-                  <div className="absolute left-0 top-full mt-1 hidden group-hover:block bg-midnight-900/95 backdrop-blur-md rounded shadow-md z-10">
+                  <div 
+                    className={`absolute left-0 top-full mt-1 transition-all duration-200 bg-midnight-900/95 backdrop-blur-md rounded shadow-md z-[9999] border border-lavender/20 min-w-[200px] pointer-events-auto transform-gpu ${
+                      openDropdown === item.name 
+                        ? 'opacity-100 visible' 
+                        : 'opacity-0 invisible'
+                    }`}
+                  >
+                    <div className="absolute -top-4 left-0 right-0 h-4 bg-transparent"></div>
+                    <div className="absolute -left-2 top-0 bottom-0 w-2 bg-transparent"></div>
+                    <div className="absolute -right-2 top-0 bottom-0 w-2 bg-transparent"></div>
                     {item.dropdown.map((subItem) => (
                       <Link
                         key={subItem.name}
                         href={subItem.link}
-                        className="block px-4 py-2 text-sm text-ice-300 hover:bg-lavender/10 hover:text-ice-100 capitalize whitespace-nowrap"
+                        className="block px-4 py-2 text-sm text-ice-300 hover:bg-lavender/10 hover:text-ice-100 capitalize whitespace-nowrap first:rounded-t last:rounded-b"
                       >
                         {subItem.name}
                       </Link>
@@ -126,9 +152,9 @@ export default function Header() {
             {navItems.map((item) =>
               item.dropdown ? (
                 <div key={item.name} className="w-full">
-                  <button className="w-full text-left px-3 py-2 text-lg text-ice-300 capitalize hover:bg-lavender/10">
+                  <div className="w-full text-left px-3 py-2 text-lg text-ice-300 capitalize font-medium">
                     {item.name}
-                  </button>
+                  </div>
                   {item.dropdown.map((subItem) => (
                     <Link
                       key={subItem.name}
