@@ -33,6 +33,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
 
   return (
     <header className="bg-midnight-900/95 backdrop-blur-md border-b border-ice-300/10 shadow-md">
@@ -148,29 +149,46 @@ export default function Header() {
             <AnimatedLinguisticText />
           </div> */}
           
-          <nav className="flex flex-col items-center py-4 space-y-4">
+          <nav className="flex flex-col items-start py-4 space-y-4 w-full px-4">
             {navItems.map((item) =>
               item.dropdown ? (
                 <div key={item.name} className="w-full">
-                  <div className="w-full text-left px-3 py-2 text-lg text-ice-300 capitalize font-medium">
+                  <button
+                    onClick={() => setMobileDropdownOpen(mobileDropdownOpen === item.name ? null : item.name)}
+                    className="w-full text-left px-3 py-2 text-lg text-ice-300 capitalize font-medium hover:bg-lavender/10 rounded flex items-center justify-between"
+                  >
                     {item.name}
-                  </div>
-                  {item.dropdown.map((subItem) => (
-                    <Link
-                      key={subItem.name}
-                      href={subItem.link}
-                      className="block pl-8 pr-3 py-2 text-lg text-ice-300 capitalize hover:bg-lavender/10"
+                    <svg
+                      className={`w-5 h-5 transition-transform duration-200 ${
+                        mobileDropdownOpen === item.name ? 'rotate-180' : ''
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
-                      {subItem.name}
-                    </Link>
-                  ))}
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {mobileDropdownOpen === item.name && (
+                    <div className="w-full pl-4 space-y-2 mt-2">
+                      {item.dropdown.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          href={subItem.link}
+                          className="block px-3 py-2 text-lg text-ice-300 capitalize hover:bg-lavender/10 rounded"
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ) : (
-                <Link
-                  key={item.name}
-                  href={item.link!}
-                  className="px-3 py-2 text-lg text-ice-300 capitalize hover:bg-lavender/10 rounded"
-                >
+                                 <Link
+                   key={item.name}
+                   href={item.link!}
+                   className="w-full text-left px-3 py-2 text-lg text-ice-300 capitalize hover:bg-lavender/10 rounded"
+                 >
                   {item.name}
                 </Link>
               )
