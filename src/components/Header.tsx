@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
@@ -30,10 +30,28 @@ const navItems: NavItem[] = [
 
 export default function Header() {
   const pathname = usePathname() || "";
+  const [hideOnMobile, setHideOnMobile] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
+
+  // Hide header entirely on small screens for the /msulc page so the content can take full viewport
+  useEffect(() => {
+    function evaluate() {
+      if (!pathname) return setHideOnMobile(false)
+      const isMsulc = pathname === '/msulc' || pathname.startsWith('/msulc/')
+      const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 1023px)').matches
+      setHideOnMobile(isMsulc && isMobile)
+    }
+    evaluate()
+    const mq = typeof window !== 'undefined' ? window.matchMedia('(max-width: 1023px)') : null
+    const listener = () => evaluate()
+    mq?.addEventListener('change', listener)
+    return () => mq?.removeEventListener('change', listener)
+  }, [pathname])
+
+  if (hideOnMobile) return null
 
   return (
     <header className="bg-midnight-900/95 backdrop-blur-md border-b border-ice-300/10 shadow-md">
@@ -95,15 +113,16 @@ export default function Header() {
                     <div className="absolute -top-4 left-0 right-0 h-4 bg-transparent"></div>
                     <div className="absolute -left-2 top-0 bottom-0 w-2 bg-transparent"></div>
                     <div className="absolute -right-2 top-0 bottom-0 w-2 bg-transparent"></div>
-                    {item.dropdown.map((subItem) => (
-                      <Link
-                        key={subItem.name}
-                        href={subItem.link}
-                        className="block px-4 py-2 text-sm text-ice-300 hover:bg-lavender/10 hover:text-ice-100 capitalize whitespace-nowrap first:rounded-t last:rounded-b"
-                      >
-                        {subItem.name}
-                      </Link>
-                    ))}
+                        {item.dropdown.map((subItem) => (
+                            <Link
+                            key={subItem.name}
+                            href={subItem.link}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="block px-4 py-2 text-sm text-ice-300 hover:bg-lavender/10 hover:text-ice-100 capitalize whitespace-nowrap first:rounded-t last:rounded-b"
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
                   </div>
                 </div>
               ) : (
@@ -175,6 +194,7 @@ export default function Header() {
                         <Link
                           key={subItem.name}
                           href={subItem.link}
+                          onClick={() => setIsMobileMenuOpen(false)}
                           className="block px-3 py-2 text-lg text-ice-300 capitalize hover:bg-lavender/10 rounded"
                         >
                           {subItem.name}
@@ -185,12 +205,13 @@ export default function Header() {
                 </div>
               ) : (
                                  <Link
-                   key={item.name}
-                   href={item.link!}
-                   className="w-full text-left px-3 py-2 text-lg text-ice-300 capitalize hover:bg-lavender/10 rounded"
-                 >
-                  {item.name}
-                </Link>
+                                   key={item.name}
+                                   href={item.link!}
+                                   onClick={() => setIsMobileMenuOpen(false)}
+                                   className="w-full text-left px-3 py-2 text-lg text-ice-300 capitalize hover:bg-lavender/10 rounded"
+                                 >
+                                  {item.name}
+                                </Link>
               )
             )}
           </nav>

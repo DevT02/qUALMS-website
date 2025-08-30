@@ -16,10 +16,10 @@ export default function MSULCCarousel({ className = '', autoPlay = true, autoPla
   const [error, setError] = useState<string | null>(null)
   const [modalOpen, setModalOpen] = useState(false)
   const [modalIndex, setModalIndex] = useState(0)
-  const [modalHovered, setModalHovered] = useState(false)
   const timer = useRef<number | null>(null)
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [dragOffset, setDragOffset] = useState(0)
+  const [modalHovered, setModalHovered] = useState(false)
   const dragStartX = useRef<number | null>(null)
   const isDragging = useRef(false)
   const dragThreshold = 80
@@ -66,34 +66,70 @@ export default function MSULCCarousel({ className = '', autoPlay = true, autoPla
   }
 
   function openModal(i: number) {
-    setModalIndex(i)
-    setModalOpen(true)
+  console.debug('MSULCCarousel: openModal', { i })
+  setModalIndex(i)
+  setModalOpen(true)
   }
 
   function closeModal() {
-    setModalOpen(false)
+  console.debug('MSULCCarousel: closeModal')
+  setModalOpen(false)
   }
 
-  function modalPrev(e?: React.MouseEvent) {
-    e?.stopPropagation()
+  function modalPrev() {
+    console.debug('MSULCCarousel: modalPrev')
     setModalIndex((i) => (images.length ? (i - 1 + images.length) % images.length : 0))
   }
 
-  function modalNext(e?: React.MouseEvent) {
-    e?.stopPropagation()
+  function modalNext() {
+    console.debug('MSULCCarousel: modalNext')
     setModalIndex((i) => (images.length ? (i + 1) % images.length : 0))
+  }
+
+  // navigation rate-limit to prevent duplicate rapid firings from multiple event types
+  const lastNav = useRef<number>(0)
+  function navOnce(fn: (e?: any) => void, e?: any) {
+    const now = Date.now()
+    if (now - lastNav.current < 250) return
+    lastNav.current = now
+    fn(e)
   }
 
   // Preload adjacent images for smoother transitions
   useEffect(() => {
     if (!images.length) return
-    const prevIdx = (index - 1 + images.length) % images.length
-    const nextIdx = (index + 1) % images.length
-    const p1 = new window.Image()
-    p1.src = `/msulc/${year}/${images[prevIdx]}`
-    const p2 = new window.Image()
-    p2.src = `/msulc/${year}/${images[nextIdx]}`
+    // Preload current + 2 neighbors (previous & next) at full size to reduce perceived blur
+    const idxs = [index, (index - 1 + images.length) % images.length, (index + 1) % images.length]
+    idxs.forEach((pi) => {
+      const img = new window.Image()
+      img.src = `/msulc/${year}/${images[pi]}`
+    })
   }, [index, images, year])
+
+  // When modal opens, preload the modal image and its neighbors in higher priority
+  useEffect(() => {
+    if (!modalOpen || !images.length) return
+    const prevIdx = (modalIndex - 1 + images.length) % images.length
+    const nextIdx = (modalIndex + 1) % images.length
+    const imgs = [modalIndex, prevIdx, nextIdx]
+    imgs.forEach((i) => {
+      const img = new window.Image()
+      img.src = `/msulc/${year}/${images[i]}`
+    })
+  }, [modalOpen, modalIndex, images, year])
+
+  // compute modal src and log it when modalIndex changes
+  const modalSrc = images[modalIndex] ? `/msulc/${year}/${images[modalIndex]}?v=${modalIndex}` : ''
+  useEffect(() => {
+    if (!modalOpen) return
+    console.debug('MSULCCarousel: modalSrc', { modalSrc })
+  }, [modalSrc, modalOpen])
+
+  // Debug modalIndex changes (inside component scope)
+  useEffect(() => {
+    if (!modalOpen) return
+    console.debug('MSULCCarousel: modalIndex changed', { modalIndex })
+  }, [modalIndex, modalOpen])
 
   // Pointer / touch handlers for swipe
   function onPointerDown(e: React.PointerEvent) {
@@ -102,7 +138,9 @@ export default function MSULCCarousel({ className = '', autoPlay = true, autoPla
     setDragOffset(0)
     clickPrevent.current = false
     const target = e.currentTarget as Element
-    try { target.setPointerCapture(e.pointerId) } catch {}
+  // Avoid pointer capture to prevent underlying element from holding touch events
+  // during modal interactions on mobile which can make buttons unresponsive.
+  // try { target.setPointerCapture(e.pointerId) } catch {}
   }
 
   function onPointerMove(e: React.PointerEvent) {
@@ -118,6 +156,8 @@ export default function MSULCCarousel({ className = '', autoPlay = true, autoPla
     isDragging.current = false
     setDragOffset(0)
     dragStartX.current = null
+    // Try to release any pointer capture if present (defensive).
+    try { (e.currentTarget as Element).releasePointerCapture?.(e.pointerId) } catch {}
     if (Math.abs(delta) > dragThreshold) {
       if (delta > 0) prev()
       else next()
@@ -133,20 +173,20 @@ export default function MSULCCarousel({ className = '', autoPlay = true, autoPla
 
   return (
     <div className={`w-full ${className}`}>
-  <div className="relative w-full h-80 sm:h-[38rem] lg:h-[48rem] rounded-lg overflow-hidden bg-midnight-900/5 shadow">
+  <div className={`relative w-full h-80 sm:h-[38rem] lg:h-[48rem] rounded-lg overflow-hidden bg-midnight-900/5 shadow`}>
         <div
           className="flex h-full transition-transform duration-300"
           style={{ transform: `translateX(${(-index * 100) + (dragOffset / (window.innerWidth || 1) * 100)}%)` }}
-          onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
-          onPointerUp={onPointerUp}
-          onPointerCancel={onPointerUp}
+          onPointerDown={!modalOpen ? onPointerDown : undefined}
+          onPointerMove={!modalOpen ? onPointerMove : undefined}
+          onPointerUp={!modalOpen ? onPointerUp : undefined}
+          onPointerCancel={!modalOpen ? onPointerUp : undefined}
         >
           {images.map((img, i) => (
             <div
               key={img}
               className="relative flex-shrink-0 w-full h-full flex items-center justify-center overflow-hidden"
-              onClick={() => { if (!clickPrevent.current) openModal(i) }}
+              onClick={() => { if (!clickPrevent.current && !modalOpen) openModal(i) }}
               onPointerEnter={() => setHoveredIndex(i)}
               onPointerLeave={() => setHoveredIndex(null)}
             >
@@ -166,6 +206,8 @@ export default function MSULCCarousel({ className = '', autoPlay = true, autoPla
                     fill
                     sizes="(max-width: 640px) 100vw, 1200px"
                     style={{ objectFit: 'contain' }}
+                    quality={80}
+                    loading={i === index ? 'eager' : 'lazy'}
                   />
                 </div>
               </div>
@@ -173,10 +215,10 @@ export default function MSULCCarousel({ className = '', autoPlay = true, autoPla
           ))}
         </div>
 
-  <button onClick={prev} aria-label="Previous" className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full p-3 shadow-lg focus:outline-none focus:ring-2 focus:ring-lavender/60">
+  <button onClick={!modalOpen ? prev : undefined} disabled={modalOpen} aria-label="Previous" className={`absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full p-3 shadow-lg focus:outline-none focus:ring-2 focus:ring-lavender/60 ${modalOpen ? 'opacity-40 pointer-events-none' : ''}`}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
         </button>
-  <button onClick={next} aria-label="Next" className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full p-3 shadow-lg focus:outline-none focus:ring-2 focus:ring-lavender/60">
+  <button onClick={!modalOpen ? next : undefined} disabled={modalOpen} aria-label="Next" className={`absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full p-3 shadow-lg focus:outline-none focus:ring-2 focus:ring-lavender/60 ${modalOpen ? 'opacity-40 pointer-events-none' : ''}`}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
         </button>
 
@@ -192,53 +234,75 @@ export default function MSULCCarousel({ className = '', autoPlay = true, autoPla
         </div>
       {/* Modal / Lightbox */}
       {modalOpen && (
-        <div
-          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
-          onClick={closeModal}
-        >
-          <button
-            onClick={(e) => { e.stopPropagation(); closeModal() }}
-            aria-label="Close"
-            className="absolute top-4 right-4 text-white bg-black/40 p-2 rounded-full"
+        <div className="fixed inset-0 z-50 bg-black/90">
+          <div 
+            className="absolute inset-0 p-4 sm:p-8"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) closeModal()
+            }}
           >
-            ✕
-          </button>
+            <div className="relative w-full h-full flex flex-col items-center justify-center gap-4">
+              {/* Main image */}
+              <div className="relative w-full h-[85%] flex items-center justify-center">
+                {modalSrc && (
+                  <img 
+                    key={modalIndex} 
+                    src={modalSrc}
+                    alt={`MSULC ${images[modalIndex]}`}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                )}
+              </div>
 
-          <div
-            className="relative max-w-6xl w-full h-[80vh] sm:h-[86vh] lg:h-[92vh] flex items-center"
-            onPointerEnter={() => setModalHovered(true)}
-            onPointerLeave={() => setModalHovered(false)}
-          >
-            {/* left click zone (narrower) */}
-              <div className="absolute left-0 top-0 h-full w-1/5 z-40 cursor-pointer" onClick={(e) => { e.stopPropagation(); modalPrev(e) }} />
-              {/* right click zone (narrower) */}
-              <div className="absolute right-0 top-0 h-full w-1/5 z-40 cursor-pointer" onClick={(e) => { e.stopPropagation(); modalNext(e) }} />
-
-            <div className="mx-auto w-full h-full relative flex flex-col items-center justify-center gap-4">
-              {/* Panel that visually holds the image and thumbnails. Only this panel changes on hover. */}
-              <div className={`mx-auto w-full h-full transition-all duration-200 rounded-2xl overflow-hidden ${modalHovered ? 'p-5 bg-white/10 shadow-2xl backdrop-blur-sm ring-1 ring-lavender/20' : 'p-3 bg-white/5 shadow-lg'}`}>
-                <div className="relative w-full h-[85%] flex items-center justify-center">
-                  <div className="w-full h-full flex items-center justify-center">
-                    <Image
-                      src={`/msulc/${year}/${images[modalIndex]}`}
-                      alt={`MSULC ${images[modalIndex]}`}
-                      fill
-                      sizes="100vw"
-                      style={{ objectFit: 'contain' }}
+              {/* Thumbnails */}
+              <div className="relative w-full flex items-center justify-center gap-2 overflow-x-auto py-2">
+                {images.map((img, i) => (
+                  <button 
+                    key={img} 
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setModalIndex(i)
+                    }} 
+                    className={`flex-shrink-0 w-20 h-14 rounded overflow-hidden ${
+                      i === modalIndex 
+                        ? 'ring-2 ring-lavender shadow-md' 
+                        : 'ring-1 ring-white/20'
+                    }`}
+                  >
+                    <Image 
+                      src={`/msulc/${year}/${img}`}
+                      alt={img}
+                      width={80}
+                      height={56}
+                      style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                      quality={60}
                     />
-                  </div>
-                </div>
-                <div className="w-full flex items-center justify-center gap-2 overflow-x-auto py-2">
-                  {images.map((img, i) => (
-                    <button key={img} onClick={(e) => { e.stopPropagation(); setModalIndex(i) }} className={`flex-shrink-0 w-20 h-14 rounded overflow-hidden border ${i === modalIndex ? 'border-lavender ring-2 ring-lavender/30 shadow-md' : 'border-transparent'}`}>
-                      <Image src={`/msulc/${year}/${img}`} alt={img} fill sizes="80px" style={{ objectFit: 'cover' }} loading="lazy" />
-                    </button>
-                  ))}
-                </div>
+                  </button>
+                ))}
               </div>
             </div>
-            <button onClick={(e) => { e.stopPropagation(); modalPrev(e) }} className="absolute left-20 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-3 shadow-lg z-50 focus:outline-none focus:ring-2 focus:ring-lavender/60">‹</button>
-            <button onClick={(e) => { e.stopPropagation(); modalNext(e) }} className="absolute right-20 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-3 shadow-lg z-50 focus:outline-none focus:ring-2 focus:ring-lavender/60">›</button>
+
+            {/* Controls */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 z-50 text-white bg-black/40 hover:bg-black/60 p-4 rounded-full"
+            >
+              ✕
+            </button>
+
+            <button
+              onClick={modalPrev}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white bg-black/40 hover:bg-black/60 p-4 rounded-full"
+            >
+              ‹
+            </button>
+
+            <button
+              onClick={modalNext}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-50 text-white bg-black/40 hover:bg-black/60 p-4 rounded-full"
+            >
+              ›
+            </button>
           </div>
         </div>
       )}
@@ -246,7 +310,6 @@ export default function MSULCCarousel({ className = '', autoPlay = true, autoPla
   </div>
   )
 }
-
 // keyboard navigation & body scroll lock
 function useModalSideEffects(open: boolean, onClose: () => void, onPrev: () => void, onNext: () => void) {
   useEffect(() => {
