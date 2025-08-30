@@ -30,45 +30,10 @@ const navItems: NavItem[] = [
 
 export default function Header() {
   const pathname = usePathname() || "";
-  const [hideOnMobile, setHideOnMobile] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
-
-  // Hide header entirely on small screens for the /msulc page so the content can take full viewport
-  useEffect(() => {
-    // Add a small delay to ensure route transition is complete
-    const timer = setTimeout(() => {
-      function evaluate() {
-        if (!pathname) return setHideOnMobile(false)
-        const isMsulc = pathname === '/msulc' || pathname.startsWith('/msulc/')
-        const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 1023px)').matches
-        setHideOnMobile(isMsulc && isMobile)
-      }
-      evaluate()
-    }, 50) // 50ms delay
-    
-    const mq = typeof window !== 'undefined' ? window.matchMedia('(max-width: 1023px)') : null
-    const listener = () => {
-      // Also add delay for media query changes
-      setTimeout(() => {
-        if (!pathname) return setHideOnMobile(false)
-        const isMsulc = pathname === '/msulc' || pathname.startsWith('/msulc/')
-        const isMobile = mq?.matches ?? false
-        setHideOnMobile(isMsulc && isMobile)
-      }, 50)
-    }
-    
-    mq?.addEventListener('change', listener)
-    
-    return () => {
-      clearTimeout(timer)
-      mq?.removeEventListener('change', listener)
-    }
-  }, [pathname])
-
-  if (hideOnMobile) return null
 
   return (
     <header className="bg-midnight-900/95 backdrop-blur-md border-b border-ice-300/10 shadow-md">
