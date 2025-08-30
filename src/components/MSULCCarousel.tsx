@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 
 type Props = {
   className?: string
@@ -285,23 +286,32 @@ export default function MSULCCarousel({ className = '', autoPlay = true, autoPla
             {/* Controls */}
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 z-50 text-white bg-black/40 hover:bg-black/60 p-4 rounded-full"
+              className="absolute top-4 right-4 z-50 text-ice-300 hover:text-ice-100 bg-midnight-900/80 hover:bg-midnight-900/95 p-2 rounded-lg border border-lavender/20 backdrop-blur-sm transition-colors duration-200"
+              aria-label="Close modal"
             >
-              ✕
+              <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
             </button>
 
             <button
               onClick={modalPrev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white bg-black/40 hover:bg-black/60 p-4 rounded-full"
+              className="absolute left-4 sm:left-8 z-50 top-1/2 -translate-y-1/2 text-ice-300 hover:text-ice-100 bg-midnight-900/80 hover:bg-midnight-900/95 p-2.5 rounded-lg border border-lavender/20 backdrop-blur-sm transition-colors duration-200 group"
+              aria-label="Previous image"
             >
-              ‹
+              <svg className="h-6 w-6 transform transition-transform duration-200 group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
             </button>
 
             <button
               onClick={modalNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-50 text-white bg-black/40 hover:bg-black/60 p-4 rounded-full"
+              className="absolute right-4 sm:right-8 z-50 top-1/2 -translate-y-1/2 text-ice-300 hover:text-ice-100 bg-midnight-900/80 hover:bg-midnight-900/95 p-2.5 rounded-lg border border-lavender/20 backdrop-blur-sm transition-colors duration-200 group"
+              aria-label="Next image"
             >
-              ›
+              <svg className="h-6 w-6 transform transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 6l6 6-6 6" />
+              </svg>
             </button>
           </div>
         </div>
