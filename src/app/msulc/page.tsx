@@ -1,7 +1,8 @@
-'use client'
+"use client"
 import Image from 'next/image'
 import FooterSection from '@/components/Footer'
 import Timeline from '@/components/Timeline'
+import MSULCCarousel from '@/components/MSULCCarousel'
 
 export default function MSULC() {
   return (
@@ -21,16 +22,20 @@ export default function MSULC() {
           </p>
           <div className="mt-5 max-w-3xl">
             <p className="text-base sm:text-lg text-white-500 leading-relaxed">
-              MSULC is Michigan State's official undergraduate linguistics conference, where students can present their research and engage with the broader linguistic community. Started in 2010—with a tradition of a former MSU undergrad becoming a keynote speaker beginning in 2012—the conferences paused after 2019 due to the COVID-19 pandemic, but we are excited to announce that MSULC is returning in 2025.
+              MSULC is Michigan State's official undergraduate linguistics conference, where students can present their research and engage with the broader linguistic community. Started in 2010—with a tradition of a former MSU undergrad becoming a keynote speaker beginning in 2012—the conferences paused after 2019 due to the COVID-19 pandemic. MSULC returned on April 19, 2025. Thank you to everyone who attended!
             </p>
           </div>
+          <p className="mt-4 text-sm text-ice-500 flex items-center gap-3">
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs bg-lavender/10 text-lavender font-semibold">MSULC 2025</span>
+            <span>Event concluded • Winners announced</span>
+          </p>
         </header>
 
         {/* MSULC 2025 Overview & RSVP */}
         <section className="mb-12 sm:mb-16 max-w-3xl">
           <h2 className="text-3xl font-semibold text-ice-800/70 mb-5">MSULC 2025</h2>
           <p className="text-lg text-white-500 mb-6">
-            The 12th iteration of MSULC will be held on April 19, 2025. Open to all undergraduates interested in linguistics and linguistic research.
+            The 12th iteration of MSULC was held on April 19, 2025. It was to open to all students interested in linguistics and linguistic research.
           </p>
           <div className="p-5 sm:p-6 bg-slate-300/40 rounded-lg shadow border border-ice-100/10">
             <h3 className="text-2xl font-bold mb-4 text-lavender">Conference at a Glance</h3>
@@ -42,21 +47,54 @@ export default function MSULC() {
             </ul>
             <div className="mt-6 flex flex-wrap gap-4">
               <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSffpVK87MTJGi5Ye4-x6nrdgEh1TQGhlTroookEOVf4J4whzQ/viewform?usp=dialog"
+                href="#winners"
                 className="px-6 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md"
               >
-                Guest RSVP
+                See Winners
               </a>
               <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSenyNRlXK8STmwzy2SDVTcBY1iOSHJd2WENp6WYT3GONd385Q/viewform?usp=dialog"
+                href="#resources"
                 className="px-6 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md"
               >
-                Poster RSVP
+                Post-event materials
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Winners Section - Added after schedule */}
+        <section id="winners" className="mb-12 sm:mb-16">
+          <h2 className="text-3xl font-semibold text-ice-800/70 mb-5">MSULC 2025 Winners</h2>
+          <div className="p-5 sm:p-6 bg-slate-300/40 rounded-lg shadow border border-ice-100/10">
+            <p className="text-lg text-white-500 mb-4">Congratulations to the winners of MSULC 2025!</p>
+            <ul className="list-inside space-y-3">
+              <li>
+                <span className="font-bold">First place:</span> Molly Thornber — <a className="text-lavender underline" href="mailto:thornbe5@msu.edu">thornbe5@msu.edu</a>
+              </li>
+              <li>
+                <span className="font-bold">Second place:</span>
+                <ul className="list-disc ml-5 mt-2 space-y-1">
+                  <li>Guilherme Eckert Roda — <a className="text-lavender underline" href="mailto:eckertgu@msu.edu">eckertgu@msu.edu</a></li>
+                  <li>Will McLaren — <a className="text-lavender underline" href="mailto:mclare25@msu.edu">mclare25@msu.edu</a></li>
+                  <li>Jaina Kittle — <a className="text-lavender underline" href="mailto:kittleja@msu.edu">kittleja@msu.edu</a></li>
+                  <li>Kamryn Jenkins — <a className="text-lavender underline" href="mailto:jenki362@msu.edu">jenki362@msu.edu</a></li>
+                  <li>Mary Van Newkirk — <a className="text-lavender underline" href="mailto:vanmary@msu.edu">vanmary@msu.edu</a></li>
+                  <li>Grace Michael — <a className="text-lavender underline" href="mailto:micha296@msu.edu">micha296@msu.edu</a></li>
+                </ul>
+              </li>
+              <li className="mt-2">
+                <span className="font-bold">Third place:</span> Ezekiel Brown — <a className="text-lavender underline" href="mailto:browneze@msu.edu">browneze@msu.edu</a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Resources Section - Post-event materials placeholder */}
+        <section id="resources" className="mb-12 sm:mb-16">
+          <h2 className="text-3xl font-semibold text-ice-800/70 mb-5">Post-event materials</h2>
+          <div className="p-5 sm:p-6 bg-slate-300/40 rounded-lg shadow border border-ice-100/10">
+            <div className="mt-4">
+              <MSULCCarousel year="2025" />
             </div>
           </div>
         </section>
