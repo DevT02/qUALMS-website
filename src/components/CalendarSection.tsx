@@ -105,7 +105,7 @@ export default function CalendarSection() {
       date: new Date(2025, 8, 10),       // September 10, 2025
       title: "First meeting",
       description: "Come meet us at the first meeting of the semester!",
-      location: "Wells Hall, B100", 
+      location: "Wells Hall A226", 
       time: "5 PM - 6:30 PM",
     }
 
