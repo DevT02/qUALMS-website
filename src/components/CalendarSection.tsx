@@ -107,8 +107,14 @@ export default function CalendarSection() {
       description: "Come meet us at the first meeting of the semester!",
       location: "Wells Hall A226", 
       time: "5 PM - 6 PM",
+    },
+    {
+      date: new Date(2025, 8, 24),       // September 24, 2025
+      title: "Second Meeting",
+      description: "Come meet us at the second meeting of the semester!",
+      location: "Wells Hall A226", 
+      time: "5 PM - 6 PM",
     }
-
     // {
     //   // September 10, 2025
     //   date: new Date(2025, 8, 10),
