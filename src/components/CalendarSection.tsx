@@ -106,7 +106,7 @@ export default function CalendarSection() {
       title: "First meeting",
       description: "Come meet us at the first meeting of the semester!",
       location: "Wells Hall A226", 
-      time: "5 PM - 6:30 PM",
+      time: "5 PM - 6 PM",
     }
 
     // {
