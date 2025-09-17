@@ -49,8 +49,8 @@ export default function JoinUs() {
                 </svg>
               </div>
               <div>
-                <p className="text-sm text-midnight-600">Every Wednesday</p>
-                <p className="font-medium">5:00 - 6:30 PM</p>
+                <p className="text-sm text-midnight-600">Every Other Wednesday</p>
+                <p className="font-medium">5:00 - 6:00 PM</p>
               </div>
             </div>
             <div className="flex items-center">
@@ -62,7 +62,7 @@ export default function JoinUs() {
               </div>
               <div>
                 <p className="text-sm text-midnight-600">Location</p>
-                <p className="font-medium">Wells Hall B104</p>
+                <p className="font-medium">Wells Hall A226</p>
               </div>
             </div>
           </div>
