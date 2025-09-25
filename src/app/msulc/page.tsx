@@ -1,7 +1,6 @@
 "use client"
 import Image from 'next/image'
 import FooterSection from '@/components/Footer'
-import Timeline from '@/components/Timeline'
 import MSULCCarousel from '@/components/MSULCCarousel'
 
 export default function MSULC() {
@@ -205,15 +204,6 @@ export default function MSULC() {
           </p>
         </section>
 
-        {/* Past Conferences & Timeline */}
-        <section className="my-12 sm:my-16">
-          <div className="flex items-center mb-10">
-            <div className="flex-grow border-t border-lavender/40" />
-            <span className="mx-6 text-xl text-ice-500/70 font-medium">Past Conferences</span>
-            <div className="flex-grow border-t border-lavender/40" />
-          </div>
-          <Timeline />
-        </section>
 
         <div className="mt-16 sm:mt-20">
           <FooterSection />

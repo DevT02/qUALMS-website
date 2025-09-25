@@ -4,7 +4,8 @@ import { NextResponse } from 'next/server'
 
 export async function GET(request: Request, context: any) {
   try {
-    const year = context?.params?.year ?? '2025'
+    const params = await context.params
+    const year = params?.year ?? '2025'
     const dir = path.join(process.cwd(), 'public', 'msulc', year)
     const files = await fs.promises.readdir(dir)
     const images = files.filter((f) => /\.(jpe?g|png|webp|gif|avif)$/i.test(f))

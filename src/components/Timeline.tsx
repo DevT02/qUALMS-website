@@ -8,6 +8,13 @@ interface MsulcEvent {
 
 const msulcEvents: MsulcEvent[] = [
   {
+    id: 2025,
+    title: "MSULC 2025",
+    date: "Saturday, April 19, 2025",
+    keynoteSpeaker: "Maziar Toosarvandani",
+    details: "Associate Professor at UC Santa Cruz"
+  },
+  {
     id: 2019,
     title: "MSULC 2019",
     date: "Friday, April 12, 2019",

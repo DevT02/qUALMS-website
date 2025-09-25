@@ -15,17 +15,16 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { name: "about", link: "/about" },
+  { name: "MSULC 2026", link: "/msulc-2026" },
+  { name: "calendar", link: "/calendar" },
+  { name: "board", link: "/meet-the-board" },
   {
     name: "conferences",
     dropdown: [
-      { name: "Past Conferences", link: "/msulc" },
+      { name: "MSULC 2025", link: "/msulc" },
     ],
   },
-  { name: "meet the board", link: "/meet-the-board" },
-  { name: "calendar", link: "/calendar" },
-  { name: "gallery", link: "https://www.instagram.com/qualms_msu/" },
   { name: "join us", link: "/join" },
-  { name: "old website", link: "https://sites.google.com/site/msuqualms/members", new_tab: true },
 ];
 
 export default function Header() {
@@ -96,7 +95,7 @@ export default function Header() {
                     <div className="absolute -left-2 top-0 bottom-0 w-2 bg-transparent"></div>
                     <div className="absolute -right-2 top-0 bottom-0 w-2 bg-transparent"></div>
                         {item.dropdown.map((subItem) => (
-                            <Link
+                          <Link
                             key={subItem.name}
                             href={subItem.link}
                             onClick={() => setIsMobileMenuOpen(false)}
