@@ -21,7 +21,7 @@ export default function MSULC2026() {
           </p>
           <div className="mt-5 max-w-3xl">
             <p className="text-base sm:text-lg text-white-500 leading-relaxed">
-              MSULC 2026 is coming soon! Stay tuned for more information about the 13th iteration of Michigan State's official undergraduate linguistics conference. We're excited to bring together students passionate about linguistics and linguistic research for another amazing event.
+              MSULC 2026 is coming soon! Stay tuned for more information about the 12th iteration of Michigan State's official undergraduate linguistics conference. We're excited to bring together students passionate about linguistics and linguistic research for another amazing event.
             </p>
           </div>
           <p className="mt-4 text-sm text-ice-500 flex items-center gap-3">
@@ -34,7 +34,7 @@ export default function MSULC2026() {
         <section className="mb-12 sm:mb-16 max-w-3xl">
           <h2 className="text-3xl font-semibold text-ice-800/70 mb-5">MSULC 2026</h2>
           <p className="text-lg text-white-500 mb-6">
-            The 13th iteration of MSULC is currently in planning. More details will be announced soon!
+            The 12th iteration of MSULC is currently in planning. More details will be announced soon!
           </p>
           <div className="p-5 sm:p-6 bg-slate-300/40 rounded-lg shadow border border-ice-100/10">
             <h3 className="text-2xl font-bold mb-4 text-lavender">Conference Information</h3>
