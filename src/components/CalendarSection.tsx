@@ -1,6 +1,31 @@
 'use client';
 import React, { useState } from "react";
 
+type ApiEvent = {
+  id: string;
+  title: string;
+  description: string;
+  location: string;
+  start: string | null;
+  end: string | null;
+  allDay: boolean;
+  timeZone: string;
+};
+
+type UiEvent = {
+  date: Date;
+  title: string;
+  description: string;
+  location: string;
+  time: string;
+};
+
+// Cache month results client-side to avoid repeated fetches (resets on page reload)
+type CachedMonth = { timestamp: number; events: UiEvent[] };
+const calendarMonthCache = new Map<string, CachedMonth>();
+// 0 = never expire during a single page session; set to ms to enable TTL
+const CACHE_TTL_MS = Number(process.env.NEXT_PUBLIC_CALENDAR_CACHE_TTL_MS || '0');
+
 export default function CalendarSection() {
   // Current date (for highlighting today if it’s in the displayed month)
   const now = new Date();
@@ -13,7 +38,113 @@ export default function CalendarSection() {
   const [displayedMonth, setDisplayedMonth] = useState(currentMonth);
 
   const [isMobile, setIsMobile] = useState(false);
+  const [events, setEvents] = useState<UiEvent[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   
+  // Locally curated/static events kept alongside Google Calendar events
+  const staticEvents: UiEvent[] = [
+    {
+      date: new Date(2025, 0, 29),
+      title: "Springticipation",
+      description: "qUALMS Spring Kickoff at Springticipation!",
+      location: "STEM Building, 2200",
+      time: "6:00 PM - 8:30 PM",
+    },
+    {
+      date: new Date(2025, 1, 5),
+      title: "Meeting #1",
+      description: "Spring welcome back and team building",
+      location: "Wells Hall, B104",
+      time: "5:00 PM - 6:30 PM",
+    },
+    {
+      date: new Date(2025, 1, 12),
+      title: "Meeting #2",
+      description: "Dr. Schmitt's presentation and Conlanging",
+      location: "Wells Hall, B104",
+      time: "5:00 PM - 6:30 PM",
+    },
+    {
+      date: new Date(2025, 1, 19),
+      title: "Meeting #3",
+      description: "Member presentations",
+      location: "Wells Hall, B104",
+      time: "5:00 PM - 6:30 PM",
+    },
+    {
+      date: new Date(2025, 1, 26),
+      title: "Meeting #4",
+      description: "Dr. Wagner's presentation and Conlanging",
+      location: "Wells Hall, B104",
+      time: "5:00 PM - 6:30 PM",
+    },
+    {
+      date: new Date(2025, 2, 12),
+      title: "Meeting #5",
+      description: "St. Patrick's Day special",
+      location: "Wells Hall, B104",
+      time: "5:00 PM - 6:30 PM",
+    },
+    {
+      date: new Date(2025, 2, 19),
+      title: "Meeting #6",
+      description: "Dr. Borgeson's presentation and Conlanging",
+      location: "Wells Hall, B104",
+      time: "5:00 PM - 6:30 PM",
+    },
+    {
+      date: new Date(2025, 2, 26),
+      title: "Meeting #7",
+      description: "Jeopardy night!",
+      location: "Wells Hall, B104",
+      time: "5:00 PM - 6:30 PM",
+    },
+    {
+      date: new Date(2025, 3, 12),
+      title: "Paint the Rock with qUALMS",
+      description: "Join us as we camp and paint the rock with qUALMS colors",
+      location: "The Rock",
+      time: "6:00 PM - 10:00 PM",
+    },
+    {
+      date: new Date(2025, 3, 19),
+      title: "MSULC 2025",
+      description: "Michigan State Undergraduate Linguistics Conference",
+      location: "Wells Hall 3rd Floor",
+      time: "11:00 AM - 5:00 PM",
+    },
+    {
+      date: new Date(2025, 3, 23),
+      title: "Meeting #8",
+      description: "Final meeting of the semester",
+      location: "Wells Hall, B104",
+      time: "5 PM - 6:30 PM",
+    },
+    {
+      date: new Date(2025, 8, 10),
+      title: "First meeting",
+      description: "Come meet us at the first meeting of the semester!",
+      location: "Wells Hall A226",
+      time: "5 PM - 6 PM",
+    },
+    {
+      date: new Date(2025, 8, 24),
+      title: "Meeting",
+      description: "Come meet us at our biweekly meeting!",
+      location: "Wells Hall A226",
+      time: "5 PM - 6 PM",
+    },
+  ];
+
+  function dedupeEvents(preferred: UiEvent[], fallbacks: UiEvent[]) {
+    const keyFor = (e: UiEvent) => `${e.date.getFullYear()}-${e.date.getMonth()}-${e.date.getDate()}::${e.title.trim().toLowerCase()}`;
+    const map = new Map<string, UiEvent>();
+    fallbacks.forEach((e) => map.set(keyFor(e), e));
+    preferred.forEach((e) => map.set(keyFor(e), e));
+    return Array.from(map.values());
+  }
+
   React.useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 640);
@@ -23,107 +154,81 @@ export default function CalendarSection() {
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
-  const events = [
-    {
-      date: new Date(2025, 0, 29),  // Feb 5, 2025 (months are 0-indexed in JavaScript)
-      title: "Springticipation",
-      description: "qUALMS Spring Kickoff at Springticipation!",
-      location: "STEM Building, 2200",
-      time: "6:00 PM - 8:30 PM",
-    },
-    {
-      date: new Date(2025, 1, 5),  // Feb 5, 2025 (months are 0-indexed in JavaScript)
-      title: "Meeting #1",
-      description: "Spring welcome back and team building",
-      location: "Wells Hall, B104",
-      time: "5:00 PM - 6:30 PM",
-    },
-    {
-      date: new Date(2025, 1, 12),  // Feb 12, 2025
-      title: "Meeting #2",
-      description: "Dr. Schmitt's presentation and Conlanging",
-      location: "Wells Hall, B104",
-      time: "5:00 PM - 6:30 PM",
-    },
-    {
-      date: new Date(2025, 1, 19),  // Feb 19, 2025
-      title: "Meeting #3",
-      description: "Member presentations",
-      location: "Wells Hall, B104",
-      time: "5:00 PM - 6:30 PM",
-    },
-    {
-      date: new Date(2025, 1, 26),  // Feb 26, 2025
-      title: "Meeting #4",
-      description: "Dr. Wagner's presentation and Conlanging",
-      location: "Wells Hall, B104",
-      time: "5:00 PM - 6:30 PM",
-    },
-    {
-      date: new Date(2025, 2, 12),  // March 12, 2025
-      title: "Meeting #5",
-      description: "St. Patrick's Day special",
-      location: "Wells Hall, B104",
-      time: "5:00 PM - 6:30 PM",
-    },
-    {
-      date: new Date(2025, 2, 19),  // March 19, 2025
-      title: "Meeting #6",
-      description: "Dr. Borgeson's presentation and Conlanging",
-      location: "Wells Hall, B104",
-      time: "5:00 PM - 6:30 PM",
-    },
-    {
-      date: new Date(2025, 2, 26),  // March 26, 2025
-      title: "Meeting #7",
-      description: "Jeopardy night!",
-      location: "Wells Hall, B104",
-      time: "5:00 PM - 6:30 PM",
-    },
-    {
-      date: new Date(2025, 3, 12),  // April 12, 2025
-      title: "Paint the Rock with qUALMS",
-      description: "Join us as we camp and paint the rock with qUALMS colors",
-      location: "The Rock",
-      time: "6:00 PM - 10:00 PM",
-    },
-    {
-      date: new Date(2025, 3, 19),  // April 19, 2025
-      title: "MSULC 2025",
-      description: "Michigan State Undergraduate Linguistics Conference",
-      location: "Wells Hall 3rd Floor",
-      time: "11:00 AM - 5:00 PM",
-    },
-    {
-      date: new Date(2025, 3, 23),  // April 23, 2025
-      title: "Meeting #8",
-      description: "Final meeting of the semester",
-      location: "Wells Hall, B104",
-      time: "5 PM - 6:30 PM",
-    },    
-    {
-      date: new Date(2025, 8, 10),       // September 10, 2025
-      title: "First meeting",
-      description: "Come meet us at the first meeting of the semester!",
-      location: "Wells Hall A226", 
-      time: "5 PM - 6 PM",
-    },
-    {
-      date: new Date(2025, 8, 24),       // September 24, 2025
-      title: "Meeting",
-      description: "Come meet us at our biweekly meeting!",
-      location: "Wells Hall A226", 
-      time: "5 PM - 6 PM",
-    }
-    // {
-    //   // September 10, 2025
-    //   date: new Date(2025, 8, 10),
-    //   title: "First meeting",
-    //   description: "Come meet us at the first meeting of the semester!",
-    //   location: "Wells Hall, B104", //undecided
-    //   time: "5 PM - 6:30 PM", //undecided
-    // }
-  ];
+  React.useEffect(() => {
+    const controller = new AbortController();
+    const fetchEvents = async () => {
+      setLoading(true);
+      setError(null);
+      const monthKey = `${displayedYear}-${displayedMonth}`;
+
+      // Serve from cache if present and valid
+      const cached = calendarMonthCache.get(monthKey);
+      if (cached && (CACHE_TTL_MS === 0 || (Date.now() - cached.timestamp) < CACHE_TTL_MS)) {
+        setEvents(cached.events);
+        setLoading(false);
+        return;
+      }
+      try {
+        const start = new Date(displayedYear, displayedMonth, 1, 0, 0, 0);
+        const end = new Date(displayedYear, displayedMonth + 1, 0, 23, 59, 59);
+        const url = new URL('/api/calendar/events', window.location.origin);
+        url.searchParams.set('timeMin', start.toISOString());
+        url.searchParams.set('timeMax', end.toISOString());
+        const res = await fetch(url.toString(), { signal: controller.signal });
+        if (!res.ok) {
+          const text = await res.text();
+          throw new Error(text || 'Failed to load events');
+        }
+        const json = await res.json();
+        const apiEvents: ApiEvent[] = json.events || [];
+
+        const toTimeRange = (s: string | null, e: string | null, allDay: boolean) => {
+          if (allDay) return 'All day';
+          const opts: Intl.DateTimeFormatOptions = { hour: 'numeric', minute: '2-digit' };
+          const sd = s ? new Date(s) : null;
+          const ed = e ? new Date(e) : null;
+          if (sd && ed) return `${sd.toLocaleTimeString([], opts)} - ${ed.toLocaleTimeString([], opts)}`;
+          if (sd) return sd.toLocaleTimeString([], opts);
+          return '';
+        };
+
+        const toDate = (s: string | null, allDay: boolean) => {
+          if (!s) return new Date(NaN);
+          if (allDay && s.length === 10) return new Date(`${s}T00:00:00`);
+          return new Date(s);
+        };
+
+        const mapped: UiEvent[] = apiEvents.map((ev) => ({
+          date: toDate(ev.start, ev.allDay),
+          title: ev.title,
+          description: ev.description,
+          location: ev.location,
+          time: toTimeRange(ev.start, ev.end, ev.allDay),
+        }));
+
+        // Merge static and API events; prefer API when same date+title
+        const combined = dedupeEvents(mapped, staticEvents);
+        setEvents(combined);
+        calendarMonthCache.set(monthKey, { timestamp: Date.now(), events: combined });
+      } catch (e) {
+        const err = e as any;
+        const message = (err && err.message) ? String(err.message) : '';
+        const isAbort = (err && (err.name === 'AbortError')) || /aborted/i.test(message);
+        if (isAbort) {
+          // Ignore aborts from rapid navigation/unmount; keep existing events and no error
+          return;
+        }
+        setError(message || 'Failed to load events');
+        // Fallback to static events if API fails
+        setEvents(staticEvents);
+        calendarMonthCache.set(monthKey, { timestamp: Date.now(), events: staticEvents });
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchEvents();
+    return () => controller.abort();
+  }, [displayedYear, displayedMonth]);
 
   // Functions to navigate months
   const handleNextMonth = () => {
@@ -290,7 +395,11 @@ export default function CalendarSection() {
       {/* Events List (only for displayed month) */}
       <div className="mt-4 sm:mt-8 space-y-3 sm:space-y-4">
         <h3 className="text-lg sm:text-xl vibrant-heading">Events this month</h3>
-        {displayedEvents.length > 0 ? (
+        {loading ? (
+          <p className="text-midnight-800">Loading events…</p>
+        ) : error ? (
+          <p className="text-red-600">{error}</p>
+        ) : displayedEvents.length > 0 ? (
           displayedEvents.map((event, index) => (
             <div
               key={index}
@@ -304,8 +413,8 @@ export default function CalendarSection() {
                     <span className="font-medium">
                       {event.date.toLocaleDateString()}
                     </span>{" "}
-                    • <span className="ml-1">{event.time}</span> •{" "}
-                    <span className="ml-1">{event.location}</span>
+                    {event.time ? <> • <span className="ml-1">{event.time}</span></> : null}
+                    {event.location ? <> • <span className="ml-1">{event.location}</span></> : null}
                   </p>
                 </div>
                 {/* Date display made responsive */}
