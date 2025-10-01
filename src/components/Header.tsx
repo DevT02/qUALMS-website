@@ -34,8 +34,14 @@ export default function Header() {
   const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
 
+  const isHomePage = pathname === "/";
+
   return (
-    <header className="bg-midnight-900/95 backdrop-blur-md border-b border-ice-300/10 shadow-md">
+    <header className={`${
+      isHomePage 
+        ? "absolute top-0 left-0 right-0 z-50 bg-transparent" 
+        : "bg-midnight-900/95 backdrop-blur-md border-b border-ice-300/10 shadow-md"
+    }`}>
       <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between h-24">
         {/* Logo & Branding */}
         <a href="/" className="flex items-center gap-2">
@@ -143,7 +149,11 @@ export default function Header() {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-midnight-900/95 backdrop-blur-md">
+        <div className={`lg:hidden ${
+          isHomePage 
+            ? "bg-midnight-900/95 backdrop-blur-md" 
+            : "bg-midnight-900/95 backdrop-blur-md"
+        }`}>
           {/* Animated Text on Mobile
           <div className="py-3 flex justify-center">
             <AnimatedLinguisticText />

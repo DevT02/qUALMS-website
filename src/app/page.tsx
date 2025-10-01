@@ -1,43 +1,97 @@
 'use client';
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import CalendarSection from "@/components/CalendarSection";
 import JoinUsSection from "@/components/JoinUsSection";
 import FooterSection from "@/components/Footer";
 import WhatWeDo from "@/components/WhatWeDo";
+import BackgroundCarousel from "@/components/BackgroundCarousel";
+import WaveDivider from "@/components/WaveDivider";
 
 export default function Home() {
+  const missionRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  
+  const [missionVisible, setMissionVisible] = useState(false);
+  const [aboutVisible, setAboutVisible] = useState(false);
+  const [ctaVisible, setCtaVisible] = useState(false);
+
+  useEffect(() => {
+    const observers = [
+      { ref: missionRef, setter: setMissionVisible },
+      { ref: aboutRef, setter: setAboutVisible },
+      { ref: ctaRef, setter: setCtaVisible }
+    ];
+
+    const observerInstances = observers.map(({ ref, setter }) => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setter(true);
+          }
+        },
+        { threshold: 0.1 }
+      );
+
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+
+      return { observer, ref };
+    });
+
+    return () => {
+      observerInstances.forEach(({ observer, ref }) => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
+      });
+    };
+  }, []);
+
   return (
-    <div className="relative overflow-hidden scroll-smooth">
-      <div className="absolute inset-0 pattern-dots text-ice-300/20" />
-      
-      <div className="relative max-w-7xl mx-auto px-4 pt-12 pb-20">
-        <div className="text-center mb-16">
-          <div className="inline-block mb-6 text-lavender">
-            <h1 className="text-6xl lg:text-8xl font-heading font-extrabold animate-fade-in">
-              <span className="gradient-text drop-shadow-lg">qUALMS</span>
-            </h1>
-          </div>
-          
-          <div className = "mb-6">
-            <p className="text-2xl md:text-2xl text-white-500 max-w-3xl mx-auto">
-              q Undergraduate Association of Linguistics at Michigan State
-            </p>
-            <span className = "text-sm md:text-sm text-white-500 italic">(q = quality)</span>
-          </div>
-         
-          
-          <div className="font-semibold flex flex-wrap gap-4 justify-center">
-            <a href="/calendar" className="px-8 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md">
-              View Events
-            </a>
-            <a href="/join" className="px-8 py-3 border-2 border-ice-300/50 hover:border-lavender hover:bg-lavender/10 rounded-lg transition-all">
-              Join Us
-            </a>
+    <div className="scroll-smooth">
+      {/* Hero Section */}
+      <div className="relative">
+        <div className="overflow-hidden">
+          <BackgroundCarousel />
+          <div className="relative z-10 max-w-7xl mx-auto px-4 pt-32 pb-40">
+            <div className="text-center">
+              <div className="inline-block mb-8 text-lavender">
+                <h1 className="text-7xl lg:text-9xl font-heading font-extrabold animate-fade-in">
+                  <span className="gradient-text drop-shadow-lg">qUALMS</span>
+                </h1>
+              </div>
+              
+              <div className="mb-10">
+                <p className="text-2xl md:text-3xl text-white max-w-4xl mx-auto text-shadow">
+                  q Undergraduate Association of Linguistics at Michigan State
+                </p>
+                <span className="text-sm md:text-base text-white italic text-shadow mt-2 inline-block">(q = quality)</span>
+              </div>
+             
+              <div className="font-semibold flex flex-wrap gap-4 justify-center">
+                <a href="/calendar" className="px-8 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md">
+                  View Events
+                </a>
+                <a href="/join" className="px-8 py-3 border-2 border-white text-white hover:bg-white hover:text-midnight-900 rounded-lg transition-all">
+                  Join Us
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        
+        <WaveDivider />
+      </div>
+      
+      {/* Content Section */}
+      <div className="relative max-w-7xl mx-auto px-4 pt-12 pb-20">
         {/* Mission Statement */}
-        <div className="max-w-3xl mx-auto text-center mb-16 p-8 bg-slate-300/40 rounded-lg shadow-lg border border-ice-100/10">
+        <div 
+          ref={missionRef}
+          className={`max-w-3xl mx-auto text-center mb-16 p-8 bg-slate-300/40 rounded-lg shadow-lg border border-ice-100/10 transition-all duration-500 ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        >
           <h2 className="text-2xl font-semibold mb-4 text-lavender">Our Mission</h2>
           <p className="text-lg italic">
             Fostering passion for linguistics through community, education, and exploration
@@ -45,7 +99,10 @@ export default function Home() {
         </div>
         
         {/* Club Info Section */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div 
+          ref={aboutRef}
+          className={`max-w-3xl mx-auto text-center mb-16 transition-all duration-500 ${aboutVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        >
           <h2 className="text-3xl font-semibold mb-6 text-ice-800/70">About Us</h2>
           <p className="text-xl text-white-500 mb-8">
             qUALMS is MSU's official student organization for undergraduate linguistics enthusiasts.
@@ -55,11 +112,15 @@ export default function Home() {
           
         <WhatWeDo />
 
-        <h2 className = "text-center text-3xl font-semibold mb-10 text-ice-800/70">Interested in what we do?</h2>
-
-        <div className = "mx-auto max-w-3xl text-center">
-          <a href="/join" className="px-8 py-3 mx-auto bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md text-xl animate-bounce-subtle">
-                Join us!
+        {/* CTA Section */}
+        <div 
+          ref={ctaRef}
+          className={`mt-20 mb-16 text-center transition-all duration-500 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        >
+          <h2 className="text-center text-3xl font-semibold mb-10 text-ice-800/70">Interested in what we do?</h2>
+          
+          <a href="/join" className="inline-block px-8 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md text-xl">
+            Join us!
           </a>
         </div>
 
