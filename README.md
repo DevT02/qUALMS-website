@@ -1,4 +1,4 @@
-# qUALMS Website 🗣️
+# qUALMS Website
 
 A modern, responsive website for Michigan State University's Undergraduate Linguistics Club (qUALMS)
 
@@ -7,12 +7,12 @@ A modern, responsive website for Michigan State University's Undergraduate Lingu
 - Also incorporated some custom CSS animations + Framer Motion
 
 ## 📄 Pages
-**🏠 Home** – Landing page with mission statement and upcoming events  
-**ℹ️ About** – Club history and information  
-**📖 MSULC 2025** – Information about the upcoming linguistics conference  
-**👥 Meet the Eboard** – Profiles of the executive board members  
-**🗓️ Calendar** – Interactive calendar showing upcoming events  
-**📸 Gallery** – Photo gallery of past events  
+** Home** – Landing page with mission statement and upcoming events  
+** About** – Club history and information  
+** MSULC 2025 ** – Information about the upcoming linguistics conference  
+** Meet the Eboard** – Profiles of the executive board members  
+** Calendar** – Interactive calendar showing upcoming events  
+** Gallery** – Photo gallery of past events  
 
 ## 🚀 Installation
 
@@ -23,9 +23,9 @@ A modern, responsive website for Michigan State University's Undergraduate Lingu
    `npm run dev`  
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.  
 
-## 🎨 Project Structure
+## 🧩 Project Structure
 
-### 🎨 Design Elements
+### Design Elements
 
 **Color Palette:**  
 - **Ice** – "Baby blue" for backgrounds and highlights  
@@ -36,11 +36,11 @@ A modern, responsive website for Michigan State University's Undergraduate Lingu
 
 Lots of fonts, from Futura to Pacifico and various international fonts for the language animation  
 
-📱 **Responsive Design**
+**Responsive Design**
 
 The website (should soon) be fully responsive and optimized for all devices!
 
-## 🧩 Components
+## Components
 
 - **Header** – Navigation with animated linguistics text  
 - **Footer** – Social media links and copyright information  
@@ -48,13 +48,6 @@ The website (should soon) be fully responsive and optimized for all devices!
 - **JoinUsSection** – Email signup for club membership  
 - **AnimatedLinguisticText** – Text that cycles through "linguistics" in various languages  
 
-## 🔜 Future Enhancements
-
-- Resources section for linguistics materials  
-- Blog/news section for club updates
-- More soon!
-
-© 2025 qUALMS • Michigan State University
 
 ## 🔗 Google Calendar Integration
 
@@ -73,3 +66,6 @@ Details:
 - Responses are cached for 5 minutes with stale-while-revalidate for 1 hour.
 - Share the target Google Calendar with the service account email with at least "See all event details" permission (the calendar does not need to be public).
 - In Google Cloud Console: enable "Google Calendar API" on the project that owns the service account.
+
+
+© 2025 qUALMS • Michigan State University
