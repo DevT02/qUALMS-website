@@ -7,12 +7,12 @@ A modern, responsive website for Michigan State University's Undergraduate Lingu
 - Also incorporated some custom CSS animations + Framer Motion
 
 ## 📄 Pages
-** Home** – Landing page with mission statement and upcoming events  
-** About** – Club history and information  
-** MSULC 2025 ** – Information about the upcoming linguistics conference  
-** Meet the Eboard** – Profiles of the executive board members  
-** Calendar** – Interactive calendar showing upcoming events  
-** Gallery** – Photo gallery of past events  
+**Home** – Landing page with mission statement and upcoming events  
+**About** – Club history and information  
+**MSULC 2025** – Information about the upcoming linguistics conference  
+**Meet the Eboard** – Profiles of the executive board members  
+**Calendar** – Interactive calendar showing upcoming events  
+**Gallery** – Photo gallery of past events  
 
 ## 🚀 Installation
 
