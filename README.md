@@ -1,71 +1,66 @@
 # qUALMS Website
 
-A modern, responsive website for Michigan State University's Undergraduate Linguistics Club (qUALMS)
+The official website for Michigan State University's Undergraduate Linguistics Club (qUALMS). Built with Next.js and designed to showcase our club's activities, events, and community.
 
-## 🛠️ Tech Stack
-- Next.js 15 with TailwindCSS and TypeScript.
-- Also incorporated some custom CSS animations + Framer Motion
+## What's Here
 
-## 📄 Pages
-**Home** – Landing page with mission statement and upcoming events  
-**About** – Club history and information  
-**MSULC 2025** – Information about the upcoming linguistics conference  
-**Meet the Eboard** – Profiles of the executive board members  
-**Calendar** – Interactive calendar showing upcoming events  
-**Gallery** – Photo gallery of past events  
+**Home** – Our landing page with club info and upcoming events  
+**About** – Learn about qUALMS and our mission  
+**MSULC 2025** – Details about our annual linguistics conference  
+**Meet the Board** – Get to know our executive team  
+**Calendar** – See what events we have coming up  
+**Join Us** – Sign up to get involved  
 
-## 🚀 Installation
+## Getting Started
 
-1. Clone the repository.  
-2. Install dependencies:  
-   `npm install`  
-3. Start the development server:  
-   `npm run dev`  
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.  
+1. Clone this repo
+2. Run `npm install` to install dependencies
+3. Run `npm run dev` to start the dev server
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## 🧩 Project Structure
+## Tech Stuff
 
-### Design Elements
+- **Next.js 15** with TypeScript
+- **TailwindCSS** for styling
+- **Framer Motion** for animations
+- **Custom CSS** for some special effects
 
-**Color Palette:**  
-- **Ice** – "Baby blue" for backgrounds and highlights  
-- **Lavender** (#A382EE) – Primary accent color  
-- **Midnight** – Dark blues for depth and contrast  
+## Design
 
-**Typography:**  
+We went with a clean, academic feel using:
+- **Ice blue** backgrounds for a fresh look
+- **Lavender** (#A382EE) as our main accent color  
+- **Midnight blue** for text and contrast
+- **Futura** and other fonts for that linguistics vibe
 
-Lots of fonts, from Futura to Pacifico and various international fonts for the language animation  
+The site is fully responsive and should work great on phones, tablets, and desktops.
 
-**Responsive Design**
+## Calendar Integration
 
-The website (should soon) be fully responsive and optimized for all devices!
+The calendar pulls events from our shared Google Calendar. To set this up, you'll need to:
 
-## Components
-
-- **Header** – Navigation with animated linguistics text  
-- **Footer** – Social media links and copyright information  
-- **CalendarSection** – Interactive calendar with event listings  
-- **JoinUsSection** – Email signup for club membership  
-- **AnimatedLinguisticText** – Text that cycles through "linguistics" in various languages  
-
-
-## 🔗 Google Calendar Integration
-
-The calendar page fetches events from a shared Google Calendar via the Events REST API. It now uses a Google Service Account (JWT), not an API key. Set the following environment variables in `.env.local`:
+1. Create a Google Service Account in Google Cloud Console
+2. Enable the Google Calendar API
+3. Share your calendar with the service account email
+4. Add these environment variables to `.env.local`:
 
 ```bash
 GOOGLE_CALENDAR_ID=your_calendar_id@group.calendar.google.com
-GOOGLE_SERVICE_ACCOUNT_EMAIL=service-account-name@project-id.iam.gserviceaccount.com
-GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIIE...\n-----END PRIVATE KEY-----\n"
-# Optional (defaults to America/Detroit)
+GOOGLE_SERVICE_ACCOUNT_EMAIL=service-account@project.iam.gserviceaccount.com
+GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
 GOOGLE_CALENDAR_TIMEZONE=America/Detroit
 ```
 
-Details:
-- API route: `/api/calendar/events` requires `timeMin` and `timeMax` ISO strings.
-- Responses are cached for 5 minutes with stale-while-revalidate for 1 hour.
-- Share the target Google Calendar with the service account email with at least "See all event details" permission (the calendar does not need to be public).
-- In Google Cloud Console: enable "Google Calendar API" on the project that owns the service account.
+The API caches responses for 5 minutes to keep things fast.
 
+## Components
+
+Most of the interesting stuff is in `/src/components/`:
+- **CalendarSection** – The interactive calendar
+- **AnimatedLinguisticText** – Cycles through "linguistics" in different languages
+- **Header/Footer** – Navigation and social links
+- **JoinUsSection** – Email signup form
+
+---
 
 © 2025 qUALMS • Michigan State University
