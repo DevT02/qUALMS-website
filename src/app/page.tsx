@@ -93,8 +93,8 @@ export default function Home() {
           className={`max-w-3xl mx-auto text-center mb-16 p-8 bg-slate-300/40 rounded-lg shadow-lg border border-ice-100/10 transition-all duration-500 ${missionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
           <h2 className="text-2xl font-semibold mb-4 text-lavender">Our Mission</h2>
-          <p className="text-lg italic">
-            Fostering passion for linguistics through community, education, and exploration
+          <p className="text-lg italic text-neutral-800">
+            Fostering a passion for linguistics through community, education, and exploration.
           </p>
         </div>
         
