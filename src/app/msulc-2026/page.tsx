@@ -63,7 +63,7 @@ export default function MSULC2026() {
 
         {/* What to Expect Section */}
         <section className="mb-12 sm:mb-16">
-          <h2 className="text-3xl font-semibold text-ice-800/70 mb-5">What to Expect</h2>
+          <h2 className="text-3xl font-semibold text-ice-800/70 mb-5">WHAT TO EXPECT</h2>
           <p className="text-xl text-white-500 leading-relaxed mb-6">
             MSULC 2026 will continue the tradition of bringing together undergraduate students passionate about linguistics. Based on previous years, you can expect:
           </p>
@@ -97,7 +97,7 @@ export default function MSULC2026() {
 
         {/* Stay Updated Section */}
         <section className="mb-12 sm:mb-16">
-          <h2 className="text-3xl font-semibold text-ice-800/70 mb-5">Stay Updated</h2>
+          <h2 className="text-3xl font-semibold text-ice-800/70 mb-5">STAY UPDATED</h2>
           <div className="p-5 sm:p-6 bg-slate-300/40 rounded-lg shadow border border-ice-100/10">
             <p className="text-lg text-white-500 mb-4">
               Want to be the first to know about MSULC 2026 updates? Join qUALMS to stay informed about conference announcements, deadlines, and events!
@@ -124,12 +124,13 @@ export default function MSULC2026() {
 
         {/* Conference History Timeline */}
         <section className="my-12 sm:my-16">
+          <h2 className="text-3xl font-semibold text-ice-800/70 mb-5">CONFERENCE HISTORY TIMELINE</h2>
           <Timeline />
         </section>
 
         {/* Questions Section */}
         <section className="mb-16 sm:mb-20">
-          <h3 className="text-3xl font-semibold text-ice-800/70 mb-5">Questions?</h3>
+          <h3 className="text-3xl font-semibold text-ice-800/70 mb-5">QUESTIONS?</h3>
           <p className="text-xl text-white-500">
             For questions about MSULC 2026, please contact the club Secretary at <a className="text-lavender underline hover:text-lavender/80 transition-colors" href="mailto:syrockia@msu.edu">syrockia@msu.edu</a>.
           </p>
