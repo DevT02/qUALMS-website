@@ -174,7 +174,7 @@ export default function MSULCCarousel({ className = '', autoPlay = true, autoPla
 
   return (
     <div className={`w-full ${className}`}>
-  <div className={`relative w-full h-80 sm:h-[38rem] lg:h-[48rem] rounded-lg overflow-hidden bg-midnight-900/5 shadow`}>
+  <div className={`relative w-full h-80 sm:h-[38rem] lg:h-[48rem] rounded-lg overflow-hidden`}>
         <div
           className="flex h-full transition-transform duration-300"
           style={{ transform: `translateX(${(-index * 100) + (dragOffset / (window.innerWidth || 1) * 100)}%)` }}
