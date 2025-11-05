@@ -195,8 +195,8 @@ export default function MSULCCarousel({ className = '', autoPlay = true, autoPla
               <div
                 className="h-full w-full flex items-center justify-center"
                 style={{
-                  transform: hoveredIndex === i ? 'scale(1)' : 'scale(0.8)',
-                  transition: 'transform 220ms cubic-bezier(.2,.9,.2,1)',
+                  transform: hoveredIndex === i ? 'scale(1.02)' : 'scale(1)',
+                  transition: 'transform 160ms ease-out',
                   willChange: 'transform'
                 }}
               >

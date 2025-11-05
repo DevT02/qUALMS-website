@@ -44,16 +44,16 @@ export default function MSULC() {
               <li><span className="font-bold">Time:</span> 11:00 AM - 6:30 PM</li>
               <li><span className="font-bold">Date:</span> Saturday, April 19, 2025</li>
             </ul>
-            <div className="mt-6 flex flex-wrap gap-4">
+            <div className="mt-6 flex flex-wrap items-center gap-4">
               <a
                 href="#winners"
-                className="px-6 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md"
+                className="inline-flex items-center justify-center px-6 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-colors shadow-md"
               >
                 See Winners
               </a>
               <a
                 href="#resources"
-                className="px-6 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md"
+                className="inline-flex items-center justify-center px-6 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-colors shadow-md"
               >
                 Post-event materials
               </a>
