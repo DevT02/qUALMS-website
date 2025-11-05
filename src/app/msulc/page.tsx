@@ -13,11 +13,11 @@ export default function MSULC() {
         <header className="mb-10 sm:mb-16">
           <div className="flex items-center space-x-4">
             <h1 className="text-5xl font-heading font-extrabold animate-fade-in text-lavender">
-              <span className="gradient-text drop-shadow-lg">MSULC</span>
+              <span className="gradient-text drop-shadow-lg">MSULC 2025</span>
             </h1>
           </div>
           <p className="mt-3 text-xl text-white-500">
-            Michigan State Undergraduate Linguistics Conference
+            Michigan State Undergraduate Linguistics Conference 2025
           </p>
           <div className="mt-5 max-w-3xl">
             <p className="text-base sm:text-lg text-white-500 leading-relaxed">
