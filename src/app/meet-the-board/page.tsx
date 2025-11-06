@@ -6,9 +6,9 @@ export default function MeetTheEboard() {
       { name: "E. Sophia Normandin", role: "Vice President", image: "/members/sophia.png", fav_word: "tisquismiquis", alt: "Picture of Sophia" },
       { name: "Shashwat Krishna", role: "Treasurer", image: "/members/shashwat.png", fav_word: "je ne sais quoi", alt: "Picture of Shashwat" },
       { name: "Malosza Syrocki", role: "Secretary", image: "/members/malosza.png", fav_word: "bajo-bajo", alt: "Picture of Malosza" },
-      { name: "Guilherme Eckert Roda", role: "Event Coordinator", image: "/members/gui.jpeg", alt: "Picture of Guilherme"  },
+      { name: "Guilherme Eckert Roda", role: "Event Coordinator", fav_word:"Alô", image: "/members/gui.jpeg", alt: "Picture of Guilherme"  },
       { name: "Lyle", role: "Designer", image: "/members/lyle.png", fav_word: "boolean", alt: "Picture of Lyle" },
-      { name: "Devansh Tayal", role: "Tech/IT", image: "/members/devansh.jpg", fav_word: "nukilik", alt: "Picture of Devansh" },
+      { name: "Devansh Tayal", role: "Tech/IT", image: "/members/devansh.jpg", fav_word: "Nukilik", alt: "Picture of Devansh" },
       
       // Add additional members...
     ];  
