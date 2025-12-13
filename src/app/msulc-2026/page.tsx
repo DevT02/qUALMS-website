@@ -16,11 +16,11 @@ export default function MSULC2026() {
               <span className="gradient-text drop-shadow-lg">MSULC 2026</span>
             </h1>
           </div>
-          <p className="mt-3 text-xl text-white-500">
+          <p className="mt-3 text-xl font-heading text-neutral-800 dark:text-neutral-200">
             Michigan State Undergraduate Linguistics Conference 2026
           </p>
           <div className="mt-5 max-w-3xl">
-            <p className="text-base sm:text-lg text-white-500 leading-relaxed">
+            <p className="text-base sm:text-lg font-heading text-neutral-800 dark:text-neutral-200 leading-relaxed">
               MSULC 2026 is coming soon! Stay tuned for more information about the 12th iteration of Michigan State's official undergraduate linguistics conference. We're excited to bring together students passionate about linguistics and linguistic research for another amazing event.
             </p>
           </div>
@@ -32,13 +32,13 @@ export default function MSULC2026() {
 
         {/* MSULC 2026 Overview */}
         <section className="mb-12 sm:mb-16 max-w-3xl">
-          <h2 className="text-3xl font-semibold text-ice-800/70 mb-5">MSULC 2026</h2>
-          <p className="text-lg text-white-500 mb-6">
+          <h2 className="text-3xl font-heading font-semibold text-neutral-900 dark:text-neutral-100 mb-5">MSULC 2026</h2>
+          <p className="text-lg font-heading text-neutral-800 dark:text-neutral-200 mb-6">
             The 12th iteration of MSULC is currently in planning. More details will be announced soon!
           </p>
           <div className="p-5 sm:p-6 bg-slate-300/40 rounded-lg shadow border border-ice-100/10">
-            <h3 className="text-2xl font-bold mb-4 text-lavender">Conference Information</h3>
-            <ul className="text-lg list-disc list-inside space-y-2 mb-6">
+            <h3 className="text-2xl font-heading font-bold mb-4 text-lavender">Conference Information</h3>
+            <ul className="text-lg font-heading list-disc list-inside space-y-2 mb-6">
               <li><span className="font-bold">Date:</span> TBA</li>
               <li><span className="font-bold">Venue:</span> TBA</li>
               <li><span className="font-bold">Keynote Speaker:</span> TBA</li>
@@ -63,32 +63,32 @@ export default function MSULC2026() {
 
         {/* What to Expect Section */}
         <section className="mb-12 sm:mb-16">
-          <h2 className="text-3xl font-semibold text-ice-800/70 mb-5">WHAT TO EXPECT</h2>
-          <p className="text-xl text-white-500 leading-relaxed mb-6">
+          <h2 className="text-3xl font-heading font-semibold text-neutral-900 dark:text-neutral-100 mb-5">WHAT TO EXPECT</h2>
+          <p className="text-xl font-heading text-neutral-800 dark:text-neutral-200 leading-relaxed mb-6">
             MSULC 2026 will continue the tradition of bringing together undergraduate students passionate about linguistics. Based on previous years, you can expect:
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-5 bg-slate-300/40 rounded-lg shadow border border-ice-100/10">
-              <h3 className="text-xl font-bold mb-3 text-lavender">Poster Competition</h3>
-              <p className="text-white-500">
+              <h3 className="text-xl font-heading font-bold mb-3 text-lavender">Poster Competition</h3>
+              <p className="font-heading text-neutral-800 dark:text-neutral-200">
                 Showcase your linguistic research through creative poster presentations. Categories include phonology, syntax, semantics, sociolinguistics, and more!
               </p>
             </div>
             <div className="p-5 bg-slate-300/40 rounded-lg shadow border border-ice-100/10">
-              <h3 className="text-xl font-bold mb-3 text-lavender">Keynote Speaker</h3>
-              <p className="text-white-500">
+              <h3 className="text-xl font-heading font-bold mb-3 text-lavender">Keynote Speaker</h3>
+              <p className="font-heading text-neutral-800 dark:text-neutral-200">
                 Learn from distinguished linguists and former MSU undergraduates who have gone on to pursue advanced degrees in linguistics.
               </p>
             </div>
             <div className="p-5 bg-slate-300/40 rounded-lg shadow border border-ice-100/10">
-              <h3 className="text-xl font-bold mb-3 text-lavender">Networking</h3>
-              <p className="text-white-500">
+              <h3 className="text-xl font-heading font-bold mb-3 text-lavender">Networking</h3>
+              <p className="font-heading text-neutral-800 dark:text-neutral-200">
                 Connect with fellow linguistics enthusiasts, faculty, and graduate students in a supportive academic environment.
               </p>
             </div>
             <div className="p-5 bg-slate-300/40 rounded-lg shadow border border-ice-100/10">
-              <h3 className="text-xl font-bold mb-3 text-lavender">Awards & Recognition</h3>
-              <p className="text-white-500">
+              <h3 className="text-xl font-heading font-bold mb-3 text-lavender">Awards & Recognition</h3>
+              <p className="font-heading text-neutral-800 dark:text-neutral-200">
                 Compete for recognition and prizes while sharing your passion for linguistic research with the community.
               </p>
             </div>
@@ -97,9 +97,9 @@ export default function MSULC2026() {
 
         {/* Stay Updated Section */}
         <section className="mb-12 sm:mb-16">
-          <h2 className="text-3xl font-semibold text-ice-800/70 mb-5">STAY UPDATED</h2>
+          <h2 className="text-3xl font-heading font-semibold text-neutral-900 dark:text-neutral-100 mb-5">STAY UPDATED</h2>
           <div className="p-5 sm:p-6 bg-slate-300/40 rounded-lg shadow border border-ice-100/10">
-            <p className="text-lg text-white-500 mb-4">
+            <p className="text-lg font-heading text-neutral-800 dark:text-neutral-200 mb-4">
               Want to be the first to know about MSULC 2026 updates? Join qUALMS to stay informed about conference announcements, deadlines, and events!
             </p>
             <div className="flex flex-wrap gap-4">
@@ -124,16 +124,24 @@ export default function MSULC2026() {
 
         {/* Conference History Timeline */}
         <section className="my-12 sm:my-16">
-          <h2 className="text-3xl font-semibold text-ice-800/70 mb-5">CONFERENCE HISTORY TIMELINE</h2>
+          <h2 className="text-3xl font-heading font-semibold text-neutral-900 dark:text-neutral-100 mb-5">CONFERENCE HISTORY TIMELINE</h2>
           <Timeline />
         </section>
 
         {/* Questions Section */}
         <section className="mb-16 sm:mb-20">
-          <h3 className="text-3xl font-semibold text-ice-800/70 mb-5">QUESTIONS?</h3>
-          <p className="text-xl text-white-500">
-            For questions about MSULC 2026, please contact the club Secretary at <a className="text-lavender underline hover:text-lavender/80 transition-colors" href="mailto:syrockia@msu.edu">syrockia@msu.edu</a>.
-          </p>
+          <h3 className="text-3xl font-heading font-semibold text-neutral-900 dark:text-neutral-100 mb-5">QUESTIONS?</h3>
+          <div className="p-5 sm:p-6 bg-slate-300/40 rounded-lg shadow border border-ice-100/10">
+            <p className="text-lg font-heading text-neutral-800 dark:text-neutral-200 mb-4">
+              For questions about MSULC 2026, please contact:
+            </p>
+            <p className="text-xl font-heading font-semibold text-lavender mb-2">
+              <a className="underline hover:text-lavender/80 transition-colors" href="mailto:syrockia@msu.edu">syrockia@msu.edu</a>
+            </p>
+            <p className="text-base font-heading text-neutral-700 dark:text-neutral-300">
+              Malosza Syrocki - Club Secretary
+            </p>
+          </div>
         </section>
 
         <div className="mt-16 sm:mt-20">

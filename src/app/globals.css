@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:wght@400;700&family=Righteous&family=Pacifico&family=Montserrat+Alternates:wght@500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC&family=Noto+Sans+Devanagari&family=Playfair+Display&family=Libre+Baskerville&family=Noto+Sans+Arabic&family=Noto+Sans+Bengali&family=Lora&family=PT+Sans&family=Noto+Nastaliq+Urdu&display=swap'); 
 /* second import is for other langs :)*/
@@ -12,18 +13,35 @@
     src: url('/fonts/Futura-Book.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
+    font-display: swap;
   }
   @font-face {
     font-family: 'Futura';
     src: url('/fonts/Futura-Medium.woff2') format('woff2');
     font-weight: 600;
     font-style: normal;
+    font-display: swap;
   }
   @font-face {
     font-family: 'Futura';
     src: url('/fonts/Futura-Heavy.ttf') format('ttf');
     font-weight: 700;
     font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Futura';
+    src: url('/fonts/Futura-Heavy.ttf') format('ttf');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Futura';
+    src: url('/fonts/Futura-Heavy.ttf') format('ttf');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
   }
   h2.calendar-heading {
     font-family: 'Abril Fatface', cursive;
@@ -46,6 +64,11 @@
 @layer base {
   h1, h2, h3, h4, h5, h6 {
     @apply font-medium;
+  }
+  
+  /* Ensure Futura is used for headings with font-heading class */
+  .font-heading {
+    font-family: 'Futura', Arial, sans-serif !important;
   }
 }
 

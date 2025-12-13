@@ -24,8 +24,8 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        sans: ["Futura", "sans-serif"],
-        heading: ["Futura", "sans-serif"],
+        sans: ["Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        heading: ["Futura", "Arial", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
         serif: ["Merriweather", "serif"],
         chinese: ['"Noto Sans SC"', '"Microsoft YaHei"', "sans-serif"],

@@ -2,134 +2,37 @@
 import Image from 'next/image'
 import FooterSection from '@/components/Footer';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 
 export default function JoinUs() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState('');
-  const [email, setEmail] = useState('');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email || isSubmitting) return;
-
-    setIsSubmitting(true);
-    setError('');
-    
-    try {
-      const response = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setIsSuccess(true);
-        setEmail('');
-        setError('');
-      } else {
-        setError(data.error || 'Subscription failed. Please try again.');
-      }
-    } catch (error) {
-      console.error('Subscription error:', error);
-      setError('Network error. Please check your connection and try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-
   return (
     <div className="relative min-h-screen overflow-hidden scroll-smooth py-12 px-4">
       <div className="absolute inset-0 pattern-dots text-ice-300/20 -z-10" />
-      <div className="max-w-4xl mx-auto text-center mb-16 animate-fade-in">
-        <h1 className="text-4xl font-heading font-extrabold d:text-5xl mb-6 text-midnight-800">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+        className="max-w-4xl mx-auto text-center mb-16"
+        style={{ opacity: 0 }}
+      >
+        <h1 className="text-4xl font-heading font-extrabold md:text-5xl mb-6 text-midnight-800">
           Ready to take on a <span className="text-lavender">linguistic venture</span>?
         </h1>
         <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-midnight-700/80">
           Join qUALMS to explore the fascinating world of linguistics, build your skills, 
           and connect with fellow language enthusiasts.
         </p>
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="w-full max-w-md mx-auto"
-        >
-          <div className="bg-slate-300/40 backdrop-blur-sm rounded-lg shadow-lg border border-ice-100/30 p-8 hover:shadow-xl transition-all duration-300">
-            <div className="flex items-center mb-6">
-              <div className="w-10 h-10 bg-lavender/10 rounded-full flex items-center justify-center mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-lavender">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-                </svg>
-              </div>
-              <h2 className="text-2xl font-semibold text-midnight-800">Mailing List</h2>
-            </div>
-            <p className="text-midnight-700 mb-8 leading-relaxed">
-              Sign up for information on upcoming meetings and other fun activities!
-            </p>
-            
-            {!isSuccess ? (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <input 
-                    type="email" 
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email address" 
-                    autoComplete="email"
-                    required
-                    className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-lavender focus:border-lavender text-midnight-800 placeholder-gray-400 transition-all duration-200 shadow-sm"
-                  />
-                </div>
-                {error && (
-                  <div className="text-red-600 text-sm bg-red-50 border border-red-200 rounded-lg p-3">
-                    {error}
-                  </div>
-                )}
-                <button 
-                  type="submit" 
-                  disabled={isSubmitting}
-                  className="w-full px-6 py-3 bg-lavender hover:bg-lavender/90 text-white rounded-lg shadow-md text-lg font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? 'Subscribing...' : 'Subscribe'}
-                </button>
-              </form>
-            ) : (
-              <div className="text-center py-8">
-                <div className="w-20 h-20 bg-lavender/10 rounded-full flex items-center justify-center mx-auto mb-8 shadow-sm">
-                  <svg className="w-10 h-10 text-lavender" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-midnight-800 mb-4">Successfully Subscribed!</h3>
-                <p className="text-midnight-700 mb-8 leading-relaxed text-lg">Thank you for joining our mailing list. Check your email to opt-in and get the latest updates!</p>
-                <button 
-                  onClick={() => {
-                    setIsSuccess(false);
-                    setError('');
-                    setEmail('');
-                  }}
-                  className="text-sm text-lavender hover:text-lavender/80 underline transition-colors font-medium"
-                >
-                  Subscribe another email
-                </button>
-              </div>
-            )}
-          </div>
-        </motion.div>
-      </div>
+      </motion.div>
 
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 mb-16">
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          initial={{ scale: 0.9 }}
+          animate={{ scale: 1 }}
+          transition={{ 
+            duration: 0.6, 
+            delay: 0.3,
+            ease: "easeOut"
+          }}
+          whileHover={{ scale: 1.02, y: -5 }}
           className="bg-slate-300/40 backdrop-blur-sm rounded-lg shadow-lg border border-ice-100/30 p-6 flex flex-col hover:shadow-xl transition-all duration-300"
         >
           <div className="flex items-center mb-4">
@@ -171,9 +74,14 @@ export default function JoinUs() {
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          initial={{ scale: 0.9 }}
+          animate={{ scale: 1 }}
+          transition={{ 
+            duration: 0.6, 
+            delay: 0.5,
+            ease: "easeOut"
+          }}
+          whileHover={{ scale: 1.02, y: -5 }}
           className="bg-slate-300/40 backdrop-blur-sm rounded-lg shadow-lg border border-ice-100/30 p-6 flex flex-col hover:shadow-xl transition-all duration-300"
         >
           <div className="flex items-center mb-4">
@@ -192,7 +100,7 @@ export default function JoinUs() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               target="_blank"
-              href="https://discord.gg/your-discord-link"
+              href="https://discord.gg/uvYGxrZRPz"
               className="inline-flex items-center px-6 py-3 bg-lavender hover:bg-lavender/90 text-white rounded-lg shadow-md text-lg font-medium transition-all"
             >
               <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -204,15 +112,22 @@ export default function JoinUs() {
         </motion.div>
       </div>
 
-      <div className="max-w-3xl mx-auto text-center pb-8">
-        <h2 className="text-2xl font-semibold mb-6 text-midnight-800">Follow Us</h2>
+      <motion.div 
+        initial={{ scale: 0.9 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
+        className="max-w-3xl mx-auto text-center pb-8"
+      >
+        <h2 className="text-2xl font-heading font-semibold mb-6 text-midnight-800">
+          Follow Us
+        </h2>
         <p className="text-midnight-700 mb-6">
           Stay updated with our latest events, news, and linguistic discussions!
         </p>
         <div>
           <FooterSection />
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

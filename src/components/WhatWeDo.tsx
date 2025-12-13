@@ -54,7 +54,7 @@ export default function WhatWeDo() {
       {/* Section Divider */}
       <div className="relative flex py-5 items-center mb-16">
         <div className="flex-grow border-t border-lavender/40" />
-        <span className="flex-shrink mx-4 text-ice-700 dark:text-ice-200 font-medium tracking-wide">
+        <span className="flex-shrink mx-4 text-neutral-900 dark:text-neutral-100 font-heading font-bold text-lg tracking-wide">
           What We Do
         </span>
         <div className="flex-grow border-t border-lavender/40" />
@@ -68,18 +68,18 @@ export default function WhatWeDo() {
             <Card isVisible={isVisible} delay={0} className="md:row-span-2 p-8">
               <div className="h-full flex flex-col justify-between">
                 <div>
-                  <h3 className="text-2xl font-semibold text-lavender mb-4">Annual Conferences</h3>
-                  <p className="text-neutral-800 dark:text-neutral-200 leading-relaxed mb-4">
+                  <h3 className="text-3xl font-heading font-bold text-lavender mb-4">Annual Conferences</h3>
+                  <p className="text-lg font-sans font-semibold text-neutral-900 dark:text-neutral-100 leading-relaxed mb-4">
                     Join our flagship events that bring together leading experts, scholars, and students to celebrate the art of language.
                   </p>
-                  <p className="text-neutral-600 dark:text-neutral-400 text-sm">
+                  <p className="text-base font-sans font-medium text-neutral-800 dark:text-neutral-200">
                     Experience world-class presentations, networking opportunities, and cutting-edge linguistic research.
                   </p>
                 </div>
                 <div className="mt-6">
                   <a
                     href="/msulc-2026"
-                    className="text-lavender font-medium underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender/50 rounded"
+                    className="text-lavender font-sans font-medium underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender/50 rounded"
                   >
                     Learn more →
                   </a>
@@ -89,22 +89,22 @@ export default function WhatWeDo() {
 
             {/* Regular Cards */}
             <Card isVisible={isVisible} delay={100}>
-              <h3 className="text-xl font-medium text-lavender mb-3">Weekly Meetings</h3>
-              <p className="text-neutral-800 dark:text-neutral-200">
+              <h3 className="text-2xl font-heading font-bold text-lavender mb-3">Weekly Meetings</h3>
+              <p className="text-base font-sans font-semibold text-neutral-900 dark:text-neutral-100">
                 Engage in thought-provoking discussions and guest talks that dive deep into language theory and practice.
               </p>
             </Card>
 
             <Card isVisible={isVisible} delay={200}>
-              <h3 className="text-xl font-medium text-lavender mb-3">Linguistics Tutoring</h3>
-              <p className="text-neutral-800 dark:text-neutral-200">
+              <h3 className="text-2xl font-heading font-bold text-lavender mb-3">Linguistics Tutoring</h3>
+              <p className="text-base font-sans font-semibold text-neutral-900 dark:text-neutral-100">
                 Grow and succeed in your linguistics classes with our weekly tutoring hours and dedicated peer tutors.
               </p>
             </Card>
 
             <Card isVisible={isVisible} delay={300} className="md:col-span-2">
-              <h3 className="text-xl font-medium text-lavender mb-3">Workshops & Seminars</h3>
-              <p className="text-neutral-800 dark:text-neutral-200">
+              <h3 className="text-2xl font-heading font-bold text-lavender mb-3">Workshops & Seminars</h3>
+              <p className="text-base font-sans font-semibold text-neutral-900 dark:text-neutral-100">
                 Participate in interactive sessions that explore linguistics topics, research methods, and emerging trends in the field.
               </p>
             </Card>
@@ -112,18 +112,18 @@ export default function WhatWeDo() {
             {/* Concise CTA card */}
             <Card isVisible={isVisible} delay={400} className="md:col-span-3">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div>
-                  <h3 className="text-xl font-medium text-lavender mb-1">Competitions & Exams</h3>
-                  <p className="text-neutral-800 dark:text-neutral-200 text-sm">
-                    Detailed logistics, budget, and olympiad information moved to a dedicated page for clarity.
+                <div className="flex-1">
+                  <h3 className="text-2xl font-heading font-bold text-lavender mb-1">Competitions & Exams</h3>
+                  <p className="text-base font-sans font-semibold text-neutral-900 dark:text-neutral-100">
+                    Join LOqUS (Linguistics Olympiad by qUALMS at State) - our annual competition featuring group and individual exams.
                   </p>
                 </div>
-                <div>
+                <div className="flex-shrink-0">
                   <a
                     href="/olympiad"
-                    className="inline-block text-lavender font-medium underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender/50 rounded"
+                    className="whitespace-nowrap text-lavender font-heading font-medium underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender/50 rounded"
                   >
-                    View olympiad & exam details →
+                    View LOqUS details →
                   </a>
                 </div>
               </div>

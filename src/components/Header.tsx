@@ -16,12 +16,13 @@ interface NavItem {
 const navItems: NavItem[] = [
   { name: "about", link: "/about" },
   { name: "MSULC 2026", link: "/msulc-2026" },
+  { name: "LOqUS", link: "/olympiad" },
   { name: "calendar", link: "/calendar" },
   { name: "board", link: "/meet-the-board" },
   {
     name: "conferences",
     dropdown: [
-      { name: "MSULC 2025", link: "/msulc" },
+      { name: "MSULC 2025", link: "/msulc-2025" },
     ],
   },
   { name: "join us", link: "/join" },
@@ -52,14 +53,14 @@ export default function Header() {
             />
             <div className="flex flex-col">
                 <div className="flex items-baseline">
-                <span className="text-xl lg:text-2xl font-sans font-extrabold tracking-tight text-ice-100 playful-text animate-glow mr-2">
+                <span className="text-xl lg:text-2xl font-heading font-extrabold tracking-tight text-ice-100 animate-glow mr-2">
                     qUALMS
                 </span>
                 <span className="text-sm lg:text-base text-lavender font-mono font-semibold">
                     [kʰwɑːmz]
                 </span>
                 </div>
-                <span className="text-sm sm:text-base text-ice-100 font-medium tracking-normal">
+                <span className="text-sm sm:text-base text-ice-100 font-heading font-medium tracking-normal">
                 MSU's Linguistics Club
                 </span>
             </div>
@@ -87,7 +88,7 @@ export default function Header() {
                     setCloseTimeout(timeout);
                   }}
                 >
-                  <button className="px-2 xl:px-3 py-2 text-sm xl:text-base text-ice-300 hover:text-ice-100 hover:bg-lavender/10 rounded capitalize flex items-center">
+                  <button className="px-2 xl:px-3 py-2 text-sm xl:text-base font-heading text-ice-300 hover:text-ice-100 hover:bg-lavender/10 rounded capitalize flex items-center transition-all duration-200 hover:scale-105">
                     {item.name} 
                   </button>
                   <div 
@@ -105,7 +106,7 @@ export default function Header() {
                             key={subItem.name}
                             href={subItem.link}
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="block px-4 py-2 text-sm text-ice-300 hover:bg-lavender/10 hover:text-ice-100 capitalize whitespace-nowrap first:rounded-t last:rounded-b"
+                            className="block px-4 py-2 text-sm font-heading text-ice-300 hover:bg-lavender/10 hover:text-ice-100 capitalize whitespace-nowrap first:rounded-t last:rounded-b"
                           >
                             {subItem.name}
                           </Link>
@@ -117,10 +118,14 @@ export default function Header() {
                   target = {`${item.new_tab ? "blank_" : ""}`}
                   key={item.name}
                   href={item.link!}
-                  className={`px-2 xl:px-3 py-2 text-sm xl:text-base transition-colors duration-200 capitalize rounded flex items-center justify-center whitespace-nowrap ${
-                    pathname === item.link
-                      ? "bg-lavender/20 text-ice-100"
-                      : "text-ice-300 hover:text-ice-100 hover:bg-lavender/10"
+                  className={`px-2 xl:px-3 py-2 text-sm xl:text-base font-heading transition-all duration-200 capitalize rounded flex items-center justify-center whitespace-nowrap ${
+                    item.name === "LOqUS" || item.name === "MSULC 2026"
+                      ? pathname === item.link
+                        ? "bg-lavender/20 text-ice-100 font-semibold"
+                        : "text-ice-300 hover:text-ice-100 hover:bg-lavender/10 font-semibold hover:scale-105 hover:shadow-[0_0_8px_rgba(102,51,153,0.3)]"
+                      : pathname === item.link
+                        ? "bg-lavender/20 text-ice-100"
+                        : "text-ice-300 hover:text-ice-100 hover:bg-lavender/10 hover:scale-105"
                   }`}
                 >
                   {item.name}
@@ -165,7 +170,7 @@ export default function Header() {
                 <div key={item.name} className="w-full">
                   <button
                     onClick={() => setMobileDropdownOpen(mobileDropdownOpen === item.name ? null : item.name)}
-                    className="w-full text-left px-3 py-2 text-lg text-ice-300 capitalize font-medium hover:bg-lavender/10 rounded flex items-center justify-between"
+                    className="w-full text-left px-3 py-2 text-lg font-heading text-ice-300 capitalize font-medium hover:bg-lavender/10 rounded flex items-center justify-between transition-all duration-200 active:scale-95"
                   >
                     {item.name}
                     <svg
@@ -186,7 +191,7 @@ export default function Header() {
                           key={subItem.name}
                           href={subItem.link}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="block px-3 py-2 text-lg text-ice-300 capitalize hover:bg-lavender/10 rounded"
+                          className="block px-3 py-2 text-lg font-heading text-ice-300 capitalize hover:bg-lavender/10 rounded transition-all duration-200 active:scale-95"
                         >
                           {subItem.name}
                         </Link>
@@ -199,7 +204,15 @@ export default function Header() {
                                    key={item.name}
                                    href={item.link!}
                                    onClick={() => setIsMobileMenuOpen(false)}
-                                   className="w-full text-left px-3 py-2 text-lg text-ice-300 capitalize hover:bg-lavender/10 rounded"
+                                   className={`w-full text-left px-3 py-2 text-lg font-heading capitalize hover:bg-lavender/10 rounded transition-all duration-200 ${
+                                     item.name === "LOqUS" || item.name === "MSULC 2026"
+                                       ? pathname === item.link
+                                         ? "bg-lavender/20 text-ice-100 font-semibold"
+                                         : "text-ice-300 font-semibold active:scale-95"
+                                       : pathname === item.link
+                                         ? "bg-lavender/20 text-ice-100"
+                                         : "text-ice-300 active:scale-95"
+                                   }`}
                                  >
                                   {item.name}
                                 </Link>
