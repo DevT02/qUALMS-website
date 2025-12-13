@@ -63,7 +63,7 @@ export default function NotFound() {
           </p>
           <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
             <Link
-              href="/olympiad"
+              href="/loqus"
               className="p-6 bg-slate-300/40 backdrop-blur-sm rounded-lg shadow border border-ice-100/30 hover:shadow-lg hover:scale-105 transition-all"
             >
               <h3 className="text-xl font-heading font-bold text-lavender mb-2">LOqUS</h3>

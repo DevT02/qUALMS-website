@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:wght@400;700&family=Righteous&family=Pacifico&family=Montserrat+Alternates:wght@500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC&family=Noto+Sans+Devanagari&family=Playfair+Display&family=Libre+Baskerville&family=Noto+Sans+Arabic&family=Noto+Sans+Bengali&family=Lora&family=PT+Sans&family=Noto+Nastaliq+Urdu&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC&family=Noto+Sans+Devanagari&family=Playfair+Display&family=Libre+Baskerville&family=Noto+Sans+Arabic&family=Noto+Sans+Bengali&family=Lora&family=PT+Sans&family=Noto+Nastaliq+Urdu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&family=Crimson+Text:wght@400;600;700&family=Merriweather:wght@400;700&display=swap'); 
 /* second import is for other langs :)*/
 @tailwind base;
 @tailwind components;
@@ -58,6 +59,18 @@
   .playful-text {
     font-family: 'Pacifico', cursive;
   }
+  
+  .academic-body {
+    font-family: 'Source Sans Pro', 'Inter', sans-serif;
+  }
+  
+  .academic-heading {
+    font-family: 'Crimson Text', 'Playfair Display', serif;
+  }
+  
+  .font-heading {
+    font-family: 'Futura', Arial, sans-serif !important;
+  }
 
 }
 
@@ -65,8 +78,16 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-medium;
   }
-  
+}
+
+@layer components {
   /* Ensure Futura is used for headings with font-heading class */
+  h1.font-heading,
+  h2.font-heading,
+  h3.font-heading,
+  h4.font-heading,
+  h5.font-heading,
+  h6.font-heading,
   .font-heading {
     font-family: 'Futura', Arial, sans-serif !important;
   }

@@ -120,7 +120,7 @@ export default function WhatWeDo() {
                 </div>
                 <div className="flex-shrink-0">
                   <a
-                    href="/olympiad"
+                    href="/loqus"
                     className="whitespace-nowrap text-lavender font-heading font-medium underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender/50 rounded"
                   >
                     View LOqUS details →

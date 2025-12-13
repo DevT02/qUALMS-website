@@ -28,6 +28,8 @@ export default {
         heading: ["Futura", "Arial", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
         serif: ["Merriweather", "serif"],
+        academic: ["Source Sans Pro", "Inter", "sans-serif"],
+        academicHeading: ["Crimson Text", "Playfair Display", "serif"],
         chinese: ['"Noto Sans SC"', '"Microsoft YaHei"', "sans-serif"],
         hindi: ['"Noto Sans Devanagari"', "sans-serif"],
         spanish: ['"Playfair Display"', "serif"],
