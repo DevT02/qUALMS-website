@@ -361,19 +361,31 @@ export default function CalendarSection() {
       </div>
 
       {subscribeUrl ? (
-        <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 px-1 sm:px-2">
-          <span className="text-xs sm:text-sm text-midnight-700">
-            Subscribe to updates
-          </span>
-          <a
-            href={subscribeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-midnight-700 px-4 py-2 text-xs sm:text-sm font-semibold text-white shadow-sm transition hover:bg-midnight-800"
-            aria-label="Subscribe to this calendar in Google Calendar"
-          >
-            Subscribe in Google Calendar
-          </a>
+        <div className="mb-3 sm:mb-5 px-1 sm:px-2">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs sm:text-sm text-midnight-700">
+            <span>
+              Want automatic updates? Add the qUALMS calendar.
+            </span>
+            <a
+              href={subscribeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-midnight-700/20 bg-white/60 px-3 py-1.5 text-midnight-800 transition hover:border-midnight-700/50 hover:bg-white/80"
+              aria-label="Subscribe to this calendar in Google Calendar"
+            >
+              <span>Subscribe in Google Calendar</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="h-4 w-4"
+                aria-hidden="true"
+              >
+                <path d="M13.5 6a.75.75 0 0 0 0 1.5h2.69l-6.97 6.97a.75.75 0 0 0 1.06 1.06l6.97-6.97V12a.75.75 0 0 0 1.5 0V6.75A.75.75 0 0 0 18 6h-4.5Z" />
+                <path d="M6 4.5A2.25 2.25 0 0 0 3.75 6.75v10.5A2.25 2.25 0 0 0 6 19.5h10.5a2.25 2.25 0 0 0 2.25-2.25V12a.75.75 0 0 0-1.5 0v5.25a.75.75 0 0 1-.75.75H6a.75.75 0 0 1-.75-.75V6.75A.75.75 0 0 1 6 6h5.25a.75.75 0 0 0 0-1.5H6Z" />
+              </svg>
+            </a>
+          </div>
         </div>
       ) : null}
 
