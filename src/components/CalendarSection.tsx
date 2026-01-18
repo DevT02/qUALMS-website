@@ -27,6 +27,11 @@ const calendarMonthCache = new Map<string, CachedMonth>();
 const CACHE_TTL_MS = Number(process.env.NEXT_PUBLIC_CALENDAR_CACHE_TTL_MS || '0');
 
 export default function CalendarSection() {
+  const googleCalendarId = process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_ID;
+  const subscribeUrl = googleCalendarId
+    ? `https://calendar.google.com/calendar/u/0?cid=${encodeURIComponent(googleCalendarId)}`
+    : null;
+
   // Current date (for highlighting today if it’s in the displayed month)
   const now = new Date();
   const currentYear = now.getFullYear();
@@ -354,6 +359,23 @@ export default function CalendarSection() {
           </svg>
         </button>
       </div>
+
+      {subscribeUrl ? (
+        <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 px-1 sm:px-2">
+          <span className="text-xs sm:text-sm text-midnight-700">
+            Subscribe to updates
+          </span>
+          <a
+            href={subscribeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-midnight-700 px-4 py-2 text-xs sm:text-sm font-semibold text-white shadow-sm transition hover:bg-midnight-800"
+            aria-label="Subscribe to this calendar in Google Calendar"
+          >
+            Subscribe in Google Calendar
+          </a>
+        </div>
+      ) : null}
 
       {/* Weekday Headers */}
       <div className="grid grid-cols-7 gap-1 sm:gap-2 text-center font-medium mb-1 sm:mb-2">
