@@ -16,7 +16,7 @@ interface NavItem {
 const navItems: NavItem[] = [
   { name: "about", link: "/about" },
   { name: "MSULC 2026", link: "/msulc-2026" },
-  { name: "LOqUS", link: "/loqus" },
+  { name: "LOqUS", link: "https://lingolympiad.hcommons.org", new_tab: true },
   { name: "calendar", link: "/calendar" },
   { name: "board", link: "/meet-the-board" },
   {
@@ -119,7 +119,7 @@ export default function Header() {
                   key={item.name}
                   href={item.link!}
                   className={`px-2 xl:px-3 py-2 text-sm xl:text-base font-heading transition-all duration-200 capitalize rounded flex items-center justify-center whitespace-nowrap ${
-                    item.name === "LOqUS" || item.name === "MSULC 2026"
+                    item.name === "MSULC 2026"
                       ? pathname === item.link
                         ? "bg-lavender/20 text-ice-100 font-semibold"
                         : "text-ice-300 hover:text-ice-100 hover:bg-lavender/10 font-semibold hover:scale-105 hover:shadow-[0_0_8px_rgba(102,51,153,0.3)]"
@@ -201,11 +201,11 @@ export default function Header() {
                 </div>
               ) : (
                                  <Link
-                                   key={item.name}
-                                   href={item.link!}
-                                   onClick={() => setIsMobileMenuOpen(false)}
-                                   className={`w-full text-left px-3 py-2 text-lg font-heading capitalize hover:bg-lavender/10 rounded transition-all duration-200 ${
-                                     item.name === "LOqUS" || item.name === "MSULC 2026"
+                                 key={item.name}
+                                 href={item.link!}
+                                 onClick={() => setIsMobileMenuOpen(false)}
+                                 className={`w-full text-left px-3 py-2 text-lg font-heading capitalize hover:bg-lavender/10 rounded transition-all duration-200 ${
+                                     item.name === "MSULC 2026"
                                        ? pathname === item.link
                                          ? "bg-lavender/20 text-ice-100 font-semibold"
                                          : "text-ice-300 font-semibold active:scale-95"
