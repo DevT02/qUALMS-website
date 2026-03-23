@@ -21,12 +21,12 @@ export default function MSULC2026() {
           </p>
           <div className="mt-5 max-w-3xl">
             <p className="text-base sm:text-lg font-heading text-neutral-800 dark:text-neutral-200 leading-relaxed">
-              MSULC 2026 is coming soon! Stay tuned for more information about the 12th iteration of Michigan State's official undergraduate linguistics conference. We're excited to bring together students passionate about linguistics and linguistic research for another amazing event.
+              Welcome to MSULC 2026! Join us for the 12th iteration of Michigan State's official undergraduate linguistics conference. We're excited to bring together students passionate about linguistics and linguistic research for an amazing event featuring insightful presentations and our keynote speaker, Kenneth Hanson.
             </p>
           </div>
           <p className="mt-4 text-sm text-ice-500 flex items-center gap-3">
             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs bg-lavender/10 text-lavender font-semibold">MSULC 2026</span>
-            <span>Coming Soon • Details TBA</span>
+            <span>Registration Open • Wells Hall</span>
           </p>
         </header>
 
@@ -34,15 +34,26 @@ export default function MSULC2026() {
         <section className="mb-12 sm:mb-16 max-w-3xl">
           <h2 className="text-3xl font-heading font-semibold text-neutral-900 dark:text-neutral-100 mb-5">MSULC 2026</h2>
           <p className="text-lg font-heading text-neutral-800 dark:text-neutral-200 mb-6">
-            The 12th iteration of MSULC is currently in planning. More details will be announced soon!
+            The 12th iteration of MSULC will take place on Saturday, April 25, 2026 at Wells Hall. Registration and presentation signups are now open!
           </p>
           <div className="p-5 sm:p-6 bg-slate-300/40 rounded-lg shadow border border-ice-100/10">
             <h3 className="text-2xl font-heading font-bold mb-4 text-lavender">Conference Information</h3>
             <ul className="text-lg font-heading list-disc list-inside space-y-2 mb-6">
-              <li><span className="font-bold">Date:</span> TBA</li>
-              <li><span className="font-bold">Venue:</span> TBA</li>
-              <li><span className="font-bold">Keynote Speaker:</span> TBA</li>
-              <li><span className="font-bold">Registration:</span> Coming Soon</li>
+              <li><span className="font-bold">Date:</span> Saturday, April 25, 2026</li>
+              <li><span className="font-bold">Venue:</span> Wells Hall</li>
+              <li><span className="font-bold">Keynote Speaker:</span> Kenneth Hanson</li>
+              <li>
+                <span className="font-bold">Registration:</span>{" "}
+                <a href="https://docs.google.com/forms/d/1QJDfTurZ5ceTcqYZL4tvsDjmyIGVxNIMpgDBaW9kiM4/edit?usp=drive_web&ouid=113961568020256347392" target="_blank" rel="noopener noreferrer" className="text-lavender underline hover:text-lavender/80 transition-colors">
+                  Open Now
+                </a>
+              </li>
+              <li>
+                <span className="font-bold">Presentation Signup:</span>{" "}
+                <a href="https://docs.google.com/forms/d/1qqB0_W3xSY-opF66VYzHHKRLeT1MLXSkEHcIBGsoaL0/edit" target="_blank" rel="noopener noreferrer" className="text-lavender underline hover:text-lavender/80 transition-colors">
+                  Apply Here
+                </a>
+              </li>
             </ul>
             <div className="mt-6 flex flex-wrap gap-4">
               <a
@@ -121,6 +132,65 @@ export default function MSULC2026() {
           </div>
         </section>
 
+
+        {/* Detailed Schedule Section */}
+        <section className="mb-14 sm:mb-20">
+          <h3 className="text-3xl font-heading font-semibold text-neutral-900 dark:text-neutral-100 mb-6">SCHEDULE</h3>
+          <div className="p-5 sm:p-7 bg-slate-300/40 rounded-lg shadow-lg border border-ice-100/10">
+            <h4 className="text-2xl font-heading font-bold text-lavender mb-6">MSULC 2026 Tentative Schedule</h4>
+            <div className="space-y-4">
+              <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+                <div className="font-heading font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">10:20 - 10:30</div>
+                <div className="flex-1 font-heading font-medium">Opening Ceremony</div>
+              </div>
+              <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+                <div className="font-heading font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">10:40 - 12:00</div>
+                <div className="flex-1">
+                  <span className="font-heading font-medium">Poster Session #1</span>
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+                <div className="font-heading font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">12:00 - 12:20</div>
+                <div className="flex-1 font-heading font-medium">Lunch Break</div>
+              </div>
+              <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+                <div className="font-heading font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">12:20 - 1:40</div>
+                <div className="flex-1">
+                  <span className="font-heading font-medium">Poster Session #2</span>
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+                <div className="font-heading font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">2:00 - 3:30</div>
+                <div className="flex-1">
+                  <span className="font-heading font-medium">Keynote Speaker Talk with Kenneth Hanson</span>
+                  <div className="mt-2 p-4 bg-lavender/5 border-l-4 border-lavender rounded-r-lg">
+                    <h5 className="font-heading font-semibold text-lavender mb-2">Keynote Speaker: Kenneth Hanson</h5>
+                    <p className="text-sm md:text-base font-heading text-midnight-700 leading-relaxed mb-3">
+                      Kenneth Hanson is a lecturer in the Linguistics Department at Yale University. He received his PhD from Stony Brook University in 2025. His research focuses on computational syntax, studying syntactic dependencies such as case and agreement from the perspective of computational complexity. 
+                    </p>
+                    <p className="text-sm md:text-base font-heading text-midnight-700 leading-relaxed">
+                      He is also a proud MSU alumnus, having graduated with a BA in linguistics and Japanese before working as an assistant English teacher in Japan through the JET Programme.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+                <div className="font-heading font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">3:40 - 5:00</div>
+                <div className="flex-1">
+                  <span className="font-heading font-medium">Poster Session #3</span>
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+                <div className="font-heading font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">5:30 - 6:00</div>
+                <div className="flex-1 font-heading font-medium">Closing Ceremony</div>
+              </div>
+              <div className="flex flex-col sm:flex-row border-b border-lavender/20 pb-3">
+                <div className="font-heading font-bold text-midnight-800 sm:w-32 mb-2 sm:mb-0">7:30</div>
+                <div className="flex-1 font-heading font-medium">Post-Conference Dinner (TBD)</div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Conference History Timeline */}
         <section className="my-12 sm:my-16">

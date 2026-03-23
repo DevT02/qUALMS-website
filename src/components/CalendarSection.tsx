@@ -140,6 +140,13 @@ export default function CalendarSection() {
       location: "Wells Hall A226",
       time: "5 PM - 6 PM",
     },
+    {
+      date: new Date(2026, 3, 25),
+      title: "MSULC 2026",
+      description: "Michigan State Undergraduate Linguistics Conference",
+      location: "Wells Hall",
+      time: "10:20 AM - 6:00 PM",
+    },
   ];
 
   function dedupeEvents(preferred: UiEvent[], fallbacks: UiEvent[]) {
