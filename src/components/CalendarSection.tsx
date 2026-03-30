@@ -449,7 +449,7 @@ export default function CalendarSection() {
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
                 <div className="mb-2 sm:mb-0">
                   <h4 className="font-bold text-midnight-900">{event.title}</h4>
-                  <p className="text-sm text-midnight-700">{event.description}</p>
+                  <p className="whitespace-pre-line text-sm text-midnight-700">{event.description}</p>
                   <p className="text-xs mt-2">
                     <span className="font-medium">
                       {event.date.toLocaleDateString()}
