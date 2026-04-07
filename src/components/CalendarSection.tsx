@@ -140,6 +140,13 @@ export default function CalendarSection() {
       location: "Wells Hall A226",
       time: "5 PM - 6 PM",
     },
+    {
+      date: new Date(2026, 3, 25),
+      title: "MSULC 2026",
+      description: "Michigan State Undergraduate Linguistics Conference",
+      location: "Wells Hall",
+      time: "10:20 AM - 6:00 PM",
+    },
   ];
 
   function dedupeEvents(preferred: UiEvent[], fallbacks: UiEvent[]) {
@@ -442,7 +449,7 @@ export default function CalendarSection() {
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
                 <div className="mb-2 sm:mb-0">
                   <h4 className="font-bold text-midnight-900">{event.title}</h4>
-                  <p className="text-sm text-midnight-700">{event.description}</p>
+                  <p className="whitespace-pre-line text-sm text-midnight-700">{event.description}</p>
                   <p className="text-xs mt-2">
                     <span className="font-medium">
                       {event.date.toLocaleDateString()}

@@ -46,6 +46,71 @@ type GoogleEvent = {
   end: { dateTime?: string; date?: string; timeZone?: string };
 };
 
+const HTML_ENTITY_MAP: Record<string, string> = {
+  amp: "&",
+  apos: "'",
+  gt: ">",
+  lt: "<",
+  nbsp: " ",
+  quot: '"',
+};
+
+function decodeHtmlEntities(value: string): string {
+  return value.replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (match, entity) => {
+    const normalized = String(entity).toLowerCase();
+
+    if (normalized.startsWith("#")) {
+      const isHex = normalized.startsWith("#x");
+      const rawCodePoint = normalized.slice(isHex ? 2 : 1);
+      const codePoint = Number.parseInt(rawCodePoint, isHex ? 16 : 10);
+      if (Number.isFinite(codePoint)) {
+        try {
+          return String.fromCodePoint(codePoint);
+        } catch {
+          return match;
+        }
+      }
+      return match;
+    }
+
+    return HTML_ENTITY_MAP[normalized] ?? match;
+  });
+}
+
+function stripTags(value: string): string {
+  return value.replace(/<[^>]+>/g, "");
+}
+
+function htmlToPlainText(value: string): string {
+  if (!value) return "";
+
+  const withLinksPreserved = value.replace(
+    /<a\b[^>]*href=(["'])(.*?)\1[^>]*>([\s\S]*?)<\/a>/gi,
+    (_match, _quote, href, label) => {
+      const cleanHref = decodeHtmlEntities(String(href || "")).trim();
+      const cleanLabel = decodeHtmlEntities(stripTags(String(label || ""))).trim();
+
+      if (!cleanHref) return cleanLabel;
+      if (!cleanLabel) return cleanHref;
+      if (cleanLabel === cleanHref) return cleanLabel;
+      return `${cleanLabel} (${cleanHref})`;
+    }
+  );
+
+  const normalized = withLinksPreserved
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<li\b[^>]*>/gi, "\n- ")
+    .replace(/<\/(?:p|div|li|ul|ol|section|article|header|footer|h[1-6]|tr)>/gi, "\n")
+    .replace(/<[^>]+>/g, "");
+
+  return decodeHtmlEntities(normalized)
+    .replace(/\r/g, "")
+    .replace(/[ \t]+\n/g, "\n")
+    .replace(/\n[ \t]+/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
 export const dynamic = "force-dynamic";
 
 export async function GET(request: Request) {
@@ -144,8 +209,9 @@ export async function GET(request: Request) {
 
     // Normalize for the client
     const normalized = events.map((ev) => {
-      const rawTitle = (ev.summary || "").trim();
-      const rawDesc = (ev.description || "").trim();
+      const rawTitle = htmlToPlainText(ev.summary || "").trim();
+      const rawDesc = htmlToPlainText(ev.description || "").trim();
+      const rawLocation = htmlToPlainText(ev.location || "").trim();
 
       // Optional: allow a "Description:" line to set display description; otherwise use raw
       let parsedDescription = "";
@@ -158,13 +224,13 @@ export async function GET(request: Request) {
 
       const descSource = parsedDescription || rawDesc;
       const descFirstLine = descSource.split(/\r?\n/).find((l) => l.trim().length > 0) || "";
-      const bestTitle = rawTitle || descFirstLine || ev.location || "Event";
+      const bestTitle = rawTitle || descFirstLine || rawLocation || "Event";
 
       return {
         id: ev.id,
         title: bestTitle,
         description: descSource,
-        location: (ev.location || "").trim(),
+        location: rawLocation,
         start: ev.start?.dateTime || ev.start?.date || null,
         end: ev.end?.dateTime || ev.end?.date || null,
         allDay: Boolean(ev.start?.date && !ev.start?.dateTime),
@@ -183,5 +249,3 @@ export async function GET(request: Request) {
     );
   }
 }
-
-

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
@@ -9,7 +9,6 @@ const AnimatedLinguisticText = dynamic(() => import("./AnimatedLinguisticText"),
 interface NavItem {
   name: string;
   link?: string;
-  new_tab?: boolean;
   dropdown?: { name: string; link: string }[];
 }
 
@@ -20,9 +19,7 @@ const navItems: NavItem[] = [
   { name: "board", link: "/meet-the-board" },
   {
     name: "conferences",
-    dropdown: [
-      { name: "MSULC 2025", link: "/msulc-2025" },
-    ],
+    dropdown: [{ name: "MSULC 2025", link: "/msulc-2025" }],
   },
   { name: "join us", link: "/join" },
 ];
@@ -114,7 +111,6 @@ export default function Header() {
                 </div>
               ) : (
                 <Link
-                  target = {`${item.new_tab ? "blank_" : ""}`}
                   key={item.name}
                   href={item.link!}
                   className={`px-2 xl:px-3 py-2 text-sm xl:text-base font-heading transition-all duration-200 capitalize rounded flex items-center justify-center whitespace-nowrap ${
@@ -199,22 +195,22 @@ export default function Header() {
                   )}
                 </div>
               ) : (
-                                 <Link
-                                   key={item.name}
-                                   href={item.link!}
-                                   onClick={() => setIsMobileMenuOpen(false)}
-                                   className={`w-full text-left px-3 py-2 text-lg font-heading capitalize hover:bg-lavender/10 rounded transition-all duration-200 ${
-                                     item.name === "MSULC 2026"
-                                       ? pathname === item.link
-                                         ? "bg-lavender/20 text-ice-100 font-semibold"
-                                         : "text-ice-300 font-semibold active:scale-95"
-                                       : pathname === item.link
-                                         ? "bg-lavender/20 text-ice-100"
-                                         : "text-ice-300 active:scale-95"
-                                   }`}
-                                 >
-                                  {item.name}
-                                </Link>
+                <Link
+                  key={item.name}
+                  href={item.link!}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`w-full text-left px-3 py-2 text-lg font-heading capitalize hover:bg-lavender/10 rounded transition-all duration-200 ${
+                    item.name === "MSULC 2026"
+                      ? pathname === item.link
+                        ? "bg-lavender/20 text-ice-100 font-semibold"
+                        : "text-ice-300 font-semibold active:scale-95"
+                      : pathname === item.link
+                        ? "bg-lavender/20 text-ice-100"
+                        : "text-ice-300 active:scale-95"
+                  }`}
+                >
+                  {item.name}
+                </Link>
               )
             )}
           </nav>
