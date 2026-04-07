@@ -52,9 +52,9 @@ export default function WhatWeDo() {
   return (
     <div ref={sectionRef} className="space-grotesk-section">
       {/* Section Divider */}
-      <div className="relative flex py-5 items-center mb-16">
-        <div className="flex-grow border-t border-lavender/40" />
-        <span className="flex-shrink mx-4 text-neutral-900 dark:text-neutral-100 font-heading font-bold text-lg tracking-wide">
+        <div className="relative flex py-5 items-center mb-16">
+          <div className="flex-grow border-t border-lavender/40" />
+        <span className="flex-shrink mx-4 text-neutral-900 dark:text-neutral-100 playfair-heading font-bold text-lg tracking-wide">
           What We Do
         </span>
         <div className="flex-grow border-t border-lavender/40" />

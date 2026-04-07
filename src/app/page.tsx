@@ -163,10 +163,11 @@ export default function Home() {
         {/* CTA Section */}
         <div 
           ref={ctaRef}
-          className={`mt-20 mb-16 text-center transition-all duration-500 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} space-grotesk-section`}
+          className={`mt-20 mb-16 text-center transition-all duration-500 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
-          <h2 className="text-center text-3xl md:text-4xl font-heading font-bold mb-10 text-neutral-900 dark:text-neutral-100">Interested in what we do?</h2>
-          
+          <div className="space-grotesk-section">
+            <h2 className="text-center text-3xl md:text-4xl font-heading playfair-heading mb-10 text-neutral-900 dark:text-neutral-100">Interested in what we do?</h2>
+          </div>
           <a href="/join" className="inline-block px-8 py-3 bg-lavender hover:bg-lavender/80 text-white rounded-lg transition-all shadow-md text-xl font-heading">
             Join us!
           </a>
