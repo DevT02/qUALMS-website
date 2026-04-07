@@ -50,7 +50,7 @@ export default function WhatWeDo() {
   }, []);
 
   return (
-    <div ref={sectionRef}>
+    <div ref={sectionRef} className="space-grotesk-section">
       {/* Section Divider */}
       <div className="relative flex py-5 items-center mb-16">
         <div className="flex-grow border-t border-lavender/40" />
