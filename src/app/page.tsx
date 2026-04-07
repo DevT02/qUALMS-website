@@ -144,11 +144,11 @@ export default function Home() {
                 
                 {/* About text */}
                 <div className="space-y-5 pl-6 border-l-4 border-lavender/70">
-                  <p className="text-lg md:text-xl font-sans text-neutral-900 dark:text-neutral-100 leading-relaxed">
+                  <p className="text-lg md:text-xl text-neutral-900 dark:text-neutral-100 leading-relaxed">
                     qUALMS is MSU's official student organization for undergraduate linguistics majors, minors, and friends. 
                     The club went dormant during COVID but after 5 years we are proud to announce that we are bringing it back!
                   </p>
-                  <p className="text-lg md:text-xl font-sans text-neutral-900 dark:text-neutral-100 leading-relaxed">
+                  <p className="text-lg md:text-xl text-neutral-900 dark:text-neutral-100 leading-relaxed">
                     We host regular meetings for undergraduates to discuss linguistics, promote linguistics on campus, and of course, hang out and have fun! 
                     We also host help hours, workshops, guest speakers, and annual conferences that celebrate the world of language.
                   </p>
@@ -163,7 +163,7 @@ export default function Home() {
         {/* CTA Section */}
         <div 
           ref={ctaRef}
-          className={`mt-20 mb-16 text-center transition-all duration-500 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          className={`mt-20 mb-16 text-center transition-all duration-500 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} space-grotesk-section`}
         >
           <h2 className="text-center text-3xl md:text-4xl font-heading font-bold mb-10 text-neutral-900 dark:text-neutral-100">Interested in what we do?</h2>
           
