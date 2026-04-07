@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function JoinUs() {
   return (
-    <div className="relative min-h-screen overflow-hidden scroll-smooth py-12 px-4">
+    <div className="relative min-h-screen overflow-hidden scroll-smooth py-12 px-4 space-grotesk-section">
       <div className="absolute inset-0 pattern-dots text-ice-300/20 -z-10" />
       <motion.div 
         initial={{ opacity: 0 }}
