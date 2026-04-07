@@ -108,26 +108,6 @@ export default function WhatWeDo() {
                 Participate in interactive sessions that explore linguistics topics, research methods, and emerging trends in the field.
               </p>
             </Card>
-
-            {/* Concise CTA card */}
-            <Card isVisible={isVisible} delay={400} className="md:col-span-3">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-heading font-bold text-lavender mb-1">Competitions & Exams</h3>
-                  <p className="text-base font-sans font-semibold text-neutral-900 dark:text-neutral-100">
-                    Join LOqUS (Linguistics Olympiad by qUALMS at State) - our annual competition featuring group and individual exams.
-                  </p>
-                </div>
-                <div className="flex-shrink-0">
-                  <a
-                    href="/loqus"
-                    className="whitespace-nowrap text-lavender font-heading font-medium underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender/50 rounded"
-                  >
-                    View LOqUS details →
-                  </a>
-                </div>
-              </div>
-            </Card>
           </div>
         </div>
       </div>
