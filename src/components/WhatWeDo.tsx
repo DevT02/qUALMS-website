@@ -69,17 +69,17 @@ export default function WhatWeDo() {
               <div className="h-full flex flex-col justify-between">
                 <div>
                   <h3 className="text-3xl font-heading font-bold text-lavender mb-4">Annual Conferences</h3>
-                  <p className="text-lg font-sans font-semibold text-neutral-900 dark:text-neutral-100 leading-relaxed mb-4">
+                  <p className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 leading-relaxed mb-4">
                     Join our flagship events that bring together leading experts, scholars, and students to celebrate the art of language.
                   </p>
-                  <p className="text-base font-sans font-medium text-neutral-800 dark:text-neutral-200">
+                  <p className="text-base font-medium text-neutral-800 dark:text-neutral-200">
                     Experience world-class presentations, networking opportunities, and cutting-edge linguistic research.
                   </p>
                 </div>
                 <div className="mt-6">
                   <a
                     href="/msulc-2026"
-                    className="text-lavender font-sans font-medium underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender/50 rounded"
+                    className="text-lavender font-medium underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender/50 rounded"
                   >
                     Learn more →
                   </a>
@@ -90,21 +90,21 @@ export default function WhatWeDo() {
             {/* Regular Cards */}
             <Card isVisible={isVisible} delay={100}>
               <h3 className="text-2xl font-heading font-bold text-lavender mb-3">Weekly Meetings</h3>
-              <p className="text-base font-sans font-semibold text-neutral-900 dark:text-neutral-100">
+              <p className="text-base font-semibold text-neutral-900 dark:text-neutral-100">
                 Engage in thought-provoking discussions and guest talks that dive deep into language theory and practice.
               </p>
             </Card>
 
             <Card isVisible={isVisible} delay={200}>
               <h3 className="text-2xl font-heading font-bold text-lavender mb-3">Linguistics Tutoring</h3>
-              <p className="text-base font-sans font-semibold text-neutral-900 dark:text-neutral-100">
+              <p className="text-base font-semibold text-neutral-900 dark:text-neutral-100">
                 Grow and succeed in your linguistics classes with our weekly tutoring hours and dedicated peer tutors.
               </p>
             </Card>
 
             <Card isVisible={isVisible} delay={300} className="md:col-span-2">
               <h3 className="text-2xl font-heading font-bold text-lavender mb-3">Workshops & Seminars</h3>
-              <p className="text-base font-sans font-semibold text-neutral-900 dark:text-neutral-100">
+              <p className="text-base font-semibold text-neutral-900 dark:text-neutral-100">
                 Participate in interactive sessions that explore linguistics topics, research methods, and emerging trends in the field.
               </p>
             </Card>

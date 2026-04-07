@@ -24,7 +24,7 @@ export default function About() {
         </div>
         
         {/* Introduction Section */}
-        <div className="max-w-3xl mx-auto text-center mb-16 p-8 bg-slate-300/40 rounded-lg shadow-lg border border-ice-100/10">
+        <div className="max-w-3xl mx-auto text-center mb-16 p-8 bg-slate-300/40 rounded-lg shadow-lg border border-ice-100/10 space-grotesk-section">
           <p className="text-lg">
           qUALMS is MSU's official student organization for undergraduate linguistics majors, minors, and friends. The club went dormant during COVID but after 5 years we are proud to announce that we are bringing it back! If you're a student at MSU who is interested in linguistics, conlanging etc, we would love to have you!
 
@@ -33,7 +33,7 @@ export default function About() {
         </div>
         
         {/* Our Journey Section */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-16 space-grotesk-section">
           <h2 className="text-3xl font-semibold mb-6 text-ice-800/70">Our Journey</h2>
           
           <div className="flex flex-col md:flex-row gap-8 items-center mb-8">
