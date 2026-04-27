@@ -5,6 +5,8 @@ import { JWT } from "google-auth-library";
 const RATE_LIMIT_MAX = Number(process.env.RATE_LIMIT_MAX || '30'); // requests
 const RATE_LIMIT_WINDOW_MS = Number(process.env.RATE_LIMIT_WINDOW_MS || '60000'); // 1 minute
 const MAX_RANGE_MS = Number(process.env.CALENDAR_MAX_RANGE_MS || String(1000 * 60 * 60 * 24 * 93)); // ~3 months
+const GOOGLE_CALENDAR_TIMEZONE = "America/Detroit";
+const GOOGLE_CALENDAR_ID = "e36c997cebb338f5883294a5116328add433fa728b29154a8cc11a67669bca09@group.calendar.google.com";
 const ipBuckets = new Map<string, { windowStart: number; count: number }>();
 
 function getClientIp(req: Request): string {
@@ -131,7 +133,7 @@ export async function GET(request: Request) {
   const maxResults = searchParams.get("maxResults") || "2500";
   const orderBy = searchParams.get("orderBy") || "startTime";
   const singleEvents = searchParams.get("singleEvents") || "true";
-  const timeZone = searchParams.get("timeZone") || process.env.GOOGLE_CALENDAR_TIMEZONE || "America/Detroit";
+  const timeZone = searchParams.get("timeZone") || GOOGLE_CALENDAR_TIMEZONE;
 
   if (!timeMin || !timeMax) {
     return NextResponse.json(
@@ -156,13 +158,12 @@ export async function GET(request: Request) {
     );
   }
 
-  const calendarId = process.env.GOOGLE_CALENDAR_ID;
+  const calendarId = GOOGLE_CALENDAR_ID;
   const serviceAccountEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
   const serviceAccountPrivateKey = process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY;
-
-  if (!calendarId || !serviceAccountEmail || !serviceAccountPrivateKey) {
+  if (!serviceAccountEmail || !serviceAccountPrivateKey) {
     return NextResponse.json(
-      { error: "Server not configured: GOOGLE_CALENDAR_ID, GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY required" },
+      { error: "Server not configured: GOOGLE_SERVICE_ACCOUNT_EMAIL and GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY required" },
       { status: 500 }
     );
   }

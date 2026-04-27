@@ -37,21 +37,9 @@ The site is fully responsive and should work great on phones, tablets, and deskt
 
 ## Calendar Integration
 
-The calendar pulls events from our shared Google Calendar. To set this up, you'll need to:
+Calendar configuration is currently hardcoded in the project (service account credentials, calendar ID, timezone, and client cache TTL).
 
-1. Create a Google Service Account in Google Cloud Console
-2. Enable the Google Calendar API
-3. Share your calendar with the service account email
-4. Add these environment variables to `.env.local`:
-
-```bash
-GOOGLE_CALENDAR_ID=your_calendar_id@group.calendar.google.com
-GOOGLE_SERVICE_ACCOUNT_EMAIL=service-account@project.iam.gserviceaccount.com
-GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
-GOOGLE_CALENDAR_TIMEZONE=America/Detroit
-```
-
-The API caches responses for 5 minutes to keep things fast.
+The API caches responses for 5 minutes to keep things fast, and the client-side month cache is set to 15 minutes.
 
 ## Components
 

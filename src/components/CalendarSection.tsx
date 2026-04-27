@@ -23,11 +23,12 @@ type UiEvent = {
 // Cache month results client-side to avoid repeated fetches (resets on page reload)
 type CachedMonth = { timestamp: number; events: UiEvent[] };
 const calendarMonthCache = new Map<string, CachedMonth>();
+const NEXT_PUBLIC_GOOGLE_CALENDAR_ID = "e36c997cebb338f5883294a5116328add433fa728b29154a8cc11a67669bca09@group.calendar.google.com";
 // 0 = never expire during a single page session; set to ms to enable TTL
-const CACHE_TTL_MS = Number(process.env.NEXT_PUBLIC_CALENDAR_CACHE_TTL_MS || '0');
+const CACHE_TTL_MS = 900000;
 
 export default function CalendarSection() {
-  const googleCalendarId = process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_ID;
+  const googleCalendarId = NEXT_PUBLIC_GOOGLE_CALENDAR_ID;
   const subscribeUrl = googleCalendarId
     ? `https://calendar.google.com/calendar/u/0?cid=${encodeURIComponent(googleCalendarId)}`
     : null;
